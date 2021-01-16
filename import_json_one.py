@@ -5,7 +5,7 @@ client = MongoClient('localhost', 27017)
 db = client['Ultimate_Baseball_Project']
 player_data = db['Project2']
 
-with open("C:/Users/cro11/NU_Bootcamp_Cert/Homework/Project2_JSon_files/TopTen00d70364-1c07-464f-bd34-f571f7d7ae10.json") as f:
+with open("C:/Users/Dan/gitrepo/Ultimate-Fantasy-Baseball-Eval-Tool/TopTen0d7a27a9-f41c-4fce-930e-113aa4cf4c52.json") as f:
     file_data = json.load(f)
 
 player_data.insert_one(file_data)

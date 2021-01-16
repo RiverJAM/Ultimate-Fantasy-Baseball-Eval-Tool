@@ -1,0 +1,1161 @@
+{
+    "player": {
+        "id": "0aa84249-5138-41b3-a086-799cf294bc8a",
+        "status": "A",
+        "position": "IF",
+        "primary_position": "2B",
+        "first_name": "Otto",
+        "last_name": "Lopez",
+        "preferred_name": "Otto",
+        "full_name": "Otto Lopez",
+        "height": "70",
+        "weight": "160",
+        "throw_hand": "R",
+        "bat_hand": "R",
+        "birthdate": "1998-10-01",
+        "birthcountry": "DOM",
+        "birthcity": "Santo Domingo",
+        "updated": "2020-11-20T23:10:24+00:00",
+        "reference": "672640",
+        "team": {
+            "name": "Blue Jays",
+            "market": "Toronto",
+            "abbr": "TOR",
+            "id": "1d678440-b4b1-4954-9b39-70afb3ebbcfa"
+        },
+        "seasons": [
+            {
+                "id": "bd17502c-7dff-4f86-980b-df765f895163",
+                "year": 2020,
+                "type": "PRE",
+                "totals": {
+                    "statistics": {
+                        "hitting": {
+                            "overall": {
+                                "ab": 6,
+                                "lob": 2,
+                                "rbi": 0,
+                                "abhr": 0,
+                                "abk": 0,
+                                "bip": 6,
+                                "babip": 0.333,
+                                "bbk": 0,
+                                "bbpa": 0.0,
+                                "iso": 0.334,
+                                "obp": 0.333,
+                                "ops": 1.0,
+                                "seca": 0.333,
+                                "slg": 0.667,
+                                "xbh": 2,
+                                "pitch_count": 6,
+                                "lob_risp_2out": 1,
+                                "team_lob": 2,
+                                "ab_risp": 1,
+                                "hit_risp": 0,
+                                "rbi_2out": 0,
+                                "linedrive": 0,
+                                "groundball": 3,
+                                "popup": 0,
+                                "flyball": 3,
+                                "ap": 6,
+                                "avg": ".333",
+                                "gofo": 3.0,
+                                "onbase": {
+                                    "s": 0,
+                                    "d": 2,
+                                    "t": 0,
+                                    "hr": 0,
+                                    "tb": 4,
+                                    "bb": 0,
+                                    "ibb": 0,
+                                    "hbp": 0,
+                                    "fc": 0,
+                                    "roe": 0,
+                                    "h": 2,
+                                    "cycle": 0
+                                },
+                                "runs": {
+                                    "total": 3
+                                },
+                                "outcome": {
+                                    "klook": 0,
+                                    "kswing": 0,
+                                    "ktotal": 0,
+                                    "ball": 0,
+                                    "iball": 0,
+                                    "dirtball": 0,
+                                    "foul": 0
+                                },
+                                "outs": {
+                                    "po": 0,
+                                    "fo": 1,
+                                    "fidp": 0,
+                                    "lo": 0,
+                                    "lidp": 0,
+                                    "go": 3,
+                                    "gidp": 0,
+                                    "klook": 0,
+                                    "kswing": 0,
+                                    "ktotal": 0,
+                                    "sacfly": 0,
+                                    "sachit": 0
+                                },
+                                "steal": {
+                                    "caught": 0,
+                                    "stolen": 0,
+                                    "pct": 0,
+                                    "pickoff": 0
+                                },
+                                "pitches": {
+                                    "count": 6,
+                                    "btotal": 0,
+                                    "ktotal": 6
+                                },
+                                "games": {
+                                    "start": 0,
+                                    "play": 3,
+                                    "finish": 3,
+                                    "complete": 0
+                                }
+                            }
+                        },
+                        "fielding": {
+                            "overall": {
+                                "po": 1,
+                                "a": 3,
+                                "dp": 0,
+                                "tp": 0,
+                                "error": 0,
+                                "tc": 4,
+                                "fpct": 1.0,
+                                "c_wp": 0,
+                                "pb": 0,
+                                "rf": 1.0,
+                                "inn_1": 45,
+                                "inn_2": 15.0,
+                                "steal": {
+                                    "caught": 0,
+                                    "stolen": 0,
+                                    "pickoff": 0,
+                                    "pct": 0
+                                },
+                                "errors": {
+                                    "throwing": 0,
+                                    "fielding": 0,
+                                    "interference": 0,
+                                    "total": 0
+                                },
+                                "assists": {
+                                    "outfield": 0,
+                                    "total": 3
+                                },
+                                "games": {
+                                    "start": 0,
+                                    "play": 4,
+                                    "finish": 3,
+                                    "complete": 0
+                                }
+                            },
+                            "positions": [
+                                {
+                                    "po": 1,
+                                    "a": 1,
+                                    "dp": 0,
+                                    "tp": 0,
+                                    "error": 0,
+                                    "tc": 2,
+                                    "fpct": 1.0,
+                                    "c_wp": 0,
+                                    "pb": 0,
+                                    "rf": 0.667,
+                                    "inn_1": 39,
+                                    "inn_2": 13.0,
+                                    "position": "2B",
+                                    "steal": {
+                                        "caught": 0,
+                                        "stolen": 0,
+                                        "pickoff": 0,
+                                        "pct": 0
+                                    },
+                                    "errors": {
+                                        "throwing": 0,
+                                        "fielding": 0,
+                                        "interference": 0,
+                                        "total": 0
+                                    },
+                                    "assists": {
+                                        "outfield": 0,
+                                        "total": 1
+                                    },
+                                    "games": {
+                                        "start": 0,
+                                        "play": 3,
+                                        "finish": 2,
+                                        "complete": 0
+                                    }
+                                },
+                                {
+                                    "po": 0,
+                                    "a": 2,
+                                    "dp": 0,
+                                    "tp": 0,
+                                    "error": 0,
+                                    "tc": 2,
+                                    "fpct": 1.0,
+                                    "c_wp": 0,
+                                    "pb": 0,
+                                    "rf": 2.0,
+                                    "inn_1": 6,
+                                    "inn_2": 2.0,
+                                    "position": "SS",
+                                    "steal": {
+                                        "caught": 0,
+                                        "stolen": 0,
+                                        "pickoff": 0,
+                                        "pct": 0
+                                    },
+                                    "errors": {
+                                        "throwing": 0,
+                                        "fielding": 0,
+                                        "interference": 0,
+                                        "total": 0
+                                    },
+                                    "assists": {
+                                        "outfield": 0,
+                                        "total": 2
+                                    },
+                                    "games": {
+                                        "start": 0,
+                                        "play": 1,
+                                        "finish": 1,
+                                        "complete": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "splits": {
+                        "hitting": {
+                            "overall": [
+                                {
+                                    "total": [
+                                        {
+                                            "ab": 6,
+                                            "runs": 3,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.333,
+                                            "slg": 0.667,
+                                            "ops": 1.0,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".333"
+                                        }
+                                    ],
+                                    "day_night": [
+                                        {
+                                            "value": "day",
+                                            "ab": 6,
+                                            "runs": 3,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.333,
+                                            "slg": 0.667,
+                                            "ops": 1.0,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".333"
+                                        }
+                                    ],
+                                    "venue": [
+                                        {
+                                            "id": "31ed193b-4cde-483c-8911-986ec7148d9b",
+                                            "name": "LECOM Park",
+                                            "surface": "grass",
+                                            "ab": 2,
+                                            "runs": 0,
+                                            "s": 0,
+                                            "d": 0,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.0,
+                                            "slg": 0.0,
+                                            "ops": 0.0,
+                                            "h": 0,
+                                            "ktotal": 0,
+                                            "avg": ".000"
+                                        },
+                                        {
+                                            "id": "49a8bee4-beb0-46fd-9e47-730a23ead816",
+                                            "name": "TD Ballpark",
+                                            "surface": "grass",
+                                            "ab": 1,
+                                            "runs": 1,
+                                            "s": 0,
+                                            "d": 0,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.0,
+                                            "slg": 0.0,
+                                            "ops": 0.0,
+                                            "h": 0,
+                                            "ktotal": 0,
+                                            "avg": ".000"
+                                        },
+                                        {
+                                            "id": "7f5ccc24-6f45-4c0f-8a20-378f8bbd3ba5",
+                                            "name": "Spectrum Field",
+                                            "surface": "grass",
+                                            "ab": 3,
+                                            "runs": 2,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.667,
+                                            "slg": 1.333,
+                                            "ops": 2.0,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".667"
+                                        }
+                                    ],
+                                    "surface": [
+                                        {
+                                            "value": "grass",
+                                            "ab": 6,
+                                            "runs": 3,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.333,
+                                            "slg": 0.667,
+                                            "ops": 1.0,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".333"
+                                        }
+                                    ],
+                                    "month": [
+                                        {
+                                            "value": "3",
+                                            "ab": 3,
+                                            "runs": 1,
+                                            "s": 0,
+                                            "d": 0,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.0,
+                                            "slg": 0.0,
+                                            "ops": 0.0,
+                                            "h": 0,
+                                            "ktotal": 0,
+                                            "avg": ".000"
+                                        },
+                                        {
+                                            "value": "2",
+                                            "ab": 3,
+                                            "runs": 2,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.667,
+                                            "slg": 1.333,
+                                            "ops": 2.0,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".667"
+                                        }
+                                    ],
+                                    "home_away": [
+                                        {
+                                            "value": "away",
+                                            "ab": 5,
+                                            "runs": 2,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.4,
+                                            "slg": 0.8,
+                                            "ops": 1.2,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".400"
+                                        },
+                                        {
+                                            "value": "home",
+                                            "ab": 1,
+                                            "runs": 1,
+                                            "s": 0,
+                                            "d": 0,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.0,
+                                            "slg": 0.0,
+                                            "ops": 0.0,
+                                            "h": 0,
+                                            "ktotal": 0,
+                                            "avg": ".000"
+                                        }
+                                    ],
+                                    "pitcher_hand": [
+                                        {
+                                            "value": "R",
+                                            "ab": 4,
+                                            "runs": 3,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.5,
+                                            "slg": 1.0,
+                                            "ops": 1.5,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".500"
+                                        },
+                                        {
+                                            "value": "L",
+                                            "ab": 2,
+                                            "runs": 0,
+                                            "s": 0,
+                                            "d": 0,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.0,
+                                            "slg": 0.0,
+                                            "ops": 0.0,
+                                            "h": 0,
+                                            "ktotal": 0,
+                                            "avg": ".000"
+                                        }
+                                    ],
+                                    "opponent": [
+                                        {
+                                            "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+                                            "name": "Pirates",
+                                            "market": "Pittsburgh",
+                                            "abbr": "PIT",
+                                            "ab": 2,
+                                            "runs": 0,
+                                            "s": 0,
+                                            "d": 0,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.0,
+                                            "slg": 0.0,
+                                            "ops": 0.0,
+                                            "h": 0,
+                                            "ktotal": 0,
+                                            "avg": ".000"
+                                        },
+                                        {
+                                            "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+                                            "name": "Orioles",
+                                            "market": "Baltimore",
+                                            "abbr": "BAL",
+                                            "ab": 1,
+                                            "runs": 1,
+                                            "s": 0,
+                                            "d": 0,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.0,
+                                            "slg": 0.0,
+                                            "ops": 0.0,
+                                            "h": 0,
+                                            "ktotal": 0,
+                                            "avg": ".000"
+                                        },
+                                        {
+                                            "id": "2142e1ba-3b40-445c-b8bb-f1f8b1054220",
+                                            "name": "Phillies",
+                                            "market": "Philadelphia",
+                                            "abbr": "PHI",
+                                            "ab": 3,
+                                            "runs": 2,
+                                            "s": 0,
+                                            "d": 2,
+                                            "t": 0,
+                                            "hr": 0,
+                                            "rbi": 0,
+                                            "bb": 0,
+                                            "ibb": 0,
+                                            "hbp": 0,
+                                            "sb": 0,
+                                            "cs": 0,
+                                            "obp": 0.667,
+                                            "slg": 1.333,
+                                            "ops": 2.0,
+                                            "h": 2,
+                                            "ktotal": 0,
+                                            "avg": ".667"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "teams": [
+                    {
+                        "name": "Blue Jays",
+                        "market": "Toronto",
+                        "abbr": "TOR",
+                        "id": "1d678440-b4b1-4954-9b39-70afb3ebbcfa",
+                        "statistics": {
+                            "hitting": {
+                                "overall": {
+                                    "ab": 6,
+                                    "lob": 2,
+                                    "rbi": 0,
+                                    "abhr": 0,
+                                    "abk": 0,
+                                    "bip": 6,
+                                    "babip": 0.333,
+                                    "bbk": 0,
+                                    "bbpa": 0.0,
+                                    "iso": 0.334,
+                                    "obp": 0.333,
+                                    "ops": 1.0,
+                                    "seca": 0.333,
+                                    "slg": 0.667,
+                                    "xbh": 2,
+                                    "pitch_count": 6,
+                                    "lob_risp_2out": 1,
+                                    "team_lob": 2,
+                                    "ab_risp": 1,
+                                    "hit_risp": 0,
+                                    "rbi_2out": 0,
+                                    "linedrive": 0,
+                                    "groundball": 3,
+                                    "popup": 0,
+                                    "flyball": 3,
+                                    "ap": 6,
+                                    "avg": ".333",
+                                    "gofo": 3.0,
+                                    "onbase": {
+                                        "s": 0,
+                                        "d": 2,
+                                        "t": 0,
+                                        "hr": 0,
+                                        "tb": 4,
+                                        "bb": 0,
+                                        "ibb": 0,
+                                        "hbp": 0,
+                                        "fc": 0,
+                                        "roe": 0,
+                                        "h": 2,
+                                        "cycle": 0
+                                    },
+                                    "runs": {
+                                        "total": 3
+                                    },
+                                    "outcome": {
+                                        "klook": 0,
+                                        "kswing": 0,
+                                        "ktotal": 0,
+                                        "ball": 0,
+                                        "iball": 0,
+                                        "dirtball": 0,
+                                        "foul": 0
+                                    },
+                                    "outs": {
+                                        "po": 0,
+                                        "fo": 1,
+                                        "fidp": 0,
+                                        "lo": 0,
+                                        "lidp": 0,
+                                        "go": 3,
+                                        "gidp": 0,
+                                        "klook": 0,
+                                        "kswing": 0,
+                                        "ktotal": 0,
+                                        "sacfly": 0,
+                                        "sachit": 0
+                                    },
+                                    "steal": {
+                                        "caught": 0,
+                                        "stolen": 0,
+                                        "pct": 0,
+                                        "pickoff": 0
+                                    },
+                                    "pitches": {
+                                        "count": 6,
+                                        "btotal": 0,
+                                        "ktotal": 6
+                                    },
+                                    "games": {
+                                        "start": 0,
+                                        "play": 3,
+                                        "finish": 3,
+                                        "complete": 0
+                                    }
+                                }
+                            },
+                            "fielding": {
+                                "overall": {
+                                    "po": 1,
+                                    "a": 3,
+                                    "dp": 0,
+                                    "tp": 0,
+                                    "error": 0,
+                                    "tc": 4,
+                                    "fpct": 1.0,
+                                    "c_wp": 0,
+                                    "pb": 0,
+                                    "rf": 1.0,
+                                    "inn_1": 45,
+                                    "inn_2": 15.0,
+                                    "steal": {
+                                        "caught": 0,
+                                        "stolen": 0,
+                                        "pickoff": 0,
+                                        "pct": 0
+                                    },
+                                    "errors": {
+                                        "throwing": 0,
+                                        "fielding": 0,
+                                        "interference": 0,
+                                        "total": 0
+                                    },
+                                    "assists": {
+                                        "outfield": 0,
+                                        "total": 3
+                                    },
+                                    "games": {
+                                        "start": 0,
+                                        "play": 4,
+                                        "finish": 3,
+                                        "complete": 0
+                                    }
+                                },
+                                "positions": [
+                                    {
+                                        "po": 1,
+                                        "a": 1,
+                                        "dp": 0,
+                                        "tp": 0,
+                                        "error": 0,
+                                        "tc": 2,
+                                        "fpct": 1.0,
+                                        "c_wp": 0,
+                                        "pb": 0,
+                                        "rf": 0.667,
+                                        "inn_1": 39,
+                                        "inn_2": 13.0,
+                                        "position": "2B",
+                                        "steal": {
+                                            "caught": 0,
+                                            "stolen": 0,
+                                            "pickoff": 0,
+                                            "pct": 0
+                                        },
+                                        "errors": {
+                                            "throwing": 0,
+                                            "fielding": 0,
+                                            "interference": 0,
+                                            "total": 0
+                                        },
+                                        "assists": {
+                                            "outfield": 0,
+                                            "total": 1
+                                        },
+                                        "games": {
+                                            "start": 0,
+                                            "play": 3,
+                                            "finish": 2,
+                                            "complete": 0
+                                        }
+                                    },
+                                    {
+                                        "po": 0,
+                                        "a": 2,
+                                        "dp": 0,
+                                        "tp": 0,
+                                        "error": 0,
+                                        "tc": 2,
+                                        "fpct": 1.0,
+                                        "c_wp": 0,
+                                        "pb": 0,
+                                        "rf": 2.0,
+                                        "inn_1": 6,
+                                        "inn_2": 2.0,
+                                        "position": "SS",
+                                        "steal": {
+                                            "caught": 0,
+                                            "stolen": 0,
+                                            "pickoff": 0,
+                                            "pct": 0
+                                        },
+                                        "errors": {
+                                            "throwing": 0,
+                                            "fielding": 0,
+                                            "interference": 0,
+                                            "total": 0
+                                        },
+                                        "assists": {
+                                            "outfield": 0,
+                                            "total": 2
+                                        },
+                                        "games": {
+                                            "start": 0,
+                                            "play": 1,
+                                            "finish": 1,
+                                            "complete": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "splits": {
+                            "hitting": {
+                                "overall": [
+                                    {
+                                        "total": [
+                                            {
+                                                "ab": 6,
+                                                "runs": 3,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.333,
+                                                "slg": 0.667,
+                                                "ops": 1.0,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".333"
+                                            }
+                                        ],
+                                        "day_night": [
+                                            {
+                                                "value": "day",
+                                                "ab": 6,
+                                                "runs": 3,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.333,
+                                                "slg": 0.667,
+                                                "ops": 1.0,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".333"
+                                            }
+                                        ],
+                                        "venue": [
+                                            {
+                                                "id": "31ed193b-4cde-483c-8911-986ec7148d9b",
+                                                "name": "LECOM Park",
+                                                "surface": "grass",
+                                                "ab": 2,
+                                                "runs": 0,
+                                                "s": 0,
+                                                "d": 0,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.0,
+                                                "slg": 0.0,
+                                                "ops": 0.0,
+                                                "h": 0,
+                                                "ktotal": 0,
+                                                "avg": ".000"
+                                            },
+                                            {
+                                                "id": "49a8bee4-beb0-46fd-9e47-730a23ead816",
+                                                "name": "TD Ballpark",
+                                                "surface": "grass",
+                                                "ab": 1,
+                                                "runs": 1,
+                                                "s": 0,
+                                                "d": 0,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.0,
+                                                "slg": 0.0,
+                                                "ops": 0.0,
+                                                "h": 0,
+                                                "ktotal": 0,
+                                                "avg": ".000"
+                                            },
+                                            {
+                                                "id": "7f5ccc24-6f45-4c0f-8a20-378f8bbd3ba5",
+                                                "name": "Spectrum Field",
+                                                "surface": "grass",
+                                                "ab": 3,
+                                                "runs": 2,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.667,
+                                                "slg": 1.333,
+                                                "ops": 2.0,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".667"
+                                            }
+                                        ],
+                                        "surface": [
+                                            {
+                                                "value": "grass",
+                                                "ab": 6,
+                                                "runs": 3,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.333,
+                                                "slg": 0.667,
+                                                "ops": 1.0,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".333"
+                                            }
+                                        ],
+                                        "month": [
+                                            {
+                                                "value": "3",
+                                                "ab": 3,
+                                                "runs": 1,
+                                                "s": 0,
+                                                "d": 0,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.0,
+                                                "slg": 0.0,
+                                                "ops": 0.0,
+                                                "h": 0,
+                                                "ktotal": 0,
+                                                "avg": ".000"
+                                            },
+                                            {
+                                                "value": "2",
+                                                "ab": 3,
+                                                "runs": 2,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.667,
+                                                "slg": 1.333,
+                                                "ops": 2.0,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".667"
+                                            }
+                                        ],
+                                        "home_away": [
+                                            {
+                                                "value": "away",
+                                                "ab": 5,
+                                                "runs": 2,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.4,
+                                                "slg": 0.8,
+                                                "ops": 1.2,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".400"
+                                            },
+                                            {
+                                                "value": "home",
+                                                "ab": 1,
+                                                "runs": 1,
+                                                "s": 0,
+                                                "d": 0,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.0,
+                                                "slg": 0.0,
+                                                "ops": 0.0,
+                                                "h": 0,
+                                                "ktotal": 0,
+                                                "avg": ".000"
+                                            }
+                                        ],
+                                        "pitcher_hand": [
+                                            {
+                                                "value": "R",
+                                                "ab": 4,
+                                                "runs": 3,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.5,
+                                                "slg": 1.0,
+                                                "ops": 1.5,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".500"
+                                            },
+                                            {
+                                                "value": "L",
+                                                "ab": 2,
+                                                "runs": 0,
+                                                "s": 0,
+                                                "d": 0,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.0,
+                                                "slg": 0.0,
+                                                "ops": 0.0,
+                                                "h": 0,
+                                                "ktotal": 0,
+                                                "avg": ".000"
+                                            }
+                                        ],
+                                        "opponent": [
+                                            {
+                                                "id": "481dfe7e-5dab-46ab-a49f-9dcc2b6e2cfd",
+                                                "name": "Pirates",
+                                                "market": "Pittsburgh",
+                                                "abbr": "PIT",
+                                                "ab": 2,
+                                                "runs": 0,
+                                                "s": 0,
+                                                "d": 0,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.0,
+                                                "slg": 0.0,
+                                                "ops": 0.0,
+                                                "h": 0,
+                                                "ktotal": 0,
+                                                "avg": ".000"
+                                            },
+                                            {
+                                                "id": "75729d34-bca7-4a0f-b3df-6f26c6ad3719",
+                                                "name": "Orioles",
+                                                "market": "Baltimore",
+                                                "abbr": "BAL",
+                                                "ab": 1,
+                                                "runs": 1,
+                                                "s": 0,
+                                                "d": 0,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.0,
+                                                "slg": 0.0,
+                                                "ops": 0.0,
+                                                "h": 0,
+                                                "ktotal": 0,
+                                                "avg": ".000"
+                                            },
+                                            {
+                                                "id": "2142e1ba-3b40-445c-b8bb-f1f8b1054220",
+                                                "name": "Phillies",
+                                                "market": "Philadelphia",
+                                                "abbr": "PHI",
+                                                "ab": 3,
+                                                "runs": 2,
+                                                "s": 0,
+                                                "d": 2,
+                                                "t": 0,
+                                                "hr": 0,
+                                                "rbi": 0,
+                                                "bb": 0,
+                                                "ibb": 0,
+                                                "hbp": 0,
+                                                "sb": 0,
+                                                "cs": 0,
+                                                "obp": 0.667,
+                                                "slg": 1.333,
+                                                "ops": 2.0,
+                                                "h": 2,
+                                                "ktotal": 0,
+                                                "avg": ".667"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "_comment": "Generation started @ 2021-01-15 04:13:36 UTC ended @ 2021-01-15 04:13:36 UTC"
+}

@@ -1,0 +1,39 @@
+{
+    "player": {
+        "id": "0c01759a-98ad-4f73-84f8-60f95683fc9b",
+        "status": "A",
+        "position": "IF",
+        "primary_position": "1B",
+        "first_name": "Louis",
+        "last_name": "Voit",
+        "preferred_name": "Luke",
+        "jersey_number": "59",
+        "full_name": "Luke Voit",
+        "height": "75",
+        "weight": "255",
+        "throw_hand": "R",
+        "bat_hand": "R",
+        "college": "Missouri State",
+        "high_school": "Lafayette (MO)",
+        "birthdate": "1991-02-13",
+        "birthstate": "MO",
+        "birthcountry": "USA",
+        "birthcity": "Wildwood",
+        "pro_debut": "2017-06-25",
+        "updated": "2020-09-16T16:43:31+00:00",
+        "reference": "572228",
+        "draft": {
+            "team_id": "44671792-dc02-4fdd-a5ad-f5f17edaa9d7",
+            "year": 2013,
+            "round": 22,
+            "pick": 19
+        },
+        "team": {
+            "name": "Yankees",
+            "market": "New York",
+            "abbr": "NYY",
+            "id": "a09ec676-f887-43dc-bbb3-cf4bbaee9a18"
+        }
+    },
+    "_comment": "Generation started @ 2021-01-15 04:38:26 UTC ended @ 2021-01-15 04:38:26 UTC"
+}
