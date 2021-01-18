@@ -1,4 +1,3 @@
-import numpy as np
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -7,11 +6,10 @@ from sqlalchemy import create_engine, func
 
 import datetime as dt
 
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
 # import scrape_mars
 import json
-from flask import Flask, jsonify
 from bson.objectid import ObjectId
 from bson import json_util
 from bson import ObjectId
@@ -91,8 +89,13 @@ def welcome():
     name_dict.get(“HR”),
     name_dict.get(“SB”),) for name_dict in list(Fan_G_hitters)]
     data = jsonify(Names)
-    return (render_template('settings.html', data=data))
+    return (render_template('index.html', data=data))
     
+    def justNames():
+    Fan_G_hitters = mongo.db.FG_hitters.find()
+    onlyNames = [ (name_dict.get(“Name” ,{}))]
+    data = jsonify(onlyNames)
+    return (render_template('index.html', data=data))
 
 
     hitter_data = mongo.db.Project2.find()
@@ -161,7 +164,7 @@ def welcome():
 
 # #Hitters path
 
-@app.route("/api/v1.0/hitters<br/>")
+@app.route("/hitters<br/>")
 def hello():
     Fan_G_hitters = mongo.db.FG_hitters.find()
     Names = [ (name_dict.get(“Name” ,{}),
@@ -176,8 +179,14 @@ def hello():
     name_dict.get(“HR”),
     name_dict.get(“SB”),) for name_dict in list(Fan_G_hitters)]
     data = jsonify(Names)
-    return (render_template('settings.html', data=data))
+    return (render_template('index.html', data=data))
+
+@app.route("/hitters_names")
+def justNames():
+    Fan_G_hitters = mongo.db.FG_hitters.find()
+    onlyNames = [ (name_dict.get(“Name” ,{}))]
     
+    return (jsonify(onlyNames))
 
 # def httr():
 #     #Create session link from Python to DB
