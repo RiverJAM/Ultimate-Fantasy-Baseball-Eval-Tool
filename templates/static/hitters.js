@@ -1,15 +1,16 @@
 var IDs = [];
 
-function myFunc(vars) {
-    return vars
-}
+hitterNameTest = "Mike Trout"
 
-datasetNames = d3.json(vars).then(function (response) {
-    var IDs = Object.values(response.names);
-    for(i=0; i < IDs.length; i++) {
-        d3.select("#selDataset").append("option").text(IDs[i]);
+fetch("/hitters_names")
+  .then(function (response) {
+    hitterName = d3.json(response).then(function (parsed_response) {
+        var IDs = Object.values(parsed_response.Name);
+        for(i=0; i < IDs.length; i++) {
+            d3.select("#selDataset").append("option").text(IDs[i]);
+        };
+    });
     };
-});
 
 function init(){
   getSelection;
@@ -18,19 +19,19 @@ function init(){
 
 //call getSelection at the beginning on an initial value
 
-d3.selectAll("#selDataset").on("change", getSelection);  
+d3.selectAll("#selDataset").on("change", getSelectionHitters);  
 // var testSubject = d3.select("#selDataset").property("value");
 
 // function which will take the value of the drop down, then create the 
 // metadata table.  It also calls the functions to create the bar graph, bubble and gauge charts.
 
-function getSelectionhitters() {
+function getSelectionHitters() {
     // need to fetch our csv data using flask here
     dataset = d3.json("samples.json").then(function (sampleData) {
-        var testSubject = parseInt(d3.select("#selDataset").property("value"));
+        var playerSelectedName = parseInt(d3.select("#selDataset").property("value"));
 
         //filter the dataset by the dropdown item
-        var idData = sampleData.metadata.filter(m => m.id === testSubject);
+        var idData = sampleData.metadata.filter(m => m.id === playerSelectedName);
         
         // pull out the data from the dropdown item for the demographic information
         var avgData = idData.map(m => m.id);
@@ -46,13 +47,13 @@ function getSelectionhitters() {
         d3.select("#hrTable").text(`location: ${hrData}`);
         d3.select("#sbTable").text(`bbtype: ${sbData}`);
        
-        barGraph(testSubject)
+        barGraph(playerSelectedName)
         // gaugeChart(testSubject)
     });
 };
 
 // function which creates teh bar graph and bubble charts.  bar graph is only the first 10 data points.
-function barGraph(testSubjectId){
+function barGraph(playerSelected){
     console.log(testSubjectId);
         
     // create an array of the values filtered by the drop-down selection
