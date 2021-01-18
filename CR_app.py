@@ -77,21 +77,7 @@ def welcome():
     # return json_util.dumps(hitter_barrels)
     # return render_template("index.html", welcome=[ (name_dict.get('player',{})).get("seasons","N/A")  for barrels in list(hitter_barrels) ])
     # return render_template("index.html", welcome=[ (barrels.get('player',{})).get("seasons","N/A")  for barrels in list(hitter_barrels) ])
-    def hello():
-    Fan_G_hitters = mongo.db.FG_hitters.find()
-    Names = [ (name_dict.get(“Name” ,{}),
-    name_dict.get(“O-Swing%“, {}),
-    name_dict.get(“O-Contact%“, {}),
-    name_dict.get(“Z-Swing%“, {}),
-    name_dict.get(“Z-Contact%“, {}),
-    name_dict.get(“AVG”, {}),
-    name_dict.get(“OPS”),
-    name_dict.get(“R”),
-    name_dict.get(“RBI”),
-    name_dict.get(“HR”),
-    name_dict.get(“SB”),) for name_dict in list(Fan_G_hitters)]
-    data = jsonify(Names)
-    return (render_template('settings.html', data=data))
+
     
 
 
