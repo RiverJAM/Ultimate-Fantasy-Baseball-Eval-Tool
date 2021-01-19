@@ -47,7 +47,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
 @app.route("/")
 def welcome():
-
+    return render_template('index.html')
     #From Flask-Pymongo documentation
 
     # hitter_names = mongo.db.Project2.find({}, {"player.full_name": 1})
@@ -78,46 +78,46 @@ def welcome():
     # return json_util.dumps(hitter_barrels)
     # return render_template("index.html", welcome=[ (name_dict.get('player',{})).get("seasons","N/A")  for barrels in list(hitter_barrels) ])
     # return render_template("index.html", welcome=[ (barrels.get('player',{})).get("seasons","N/A")  for barrels in list(hitter_barrels) ])
-    def hello():
-        Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
-        Names = [ (name_dict.get('Name', {}),
-        name_dict.get('O-Swing%', {}),
-        name_dict.get('O-Contact%', {}),
-        name_dict.get('Z-Swing%', {}),
-        name_dict.get('Z-Contact%', {}),
-        name_dict.get('AVG', {}),
-        name_dict.get('OPS', {}),
-        name_dict.get('OPS', {}),
-        name_dict.get('R', {}),
-        name_dict.get('RBI', {}),
-        name_dict.get('HR', {}),
-        name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
-        data = jsonify(Names)
-        return (render_template('index.html', data=data))
+# def hello():
+#     Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
+#     Names = [ (name_dict.get('Name', {}),
+#     name_dict.get('O-Swing%', {}),
+#     name_dict.get('O-Contact%', {}),
+#     name_dict.get('Z-Swing%', {}),
+#     name_dict.get('Z-Contact%', {}),
+#     name_dict.get('AVG', {}),
+#     name_dict.get('OPS', {}),
+#     name_dict.get('OPS', {}),
+#     name_dict.get('R', {}),
+#     name_dict.get('RBI', {}),
+#     name_dict.get('HR', {}),
+#     name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
+#     data = jsonify(Names)
+#     return (render_template('index.html', data=data))
     
-    def justNames():
-        Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
-        onlyNames = [ (name_dict.get('Name' ,{}))]
-        data = jsonify(onlyNames)
-        return (render_template('index.html', data=data))
+# def justNames():
+#     Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
+#     onlyNames = [ (name_dict.get('Name' ,{}))]
+#     data = jsonify(onlyNames)
+#     return (render_template('index.html', data=data))
 
 
-    hitter_data = mongo.db.Project2.find()
-    player_name = "Michael Chavis"
-    year = "2020"
-    season_type = "REG"
+    # hitter_data = mongo.db.Project2.find()
+    # player_name = "Michael Chavis"
+    # year = "2020"
+    # season_type = "REG"
 
-    results = {}
-    for hd in hitter_data:
-        try:
-            if hd ['player']['full_name'] == player_name:
-                # player_name = hd['player']['full_name']
-                print(hd['player']['full_name'])
-                # if player_name not in results:
-                #     results[player_name] = []
-                seasons = hd["player"]["seasons"]
-                filtered_seasons = [s for s in seasons if (s['year'] == year and s['type'] == season_type)]
-                print(seasons[0])
+    # results = {}
+    # for hd in hitter_data:
+    #     try:
+    #         if hd ['player']['full_name'] == player_name:
+    #             # player_name = hd['player']['full_name']
+    #             print(hd['player']['full_name'])
+    #             # if player_name not in results:
+    #             #     results[player_name] = []
+    #             seasons = hd["player"]["seasons"]
+    #             filtered_seasons = [s for s in seasons if (s['year'] == year and s['type'] == season_type)]
+    #             print(seasons[0])
                 # for s in filtered_seasons:
                 #     print(s)
                 #     if 'statcast_metrics' in s['totals']:
@@ -134,9 +134,9 @@ def welcome():
             # print(hitter_barrels)
             # print(seasons)
             # print(filtered_seasons)     
-            # print(counts)
-        except Exception as e:
-            print(f'The error is on: {e}')
+        #     # print(counts)
+        # except Exception as e:
+        #     print(f'The error is on: {e}')
             # continue
             
     # pp.pprint(results)
@@ -153,7 +153,6 @@ def welcome():
         #     break
     #print([ (barrels.get('player',{})).get("seasons","N/A")  for barrels in list(hitter_barrels) ])
     # print('new')
-    return "Hello world"
     
 
     #"
@@ -178,13 +177,11 @@ def hello():
     name_dict.get('Z-Contact%', {}),
     name_dict.get('AVG', {}),
     name_dict.get('OPS', {}),
-    name_dict.get('OPS', {}),
     name_dict.get('R', {}),
     name_dict.get('RBI', {}),
     name_dict.get('HR', {}),
     name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
-    data = jsonify(Names)
-    return (render_template('index.html', data=data))
+    return (jsonify(Names))
 
 @app.route("/hitters_names")
 @cross_origin()
