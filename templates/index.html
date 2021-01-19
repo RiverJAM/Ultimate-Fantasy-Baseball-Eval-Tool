@@ -10,7 +10,8 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- <script type="text/javascript" {{ url_for('static', filename='CRapp.py')}}></script> -->
     <script type="text/javascript" {{ url_for('static', filename='hitters.js')}}></script>
-    </head>
+    <link rel="shortcut icon" href="#"></link>
+</head>
 
 <body>
     <div class="container">
@@ -25,64 +26,27 @@
         <div class="col-md-2">
             <div class="well">
                 <h5>Select Player</h5>
-                <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                <select id="selDataset"></select>  <!-- onchange="optionChanged(this.value)"" -->
             </div>
         </div>
-        <!-- Select Year Dropdown -->
+        <!-- Select Year Dropdown
         <div class="col-md-2">
             <div class="well">
                 <h5>Select Year</h5>
                 <select id="selDataset2"></select>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- Table for player stats -->
-    <table class="table">
-        <caption>Stats Table</caption>
-        <thead>
-            <tr>
-                <th scope="row">Stats Table</th>
-            </tr>
-            <tr>
-                <th scope="col">Player Name</th>
-                <th scope="col">Team</th>
-                <th scope="col">K%</th>
-                <th scope="col">BB%</th>
-                <th scope="col">BA%</th>
-                <th scope="col">OPS</th>
-                <th scope="col">Slug</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>DK</td>
-                <td>Sox</td>
-                <td>%100</td>
-                <td>%100</td>
-                <td>Yes</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>CR</td>
-                <td>Cubs</td>
-                <td>%100</td>
-                <td>%100</td>
-                <td>Yes</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>JM</td>
-                <td>Cubs</td>
-                <td>%100</td>
-                <td>%100</td>
-                <td>Yes</td>
-                <td>Yes</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="sample-metadata" class="colpanel-body" style="padding-left: 15px !important">
+        <h5 id="avgTable"></h5></b>
+        <h5 id="opsTable"></h5></b>
+        <h5 id="rTable"></h5></b>
+        <h5 id="rbiTable"></h5></b>
+        <h5 id="hrTable"></h5></b>
+        <h5 id="sbTable"></h5></b>
+      </div>
+
 
     <!-- Bar Graph -->
     <div class="row">
