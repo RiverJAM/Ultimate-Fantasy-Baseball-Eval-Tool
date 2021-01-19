@@ -14,6 +14,8 @@ from bson.objectid import ObjectId
 from bson import json_util
 from bson import ObjectId
 
+from flask_cors import CORS, cross_origin
+
 import pprint 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -35,7 +37,8 @@ pp = pprint.PrettyPrinter(indent=4)
 
 # Flask Setup
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path="/static",static_folder="static")
+CORS(app)
 
 #Use PyMongo
 mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
@@ -77,23 +80,24 @@ def welcome():
     # return render_template("index.html", welcome=[ (barrels.get('player',{})).get("seasons","N/A")  for barrels in list(hitter_barrels) ])
     def hello():
         Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
-        Names = [ (name_dict.get(“Name”, {}),
-        name_dict.get(“O-Swing%“, {}),
-        name_dict.get(“O-Contact%“, {}),
-        name_dict.get(“Z-Swing%“, {}),
-        name_dict.get(“Z-Contact%“, {}),
-        name_dict.get(“AVG”, {}),
-        name_dict.get(“OPS”),
-        name_dict.get(“R”),
-        name_dict.get(“RBI”),
-        name_dict.get(“HR”),
-        name_dict.get(“SB”),) for name_dict in list(Fan_G_hitters)]
+        Names = [ (name_dict.get('Name', {}),
+        name_dict.get('O-Swing%', {}),
+        name_dict.get('O-Contact%', {}),
+        name_dict.get('Z-Swing%', {}),
+        name_dict.get('Z-Contact%', {}),
+        name_dict.get('AVG', {}),
+        name_dict.get('OPS', {}),
+        name_dict.get('OPS', {}),
+        name_dict.get('R', {}),
+        name_dict.get('RBI', {}),
+        name_dict.get('HR', {}),
+        name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
         data = jsonify(Names)
         return (render_template('index.html', data=data))
     
     def justNames():
         Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
-        onlyNames = [ (name_dict.get(“Name” ,{}))]
+        onlyNames = [ (name_dict.get('Name' ,{}))]
         data = jsonify(onlyNames)
         return (render_template('index.html', data=data))
 
@@ -164,27 +168,29 @@ def welcome():
 
 # #Hitters path
 
-@app.route("/hitters<br/>")
+@app.route("/hitters")
 def hello():
     Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
-    Names = [ (name_dict.get(“Name” ,{}),
-    name_dict.get(“O-Swing%“, {}),
-    name_dict.get(“O-Contact%“, {}),
-    name_dict.get(“Z-Swing%“, {}),
-    name_dict.get(“Z-Contact%“, {}),
-    name_dict.get(“AVG”, {}),
-    name_dict.get(“OPS”),
-    name_dict.get(“R”),
-    name_dict.get(“RBI”),
-    name_dict.get(“HR”),
-    name_dict.get(“SB”),) for name_dict in list(Fan_G_hitters)]
+    Names = [ (name_dict.get('Name' ,{}),
+    name_dict.get('O-Swing%', {}),
+    name_dict.get('O-Contact%', {}),
+    name_dict.get('Z-Swing%', {}),
+    name_dict.get('Z-Contact%', {}),
+    name_dict.get('AVG', {}),
+    name_dict.get('OPS', {}),
+    name_dict.get('OPS', {}),
+    name_dict.get('R', {}),
+    name_dict.get('RBI', {}),
+    name_dict.get('HR', {}),
+    name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
     data = jsonify(Names)
     return (render_template('index.html', data=data))
 
 @app.route("/hitters_names")
+@cross_origin()
 def justNames():
     Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
-    onlyNames = [ (name_dict.get(“Name” ,{}))]
+    onlyNames = [ (name_dict.get('Name' ,{})) for name_dict in list(Fan_G_hitters)]
     
     return (jsonify(onlyNames))
 
