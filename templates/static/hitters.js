@@ -5,6 +5,7 @@ var IDs = [];
 hitterNameTest = "Mike Trout"
 
 fetch("/hitters_names")
+
   .then(function (response) {
     hitterName = d3.json(response).then(function (parsed_response) {
         var IDs = Object.values(parsed_response.Name);
