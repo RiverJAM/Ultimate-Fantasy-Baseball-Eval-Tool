@@ -1,3 +1,5 @@
+
+
 var IDs = [];
 
 hitterNameTest = "Mike Trout"
@@ -10,7 +12,7 @@ fetch("/hitters_names")
             d3.select("#selDataset").append("option").text(IDs[i]);
         };
     });
-    };
+    });
 
 function init(){
   getSelection;
