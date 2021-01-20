@@ -107,7 +107,7 @@ function fbGraph(playerSelected) {
 
     let FFValues = pitcher_data.filter((m) => m[0] === playerSelected);
     let FFValue = FFValues.map((m) => m[1]);
-    FFGraphValues = [FFValue[0], 93.6]
+    FFGraphValues = [FFValue[0], -.2]
 
     // bar graph the results
     var trace1 = [
@@ -123,13 +123,13 @@ function fbGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "FB Velo", yaxis: {range: [85, 100]}}
+    var layout = {title: "FB value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("ffBar", trace1, layout);
 
     let SiValues = pitcher_data.filter((m) => m[0] === playerSelected);
     console.log(SiValues)
     let SiValue = SiValues.map((m) => m[3]);
-    Sinkers = [SiValue[0], 92.6]
+    Sinkers = [SiValue[0], .16]
     console.log(Sinkers)
 
     // bar graph the results
@@ -146,7 +146,7 @@ function fbGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout2 = {title: "Sinker Velo", yaxis: {range: [85, 100]}}
+    var layout2 = {title: "Cutter Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("siBar", trace2, layout2);
   
 };
@@ -158,8 +158,8 @@ function brGraph(playerSelected) {
   // create an array of the values filtered by the drop-down selection
 
     let cbValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    let cbValue = cbValues.map((m) => m[6]);
-    curveBalls = [cbValue[0], 79.2]
+    let cbValue = cbValues.map((m) => m[4]);
+    curveBalls = [cbValue[0], -.02]
 
     // bar graph the results
     var trace1 = [
@@ -174,12 +174,12 @@ function brGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "Curveball Velo", yaxis: {range: [70, 90]}}
+    var layout = {title: "Curveball Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("cbBar", trace1, layout);
 
     let slValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    let slValue = slValues.map((m) => m[6]);
-    sliders = [slValue[0], 84.8]
+    let slValue = slValues.map((m) => m[5]);
+    sliders = [slValue[0], 0.4]
 
     // bar graph the results
     var trace2 = [
@@ -194,7 +194,7 @@ function brGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout2 = {title: "Slider Velo", yaxis: {range: [70, 95]}}
+    var layout2 = {title: "Slider Velo", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("slBar", trace2, layout2);
   
 };
@@ -205,8 +205,8 @@ function chGraph(playerSelected) {
   // create an array of the values filtered by the drop-down selection
 
     let chValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    let chValue = chValues.map((m) => m[4]);
-    let changeups = [chValue[0], 84.8]
+    let chValue = chValues.map((m) => m[6]);
+    let changeups = [chValue[0], 0.2]
 
     // bar graph the results
     var trace1 = [
@@ -221,7 +221,7 @@ function chGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "Changeup Velo", yaxis: {range: [65, 95]}}
+    var layout = {title: "Changeup Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("chBar", trace1, layout);
 
   };
@@ -234,7 +234,7 @@ function fbGraph2(playerSelected) {
 
     let FFValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
     let FFValue2 = FFValues2.map((m) => m[1]);
-    FFGraphValues2 = [FFValue2[0], 93.6]
+    FFGraphValues2 = [FFValue2[0], -.2]
 
     // bar graph the results
     var trace1 = [
@@ -250,16 +250,17 @@ function fbGraph2(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "FB Velo", yaxis: {range: [85, 100]}}
+    var layout = {title: "Fastball Value", yaxis: {range: [-3,4]}}
     Plotly.newPlot("ffBar2", trace1, layout);
 
+    
+    // Cutter Graph
     let SiValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
     console.log(SiValues2)
     let SiValue2 = SiValues2.map((m) => m[3]);
-    Sinkers2 = [SiValue2[0], 92.6]
+    Sinkers2 = [SiValue2[0], .16]
     console.log(Sinkers2)
 
-    // bar graph the results
     var trace2 = [
       {
         x: [playerSelected, "League Average"],
@@ -273,21 +274,20 @@ function fbGraph2(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout2 = {title: "Sinker Velo", yaxis: {range: [85, 100]}}
+    var layout2 = {title: "Cutter Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("siBar2", trace2, layout2);
   
 };
 
+//Graphs of breaking balls, curveball and slider
 function brGraph2(playerSelected) {
   console.log(playerSelected);
-
-  // create an array of the values filtered by the drop-down selection
-
+    
+    //Curveball2 graph
     let cbValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    let cbValue2 = cbValues2.map((m) => m[6]);
-    curveBalls2 = [cbValue2[0], 79.2]
+    let cbValue2 = cbValues2.map((m) => m[4]);
+    curveBalls2 = [cbValue2[0], -.02]
 
-    // bar graph the results
     var trace1 = [
       {
         x: [playerSelected, "League Average"],
@@ -300,12 +300,14 @@ function brGraph2(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "Curveball Velo", yaxis: {range: [70, 90]}}
+    var layout = {title: "Curveball Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("cbBar2", trace1, layout);
 
+
+    // Slider2 Graph
     let slValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    let slValue2 = slValues2.map((m) => m[6]);
-    sliders2 = [slValue2[0], 84.8]
+    let slValue2 = slValues2.map((m) => m[5]);
+    sliders2 = [slValue2[0], 0.4]
 
     // bar graph the results
     var trace2 = [
@@ -320,7 +322,7 @@ function brGraph2(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout2 = {title: "Slider Velo", yaxis: {range: [70, 95]}}
+    var layout2 = {title: "Slider Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("slBar2", trace2, layout2);
   
 };
@@ -331,8 +333,8 @@ function chGraph2(playerSelected) {
   // create an array of the values filtered by the drop-down selection
 
     let chValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    let cbValue2 = chValues2.map((m) => m[4]);
-    let changeups2 = [cbValue2[0], 84.8]
+    let cbValue2 = chValues2.map((m) => m[6]);
+    let changeups2 = [cbValue2[0], 0.2]
 
     // bar graph the results
     var trace1 = [
@@ -347,7 +349,7 @@ function chGraph2(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "Changeup Velo", yaxis: {range: [65, 95]}}
+    var layout = {title: "Changeup Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("chBar2", trace1, layout);
 
   };
