@@ -45,6 +45,10 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
 # Flask Routes
 
+@app.route("/pitchersdata")
+def pitching():
+    return render_template('pitchersdata.html')
+
 @app.route("/")
 def welcome():
     return render_template('index.html')
@@ -168,7 +172,35 @@ def hello():
 
 # @app.route("/api/v1.0/pitchers<br/>")
 # def ptchr():
+@app.route("/pitchers")
+def hello_pitchers():
+    Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find()
+    pitchers = [ (name_dict.get('Name' ,{}),
+    name_dict.get('vFA', {}),
+    name_dict.get('vFC', {}),
+    name_dict.get('vSI', {}),
+    name_dict.get('vCH', {}),
+    name_dict.get('vSL', {}),
+    name_dict.get('vCU', {}),
+    name_dict.get('W', {}),
+    name_dict.get('L', {}),
+    name_dict.get('SO', {}),
+    name_dict.get('ERA', {}),
+    name_dict.get('WHIP', {}),
+    name_dict.get('SV', {}),
+    name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
+    return (jsonify(pitchers))
 
+# def httr():
+#     #Create session link from Python to DB
+#     session = Session(engine)
+#     hitters_group = session.query()
+
+#     return jsonify(hitters_group)
+# #Pitchers Path
+
+# @app.route("/api/v1.0/pitchers<br/>")
+# def ptchr():
 
 if __name__ == "__main__":
     app.run(debug=True)
