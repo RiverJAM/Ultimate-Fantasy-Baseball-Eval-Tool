@@ -23,10 +23,16 @@
     </div>
     <div class="row">
         <!-- Select Player Dropdown -->
-        <div class="col-md-2">
-            <div class="well">
+        <div class="col-md-6">
+            <div class="well" style="padding-left: 30px">
                 <h5>Select Player</h5>
                 <select id="selDataset"></select>  <!-- onchange="optionChanged(this.value)"" -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="well" style="padding-left: 30px">
+                <h5>Select Player</h5>
+                <select id="selDataset2"></select>  <!-- onchange="optionChanged(this.value)"" -->
             </div>
         </div>
         <!-- Select Year Dropdown
@@ -38,22 +44,56 @@
         </div> -->
     </div>
     <!-- Table for player stats -->
-    <div id="sample-metadata" class="colpanel-body" style="padding-left: 15px !important">
-        <h5 id="avgTable"></h5></b>
-        <h5 id="opsTable"></h5></b>
-        <h5 id="rTable"></h5></b>
-        <h5 id="rbiTable"></h5></b>
-        <h5 id="hrTable"></h5></b>
-        <h5 id="sbTable"></h5></b>
-      </div>
-
-
-    <!-- Bar Graph -->
     <div class="row">
-        <div class="col-md-12">
-            <div id="barchart"></div>
+    <div class="col-md-6" id="sample-metadata" class="colpanel-body" style="padding-left: 45px !important">
+        <h5 id="avgTable"></h5>
+        <h5 id="opsTable"></h5>
+        <h5 id="rTable"></h5></b>
+        <h5 id="rbiTable"></h5>
+        <h5 id="hrTable"></h5>
+        <h5 id="sbTable"></h5>
+    </div>
+    <div class="col-md-6" id="sample-metadata2" class="colpanel-body" style="padding-left: 45px !important">
+        <h5 id="avgTable2"></h5></b>
+        <h5 id="opsTable2"></h5></b>
+        <h5 id="rTable2"></h5></b>
+        <h5 id="rbiTable2"></h5></b>
+        <h5 id="hrTable2"></h5></b>
+        <h5 id="sbTable2"></h5></b>
+    </div>
+    </div>
+
+
+    <!-- Bar Graphs -->
+    <div class="row">
+        <div class="col-md-3">
+            <div id="Obar"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="Obar2"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="Obar3"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="Obar4"></div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div id="Zbar"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="Zbar2"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="Zbar3"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="Zbar4"></div>
+        </div>
+    </div>
+    
 
     <!-- Speedometer Graph -->
     <div class="col-md-5">

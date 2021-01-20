@@ -48,6 +48,10 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 @app.route("/")
 def welcome():
     return render_template('index.html')
+
+@app.route("/statcast")
+def stats():
+
     #From Flask-Pymongo documentation
 
     # hitter_names = mongo.db.Project2.find({}, {"player.full_name": 1})
@@ -76,31 +80,39 @@ def welcome():
     #     merged = dict(chain((message.items() + author.items())))
 
 
-
-    # hitter_data = mongo.db.Project2.find()
-    # player_name = "Michael Chavis"
-    # year = "2020"
-    # season_type = "REG"
-
-    # results = {}
-    # for hd in hitter_data:
-    #     try:
-    #         if hd ['player']['full_name'] == player_name:
-    #             # player_name = hd['player']['full_name']
-    #             print(hd['player']['full_name'])
-    #             # if player_name not in results:
-    #             #     results[player_name] = []
-    #             seasons = hd["player"]["seasons"]
-    #             filtered_seasons = [s for s in seasons if (s['year'] == year and s['type'] == season_type)]
-    #             print(seasons[0])
-                # for s in filtered_seasons:
-                #     print(s)
-                #     if 'statcast_metrics' in s['totals']:
-                #         overall = s['totals']['statcast_metrics']['hitting']['overall']
-                #         if 'barreled_ball' in overall:
-                #             results[player_name].append(overall['barreled_ball']['count'])
-                #     else:
-                #         results[player_name].append('N/A')
+    hitter_data = mongo.db.Project2.find()
+    # print(hitter_data[0])
+    player_name = "Michael Chavis"
+    year = 2020
+    season_type = "REG"
+    
+    results = {}
+    
+    for hd in hitter_data:
+        player_barrels = []
+        try:
+            
+            seasons = hd["player"]["seasons"]
+            filtered_seasons = [s for s in seasons if (s['year'] == year and s['type'] == season_type)]
+            # print(filtered_seasons[0])
+            for s in filtered_seasons:
+                # print(s['totals'])
+                barrel_object = {}
+                object_barrels = {}
+                if 'statcast_metrics' in s['totals']:
+                    overall = s['totals']['statcast_metrics']
+                    # print(overall)
+                    if 'hitting' in overall:
+                        object_barrels = overall['hitting']['overall']
+                        for b in object_barrels:
+                            barrel_object['barrels'] = b['barreled_ball']['count']
+                        # print(overall['barreled_ball']['count'])
+                    else:
+                        barrel_object['barrels'] = 'N/A'
+                else:
+                    barrel_object['barrels'] = 'N/A'
+                # player_barrels.append(barrel_object)
+            results[hd['player']['full_name']] = barrel_object['barrels']
 
 
             # overalls = [ for s in filtered_seasons]
@@ -110,9 +122,9 @@ def welcome():
             # print(seasons)
             # print(filtered_seasons)     
         #     # print(counts)
-        # except Exception as e:
-        #     print(f'The error is on: {e}')
-            # continue
+        except Exception as e:
+            print(f'The error is on: {e}')
+    return(jsonify(results))
             
     # pp.pprint(results)
 
