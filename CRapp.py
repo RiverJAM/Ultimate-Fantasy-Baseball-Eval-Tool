@@ -176,12 +176,12 @@ def hello():
 def hello_pitchers():
     Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find()
     pitchers = [ (name_dict.get('Name' ,{}),
-    name_dict.get('vFA', {}),
+    name_dict.get('wFB/C', {}),
     name_dict.get('vFC', {}),
-    name_dict.get('vSI', {}),
-    name_dict.get('vCH', {}),
-    name_dict.get('vSL', {}),
-    name_dict.get('vCU', {}),
+    name_dict.get('wCT/C', {}),
+    name_dict.get('wCB/C', {}),
+    name_dict.get('wSL/C', {}),
+    name_dict.get('wCH/C', {}),
     name_dict.get('W', {}),
     name_dict.get('L', {}),
     name_dict.get('SO', {}),
