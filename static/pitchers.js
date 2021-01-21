@@ -2,6 +2,24 @@ var IDs = [];
 var hitter_data = [];
 var pitcher_data = [];
 
+var firstGranim = new Granim({
+  element: "#first",
+  name: "first-gradient",
+  direction: "diagonal",
+  position: ["center", "center"],
+  opacity: [1, 1],
+  image: {
+    source: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/U.S._Cellular_Field_%2830972191694%29.jpg/1280px-U.S._Cellular_Field_%2830972191694%29.jpg",
+    stretchMode: ["stretch", "stretch"],
+    blendingMode: "overlay"
+  },
+  states: {
+    "default-state": {
+      gradients: [["#8BC34A", "#FF9800"], ["#FF0000", "#000000"]]
+    }
+  }
+});
+
 fetch("/pitchers").then(function (response) {
   console.log("Test");
   if (response.status !== 200) {
@@ -194,7 +212,7 @@ function brGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout2 = {title: "Slider Velo", yaxis: {range: [-3, 4]}}
+    var layout2 = {title: "Slider Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("slBar", trace2, layout2);
   
 };
