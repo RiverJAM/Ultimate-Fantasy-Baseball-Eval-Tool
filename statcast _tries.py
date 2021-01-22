@@ -1,14 +1,10 @@
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-
-import datetime as dt
 
 from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
-# import scrape_mars
+
 import json
 from bson.objectid import ObjectId
 from bson import json_util
@@ -16,24 +12,11 @@ from bson import ObjectId
 
 from flask_cors import CORS, cross_origin
 
-import pprint 
-pp = pprint.PrettyPrinter(indent=4)
 
 
 #################################################
 # Database Setup
 #################################################
-
-# engine = create_engine("Resources\all_stats_hitters_2019.csv")
-
-# # reflect an existing database into a new model
-# Base = automap_base()
-# # reflect the tables
-# Base.prepare(engine, reflect=True)
-
-# #Save reference to the table
-
-# hitter_names = Base.classes.full_name
 
 # Flask Setup
 
@@ -44,14 +27,14 @@ CORS(app)
 mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
 # Flask Routes
+# pitchers url
+@app.route("/pitchers")
+def pitching():
+    return render_template('pitchersdata.html')
 
 @app.route("/")
 def welcome():
     return render_template('index.html')
-
-@app.route("/statcast")
-def stats():
-
     #From Flask-Pymongo documentation
 
     # hitter_names = mongo.db.Project2.find({}, {"player.full_name": 1})
@@ -80,39 +63,31 @@ def stats():
     #     merged = dict(chain((message.items() + author.items())))
 
 
-    hitter_data = mongo.db.Project2.find()
-    # print(hitter_data[0])
-    player_name = "Michael Chavis"
-    year = 2020
-    season_type = "REG"
-    
-    results = {}
-    
-    for hd in hitter_data:
-        player_barrels = []
-        try:
-            
-            seasons = hd["player"]["seasons"]
-            filtered_seasons = [s for s in seasons if (s['year'] == year and s['type'] == season_type)]
-            # print(filtered_seasons[0])
-            for s in filtered_seasons:
-                # print(s['totals'])
-                barrel_object = {}
-                object_barrels = {}
-                if 'statcast_metrics' in s['totals']:
-                    overall = s['totals']['statcast_metrics']
-                    # print(overall)
-                    if 'hitting' in overall:
-                        object_barrels = overall['hitting']['overall']
-                        for b in object_barrels:
-                            barrel_object['barrels'] = b['barreled_ball']['count']
-                        # print(overall['barreled_ball']['count'])
-                    else:
-                        barrel_object['barrels'] = 'N/A'
-                else:
-                    barrel_object['barrels'] = 'N/A'
-                # player_barrels.append(barrel_object)
-            results[hd['player']['full_name']] = barrel_object['barrels']
+
+    # hitter_data = mongo.db.Project2.find()
+    # player_name = "Michael Chavis"
+    # year = "2020"
+    # season_type = "REG"
+
+    # results = {}
+    # for hd in hitter_data:
+    #     try:
+    #         if hd ['player']['full_name'] == player_name:
+    #             # player_name = hd['player']['full_name']
+    #             print(hd['player']['full_name'])
+    #             # if player_name not in results:
+    #             #     results[player_name] = []
+    #             seasons = hd["player"]["seasons"]
+    #             filtered_seasons = [s for s in seasons if (s['year'] == year and s['type'] == season_type)]
+    #             print(seasons[0])
+                # for s in filtered_seasons:
+                #     print(s)
+                #     if 'statcast_metrics' in s['totals']:
+                #         overall = s['totals']['statcast_metrics']['hitting']['overall']
+                #         if 'barreled_ball' in overall:
+                #             results[player_name].append(overall['barreled_ball']['count'])
+                #     else:
+                #         results[player_name].append('N/A')
 
 
             # overalls = [ for s in filtered_seasons]
@@ -122,9 +97,9 @@ def stats():
             # print(seasons)
             # print(filtered_seasons)     
         #     # print(counts)
-        except Exception as e:
-            print(f'The error is on: {e}')
-    return(jsonify(results))
+        # except Exception as e:
+        #     print(f'The error is on: {e}')
+            # continue
             
     # pp.pprint(results)
 
@@ -154,7 +129,7 @@ def stats():
 
 # #Hitters path
 
-@app.route("/hitters")
+@app.route("/hittersdata")
 def hello():
     Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
     Names = [ (name_dict.get('Name' ,{}),
@@ -180,7 +155,35 @@ def hello():
 
 # @app.route("/api/v1.0/pitchers<br/>")
 # def ptchr():
+@app.route("/pitchersdata")
+def hello_pitchers():
+    Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find()
+    pitchers = [ (name_dict.get('Name' ,{}),
+    name_dict.get('wFB/C', {}),
+    name_dict.get('vFC', {}),
+    name_dict.get('wCT/C', {}),
+    name_dict.get('wCB/C', {}),
+    name_dict.get('wSL/C', {}),
+    name_dict.get('wCH/C', {}),
+    name_dict.get('W', {}),
+    name_dict.get('L', {}),
+    name_dict.get('SO', {}),
+    name_dict.get('ERA', {}),
+    name_dict.get('WHIP', {}),
+    name_dict.get('SV', {}),
+    name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
+    return (jsonify(pitchers))
 
+# def httr():
+#     #Create session link from Python to DB
+#     session = Session(engine)
+#     hitters_group = session.query()
+
+#     return jsonify(hitters_group)
+# #Pitchers Path
+
+# @app.route("/api/v1.0/pitchers<br/>")
+# def ptchr():
 
 if __name__ == "__main__":
     app.run(debug=True)

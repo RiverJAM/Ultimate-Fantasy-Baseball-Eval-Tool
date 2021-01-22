@@ -19,7 +19,7 @@ var firstGranim = new Granim({
   }
 });
 
-fetch("/hitters").then(function (response) {
+fetch("/hittersdata").then(function (response) {
   console.log("Test");
   if (response.status !== 200) {
     console.log(
