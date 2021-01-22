@@ -1,7 +1,25 @@
 var IDs = [];
 var hitter_data = [];
 
-fetch("/hitters").then(function (response) {
+var firstGranim = new Granim({
+  element: "#first",
+  name: "first-gradient",
+  direction: "diagonal",
+  position: ["center", "center"],
+  opacity: [1, 1],
+  image: {
+    source: "https://i.pinimg.com/originals/83/10/ed/8310ed989af7431d7234bede1442cfae.jpg",
+    stretchMode: ["stretch", "stretch"],
+    blendingMode: "overlay"
+  },
+  states: {
+    "default-state": {
+      gradients: [["#8BC34A", "#FF9800"], ["#FF0000", "#000000"]]
+    }
+  }
+});
+
+fetch("/hittersdata").then(function (response) {
   console.log("Test");
   if (response.status !== 200) {
     console.log(
