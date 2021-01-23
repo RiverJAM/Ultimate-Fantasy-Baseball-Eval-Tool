@@ -6,14 +6,14 @@ from pymongo import MongoClient
 
 # open the client; path of all of the files w a .json extension
 client = MongoClient('localhost',27017)
-path = "C:/Users/cro11/NU_Bootcamp_Cert/Homework/Project2_JSon_files/*.json"
+path = "C:/Users/josephmonahan/Desktop/Baseball_Data/Sportrac_Json/*.json"
 
 #create the list of the pathnames
 files = glob.glob(path)
 
 # db name and collection name
-db = client['Ultimate_Baseball_Project']
-player_data = db['Project2']
+db = client['MLB_First_Go']
+player_data = db['Sportrac']
 
 # loop through the list of the pathnames and append to the db
 for file in files:
