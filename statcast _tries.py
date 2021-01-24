@@ -1,3 +1,5 @@
+# our work to try and grab statcast data.  we completed it elsewhere
+# but it's worthwhile to keep our attempt
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base

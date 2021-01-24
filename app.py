@@ -1,3 +1,5 @@
+# this code will utilize flask to pull data from a mongo db for the website
+# it also creates the webpages themselves.  several toolkits need to be imported
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
