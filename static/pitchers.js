@@ -1,5 +1,4 @@
 var IDs = [];
-var hitter_data = [];
 var pitcher_data = [];
 
 var firstGranim = new Granim({
@@ -20,7 +19,7 @@ var firstGranim = new Granim({
   }
 });
 
-fetch("/pitchersDataDictionary").then(function (response) {
+fetch("/pitchersData").then(function (response) {
   console.log("Test");
   if (response.status !== 200) {
     console.log(

@@ -31,7 +31,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 # pitchers url
 @app.route("/pitchers")
 def pitching():
-    return render_template('pitchersdata.html')
+    return render_template('pitchers.html')
 
 # hitters url: main page
 @app.route("/")
@@ -41,41 +41,58 @@ def welcome():
 # Flask route to get hitter data
 @app.route("/hittersdata")
 def hello():
-    Fan_G_hitters = mongo.db.Fangraphs_hitters.find()
-    Names = [ (name_dict.get('Name' ,{}),
-    name_dict.get('O-Swing%', {}),
-    name_dict.get('O-Contact%', {}),
-    name_dict.get('Z-Swing%', {}),
-    name_dict.get('Z-Contact%', {}),
-    name_dict.get('AVG', {}),
-    name_dict.get('OPS', {}),
-    name_dict.get('R', {}),
-    name_dict.get('RBI', {}),
-    name_dict.get('HR', {}),
-    name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
-    return (jsonify(Names))
+    Fan_G_hitters = mongo.db.Fangraphs_hitters.find( { }, 
+    {"Name": 1, 'O-Swing%': 1, 'O-Contact%': 1, 'Z-Swing%': 1, 'Z-Contact%':1,
+    'AVG': 1, 'OPS': 1, 'R': 1, 'RBI': 1, 'HR': 1, 'SB': 1})
+    data = []
+    for hitter_data in list(Fan_G_hitters):
+        stats = {}
+        stats["name"] = hitter_data.get("Name", {})
+        stats["o_swing"] = hitter_data.get("O-Swing%", {})
+        stats["o_contact"] = hitter_data.get("O-Contact%", {})
+        stats["z_swing"] = hitter_data.get("Z-Swing%", {})
+        stats["z_contact"] = hitter_data.get("Z-Contact%", {})
+        stats["avg"] = hitter_data.get("AVG", {})
+        stats["ops"] = hitter_data.get("OPS", {})
+        stats["r"] = hitter_data.get("R", {})
+        stats["rbi"] = hitter_data.get("RBI", {})
+        stats["hr"] = hitter_data.get("HR", {})
+        stats["sb"] = hitter_data.get("SB", {})
+        data.append(stats)
+
+        # name_dict.get('O-Swing%', {}),
+        # name_dict.get('O-Contact%', {}),
+        # name_dict.get('Z-Swing%', {}),
+        # name_dict.get('Z-Contact%', {}),
+        # name_dict.get('AVG', {}),
+        # name_dict.get('OPS', {}),
+        # name_dict.get('R', {}),
+        # name_dict.get('RBI', {}),
+        # name_dict.get('HR', {}),
+        # name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
+    return (jsonify(data))
 
 # pitchers data
-@app.route("/pitchersdata")
-def hello_pitchers():
-    Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find()
-    pitchers = [ (name_dict.get('Name' ,{}),
-    name_dict.get('wFB/C', {}),
-    name_dict.get('vFC', {}),
-    name_dict.get('wCT/C', {}),
-    name_dict.get('wCB/C', {}),
-    name_dict.get('wSL/C', {}),
-    name_dict.get('wCH/C', {}),
-    name_dict.get('W', {}),
-    name_dict.get('L', {}),
-    name_dict.get('SO', {}),
-    name_dict.get('ERA', {}),
-    name_dict.get('WHIP', {}),
-    name_dict.get('SV', {}),
-    name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
-    return (jsonify(pitchers))
+# @app.route("/pitchersdataList")
+# def hello_pitchers():
+#     Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find()
+#     pitchers = [ (name_dict.get('Name' ,{}),
+#     name_dict.get('wFB/C', {}),
+#     name_dict.get('vFC', {}),
+#     name_dict.get('wCT/C', {}),
+#     name_dict.get('wCB/C', {}),
+#     name_dict.get('wSL/C', {}),
+#     name_dict.get('wCH/C', {}),
+#     name_dict.get('W', {}),
+#     name_dict.get('L', {}),
+#     name_dict.get('SO', {}),
+#     name_dict.get('ERA', {}),
+#     name_dict.get('WHIP', {}),
+#     name_dict.get('SV', {}),
+#     name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
+#     return (jsonify(pitchers))
 
-@app.route("/pitchersDataDictionary")
+@app.route("/pitchersData")
 def pitchersDictionary():
     Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find( { }, 
     { "Name": 1, "W": 1, "L": 1, "SO": 1, "ERA": 1, "WHIP": 1, "SV": 1, "HLD": 1,
