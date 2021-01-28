@@ -20,7 +20,7 @@ var firstGranim = new Granim({
   }
 });
 
-fetch("/pitchersdata").then(function (response) {
+fetch("/pitchersDataDictionary").then(function (response) {
   console.log("Test");
   if (response.status !== 200) {
     console.log(
@@ -29,11 +29,12 @@ fetch("/pitchersdata").then(function (response) {
     return;
   }
   response.json().then(function (data) {
-      pitcher_data = data;
+      pitcher_data = data
+      console.log(data)
       var IDs = Object.values(data);
       for (i = 0; i < IDs.length; i++) {
-        d3.select("#selDataset").append("option").text(IDs[i][0]);
-        d3.select("#selDataset2").append("option").text(IDs[i][0]);
+        d3.select("#selDataset").append("option").text(data[i]["name"]);
+        d3.select("#selDataset2").append("option").text(data[i]["name"]);
       }
       getSelectionPitchers();
       getSelectionPitchers2();
@@ -59,23 +60,23 @@ function getSelectionPitchers() {
     );
 
     //filter the dataset by the dropdown item
-    var fantasyPitcherData = pitcher_data.filter((m) => m[0] === playerSelectedName);
+    var fantasyPitcherData = pitcher_data.filter((m) => m.name === playerSelectedName);
       console.log(fantasyPitcherData)
     // pull out the data from the dropdown item for the demographic information
-    var wData = fantasyPitcherData.map((m) => m[7]);
-    var lData = fantasyPitcherData.map((m) => m[8]);
-    var soData = fantasyPitcherData.map((m) => m[9]);
-    var eraData = fantasyPitcherData.map((m) => m[10]);
-    var whipData = fantasyPitcherData.map((m) => m[11]);
-    var saveData = fantasyPitcherData.map((m) => m[12]);
-    var holdData = fantasyPitcherData.map((m) => m[13]);
-    d3.select("#wTable").text(`Wins: ${wData}`);
-    d3.select("#lTable").text(`Losses: ${lData}`);
-    d3.select("#soTable").text(`K's: ${soData}`);
-    d3.select("#eraTable").text(`ERA: ${eraData}`);
-    d3.select("#whipTable").text(`WHIP: ${whipData}`);
-    d3.select("#saveTable").text(`Saves: ${saveData}`);
-    d3.select("#holdTable").text(`Holds: ${holdData}`);
+    var wData = fantasyPitcherData.map((m) => m.win);
+    var lData = fantasyPitcherData.map((m) => m.loss);
+    var soData = fantasyPitcherData.map((m) => m.k);
+    var eraData = fantasyPitcherData.map((m) => m.era);
+    var whipData = fantasyPitcherData.map((m) => m.whip);
+    var saveData = fantasyPitcherData.map((m) => m.save);
+    var holdData = fantasyPitcherData.map((m) => m.hold);
+    d3.select("#wTable").text(`${wData}`);
+    d3.select("#lTable").text(`${lData}`);
+    d3.select("#soTable").text(`${soData}`);
+    d3.select("#eraTable").text(`${eraData}`);
+    d3.select("#whipTable").text(`${whipData}`);
+    d3.select("#saveTable").text(`${saveData}`);
+    d3.select("#holdTable").text(`${holdData}`);
 
     fbGraph(playerSelectedName);
     brGraph(playerSelectedName);
@@ -91,23 +92,23 @@ function getSelectionPitchers() {
       );
   
       //filter the dataset by the dropdown item
-      var fantasyPitcherData2 = pitcher_data.filter((m) => m[0] === playerSelectedName2);
+      var fantasyPitcherData2 = pitcher_data.filter((m) => m.name === playerSelectedName2);
         console.log(fantasyPitcherData2)
       // pull out the data from the dropdown item for the demographic information
-      var wData = fantasyPitcherData2.map((m) => m[7]);
-    var lData = fantasyPitcherData2.map((m) => m[8]);
-    var soData = fantasyPitcherData2.map((m) => m[9]);
-    var eraData = fantasyPitcherData2.map((m) => m[10]);
-    var whipData = fantasyPitcherData2.map((m) => m[11]);
-    var saveData = fantasyPitcherData2.map((m) => m[12]);
-    var holdData = fantasyPitcherData2.map((m) => m[13]);
-    d3.select("#wTable2").text(`Wins: ${wData}`);
-    d3.select("#lTable2").text(`Losses: ${lData}`);
-    d3.select("#soTable2").text(`K's: ${soData}`);
-    d3.select("#eraTable2").text(`ERA: ${eraData}`);
-    d3.select("#whipTable2").text(`WHIP: ${whipData}`);
-    d3.select("#saveTable2").text(`Saves: ${saveData}`);
-    d3.select("#holdTable2").text(`Holds: ${holdData}`);
+      var wData = fantasyPitcherData2.map((m) => m.win);
+    var lData = fantasyPitcherData2.map((m) => m.loss);
+    var soData = fantasyPitcherData2.map((m) => m.k);
+    var eraData = fantasyPitcherData2.map((m) => m.era);
+    var whipData = fantasyPitcherData2.map((m) => m.whip);
+    var saveData = fantasyPitcherData2.map((m) => m.save);
+    var holdData = fantasyPitcherData2.map((m) => m.hold);
+    d3.select("#wTable2").text(`${wData}`);
+    d3.select("#lTable2").text(`${lData}`);
+    d3.select("#soTable2").text(`${soData}`);
+    d3.select("#eraTable2").text(`${eraData}`);
+    d3.select("#whipTable2").text(`${whipData}`);
+    d3.select("#saveTable2").text(`${saveData}`);
+    d3.select("#holdTable2").text(`${holdData}`);
   
       fbGraph2(playerSelectedName2);
       brGraph2(playerSelectedName2);
@@ -123,8 +124,8 @@ function fbGraph(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-    let FFValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    let FFValue = FFValues.map((m) => m[1]);
+    let FFValues = pitcher_data.filter((m) => m.name === playerSelected);
+    let FFValue = FFValues.map((m) => m.wfb_c);
     FFGraphValues = [FFValue[0], -.2]
 
     // bar graph the results
@@ -144,28 +145,28 @@ function fbGraph(playerSelected) {
     var layout = {title: "FB value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("ffBar", trace1, layout);
 
-    let SiValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    console.log(SiValues)
-    let SiValue = SiValues.map((m) => m[3]);
-    Sinkers = [SiValue[0], .16]
-    console.log(Sinkers)
+    let CtValues = pitcher_data.filter((m) => m.name === playerSelected);
+    console.log(CtValues)
+    let CtValue = CtValues.map((m) => m.wct_c);
+    Cutters = [CtValue[0], .16]
+    console.log(Cutters)
 
     // bar graph the results
     var trace2 = [
       {
         x: [playerSelected, "League Average"],
-        y: Sinkers,
+        y: Cutters,
         hoverinfo: 'none',
         type: "bar",
         marker:{
           color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
         },
-        text: Sinkers.map(String),
+        text: Cutters.map(String),
         textposition: 'auto',
       },
     ];
     var layout2 = {title: "Cutter Value", yaxis: {range: [-3, 4]}}
-    Plotly.newPlot("siBar", trace2, layout2);
+    Plotly.newPlot("ctBar", trace2, layout2);
   
 };
 
@@ -175,8 +176,8 @@ function brGraph(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-    let cbValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    let cbValue = cbValues.map((m) => m[4]);
+    let cbValues = pitcher_data.filter((m) => m.name === playerSelected);
+    let cbValue = cbValues.map((m) => m.wcb_c);
     curveBalls = [cbValue[0], -.02]
 
     // bar graph the results
@@ -192,11 +193,11 @@ function brGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "Curveball Value", yaxis: {range: [-3, 4]}}
+    var layout = {title: "CB Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("cbBar", trace1, layout);
 
-    let slValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    let slValue = slValues.map((m) => m[5]);
+    let slValues = pitcher_data.filter((m) => m.name === playerSelected);
+    let slValue = slValues.map((m) => m.wsl_c);
     sliders = [slValue[0], 0.4]
 
     // bar graph the results
@@ -222,8 +223,8 @@ function chGraph(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-    let chValues = pitcher_data.filter((m) => m[0] === playerSelected);
-    let chValue = chValues.map((m) => m[6]);
+    let chValues = pitcher_data.filter((m) => m.name === playerSelected);
+    let chValue = chValues.map((m) => m.wch_c);
     let changeups = [chValue[0], 0.2]
 
     // bar graph the results
@@ -239,7 +240,7 @@ function chGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "Changeup Value", yaxis: {range: [-3, 4]}}
+    var layout = {title: "CH Value", yaxis: {range: [-3, 4], }}
     Plotly.newPlot("chBar", trace1, layout);
 
   };
@@ -250,8 +251,8 @@ function fbGraph2(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-    let FFValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    let FFValue2 = FFValues2.map((m) => m[1]);
+    let FFValues2 = pitcher_data.filter((m) => m.name === playerSelected);
+    let FFValue2 = FFValues2.map((m) => m.wfb_c);
     FFGraphValues2 = [FFValue2[0], -.2]
 
     // bar graph the results
@@ -273,27 +274,27 @@ function fbGraph2(playerSelected) {
 
     
     // Cutter Graph
-    let SiValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    console.log(SiValues2)
-    let SiValue2 = SiValues2.map((m) => m[3]);
-    Sinkers2 = [SiValue2[0], .16]
-    console.log(Sinkers2)
+    let CtValues2 = pitcher_data.filter((m) => m.name === playerSelected);
+    console.log(CtValues2)
+    let CtValue2 = CtValues2.map((m) => m.ct_c);
+    Cutters2 = [CtValue2[0], .16]
+    console.log(Cutters2)
 
     var trace2 = [
       {
         x: [playerSelected, "League Average"],
-        y: Sinkers2,
+        y: Cutters2,
         hoverinfo: 'none',
         type: "bar",
         marker:{
           color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
         },
-        text: Sinkers2.map(String),
+        text: Cutters2.map(String),
         textposition: 'auto',
       },
     ];
     var layout2 = {title: "Cutter Value", yaxis: {range: [-3, 4]}}
-    Plotly.newPlot("siBar2", trace2, layout2);
+    Plotly.newPlot("ctBar2", trace2, layout2);
   
 };
 
@@ -302,8 +303,8 @@ function brGraph2(playerSelected) {
   console.log(playerSelected);
     
     //Curveball2 graph
-    let cbValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    let cbValue2 = cbValues2.map((m) => m[4]);
+    let cbValues2 = pitcher_data.filter((m) => m.name === playerSelected);
+    let cbValue2 = cbValues2.map((m) => m.cb_c);
     curveBalls2 = [cbValue2[0], -.02]
 
     var trace1 = [
@@ -323,8 +324,8 @@ function brGraph2(playerSelected) {
 
 
     // Slider2 Graph
-    let slValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    let slValue2 = slValues2.map((m) => m[5]);
+    let slValues2 = pitcher_data.filter((m) => m.name === playerSelected);
+    let slValue2 = slValues2.map((m) => m.wsl_c);
     sliders2 = [slValue2[0], 0.4]
 
     // bar graph the results
@@ -350,8 +351,8 @@ function chGraph2(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-    let chValues2 = pitcher_data.filter((m) => m[0] === playerSelected);
-    let cbValue2 = chValues2.map((m) => m[6]);
+    let chValues2 = pitcher_data.filter((m) => m.name === playerSelected);
+    let cbValue2 = chValues2.map((m) => m.wch_c);
     let changeups2 = [cbValue2[0], 0.2]
 
     // bar graph the results

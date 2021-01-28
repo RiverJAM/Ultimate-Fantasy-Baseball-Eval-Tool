@@ -75,5 +75,34 @@ def hello_pitchers():
     name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
     return (jsonify(pitchers))
 
+@app.route("/pitchersDataDictionary")
+def pitchersDictionary():
+    Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find( { }, 
+    { "Name": 1, "W": 1, "L": 1, "SO": 1, "ERA": 1, "WHIP": 1, "SV": 1, "HLD": 1,
+    "K%": 1, "BB%": 1, "xFIP": 1, "Siera": 1, 
+    "wFB/C": 1, "wCT/C": 1, "wCB/C": 1, "wSL/C": 1, "wCH/C": 1} )
+    data = []
+    for name_dict in list(Fan_G_pitchers):
+        item = {}
+        item["name"] = name_dict.get("Name", {})
+        item["win"] = name_dict.get("W", {})
+        item["loss"] = name_dict.get("L", {})
+        item["k"] = name_dict.get("SO", {})
+        item["era"] = name_dict.get("ERA", {})
+        item["whip"] = name_dict.get("WHIP", {})
+        item["save"] = name_dict.get("SV", {})
+        item["hold"] = name_dict.get("HLD", {})
+        item["k%"] = name_dict.get("K%", {})
+        item["bb%"] = name_dict.get("BB%", {})
+        item["xFIP"] = name_dict.get("xFIP", {})
+        item["siera"] = name_dict.get("Siera", {})
+        item["wfb_c"] = name_dict.get("wFB/C", {})
+        item["wct_c"] = name_dict.get("wCT/C", {})
+        item["wcb_c"] = name_dict.get("wCB/C", {})
+        item["wsl_c"] = name_dict.get("wSL/C", {})
+        item["wch_c"] = name_dict.get("wCH/C", {})
+        data.append(item)
+    return (jsonify(data))
+
 if __name__ == "__main__":
     app.run(debug=True)
