@@ -139,7 +139,8 @@ function OGraph(playerSelected) {
                 range: [0, 1]
                 }}
     Plotly.newPlot("Obar", trace1, layout);
-
+    
+    // O-contact data for the first hitter
     let o_contactValues = hitter_data.filter((m) => m.name === playerSelected);
     console.log(o_contactValues)
     let playerOContactValues = o_contactValues.map((m) => m.o_contact);

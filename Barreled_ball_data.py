@@ -2,9 +2,6 @@
 # coding: utf-8
 # This code imports statcast data from our mongodb.  It creates 2 functions which pull season data
 # then creates a second function to get to the barreled ball data itslef
-# In[1]:
-
-
 
 from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
@@ -14,28 +11,16 @@ from bson.objectid import ObjectId
 from bson import json_util
 from bson import ObjectId
 
-
-# In[2]:
-
-
 app = Flask(__name__,static_url_path="/static",static_folder="static")
+
+#Use PyMongo
 mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
+hitter_statcast_data = mongo.db.statcast.find()
 
-# In[3]:
+hitter_data_list = list(hitter_statcast_data)
 
-
-hitter_data = mongo.db.Project2.find()
-
-
-# In[4]:
-
-
-hitter_data_list = list(hitter_data)
-
-
-# In[97]:
-
+print(len(hitter_data_list))
 
 def getSeasonByYear(player,year,seasonType ='REG'):
     seasons = player.get('seasons', [])
@@ -43,10 +28,6 @@ def getSeasonByYear(player,year,seasonType ='REG'):
         if(season.get('year',0) == year and season.get('type','N/A') == seasonType):
             return season;
     return {}
-
-
-# In[98]:
-
 
 def getBarreledBall(season):
     totals = season.get('totals', {})
@@ -59,57 +40,41 @@ def getBarreledBall(season):
     return 0
 
 
-# In[99]:
-
-
 season_year = 2019
 
-
-# In[100]:
-
-
-data = []
-
-
-# In[101]:
-
+hitter_statcast_data = []
 
 for player_dict in hitter_data_list:
     player =  player_dict.get("player",{})
     item = {}
     item["name"] = player.get("full_name","N/A")
-    print(item)
     season = getSeasonByYear(player, season_year)
-  
     item["barreledBall"] = getBarreledBall(season)
-    data.append(item)
+    hitter_statcast_data.append(item)
+
+# hitter_statcast_data
+
+# statcast_season = getSeasonByYear(hitter_data_list, season_year)
+
+print(hitter_statcast_data)
 
 
-# In[102]:
 
 
-data
 
-
-# In[103]:
-
-
-season = getSeasonByYear(hitter_data_list[1], season_year)
-
-
-# In[24]:
+# In[49]:
 
 
 getBarreledBall(season)
 
 
+# In[36]:
+
+
+season
+
+
 # In[ ]:
-
-
-
-
-
-# In[14]:
 
 
 getSeasonByYear(hitter_data_list[1],2019,seasonType ='REG')

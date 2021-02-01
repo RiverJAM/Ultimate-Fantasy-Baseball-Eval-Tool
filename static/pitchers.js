@@ -69,6 +69,8 @@ function getSelectionPitchers() {
     var whipData = fantasyPitcherData.map((m) => m.whip);
     var saveData = fantasyPitcherData.map((m) => m.save);
     var holdData = fantasyPitcherData.map((m) => m.hold);
+    var kpercentData = fantasyPitcherData.map((m) => m.kper);
+    var bbpercentData = fantasyPitcherData.map((m) => m.bbper);
     d3.select("#wTable").text(`${wData}`);
     d3.select("#lTable").text(`${lData}`);
     d3.select("#soTable").text(`${soData}`);
@@ -76,6 +78,8 @@ function getSelectionPitchers() {
     d3.select("#whipTable").text(`${whipData}`);
     d3.select("#saveTable").text(`${saveData}`);
     d3.select("#holdTable").text(`${holdData}`);
+    d3.select("#kperTable").text(`${kpercentData}`);
+    d3.select("#bbperTable").text(`${bbpercentData}`);
 
     fbGraph(playerSelectedName);
     brGraph(playerSelectedName);
@@ -101,6 +105,8 @@ function getSelectionPitchers() {
     var whipData = fantasyPitcherData2.map((m) => m.whip);
     var saveData = fantasyPitcherData2.map((m) => m.save);
     var holdData = fantasyPitcherData2.map((m) => m.hold);
+    var kpercentData = fantasyPitcherData2.map((m) => m.kper);
+    var bbpercentData = fantasyPitcherData2.map((m) => m.bbper);
     d3.select("#wTable2").text(`${wData}`);
     d3.select("#lTable2").text(`${lData}`);
     d3.select("#soTable2").text(`${soData}`);
@@ -108,6 +114,8 @@ function getSelectionPitchers() {
     d3.select("#whipTable2").text(`${whipData}`);
     d3.select("#saveTable2").text(`${saveData}`);
     d3.select("#holdTable2").text(`${holdData}`);
+    d3.select("#kperTable2").text(`${kpercentData}`);
+    d3.select("#bbperTable2").text(`${bbpercentData}`);
   
       fbGraph2(playerSelectedName2);
       brGraph2(playerSelectedName2);
