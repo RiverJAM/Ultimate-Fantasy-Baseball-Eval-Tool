@@ -6,7 +6,6 @@ from sqlalchemy.ext.automap import automap_base
 
 from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
-
 import json
 from bson.objectid import ObjectId
 from bson import json_util
