@@ -29,15 +29,17 @@ CORS(app)
 mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority"
 
 # Flask Routes
-# pitchers url
-@app.route("/pitchers")
-def pitching():
-    return render_template('pitchersdata.html')
+
 
 # hitters url: main page
 @app.route("/")
 def welcome():
     return render_template('index.html')
+
+# pitchers url
+@app.route("/pitchers")
+def pitching():
+    return render_template('pitchersdata.html')
    
 # Flask route to get hitter data
 @app.route("/hittersdata")
