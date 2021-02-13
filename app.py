@@ -26,7 +26,7 @@ app.config["MONGO_URI"] = "mongodb+srv://somethingsimple:something@cluster0.bq9e
 CORS(app)
 
 #Use PyMongo
-mongo = PyMongo(app, uri = os.environ.get('MONGODB_URI'))
+mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority"
 
 # Flask Routes
 # pitchers url
