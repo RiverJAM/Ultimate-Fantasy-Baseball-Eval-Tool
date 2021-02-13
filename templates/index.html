@@ -15,6 +15,24 @@
     <link rel="shortcut icon" href="#"></link>
     <script src="../static/granim.min.js"></script>
     <script src="../static/granim.js"></script>
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
 </head>
 
 <body>
@@ -116,24 +134,95 @@
         </div> -->
     </div>
     <!-- Table for hitter stats -->
+
+
     <div class="row">
-    <div class="col-md-6" id="sample-metadata" class="colpanel-body" style="padding-left: 45px !important">
-        <h5 id="avgTable"></h5>
-        <h5 id="opsTable"></h5>
-        <h5 id="rTable"></h5></b>
-        <h5 id="rbiTable"></h5>
-        <h5 id="hrTable"></h5>
-        <h5 id="sbTable"></h5>
+    <div class="col-md-3">
+    <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 45px !important">
+       
+        <tr>
+            <td id="avgTable"></td>
+        </tr>
+            <tr>
+                <td id="opsTable"></td>
+            </tr>
+            <tr>
+                <td id="rTable"></td></b>
+            </tr>
+            <tr>
+                <td id="rbiTable"></td>
+            </tr>
+            <tr>
+                <td id="hrTable"></td>
+            </tr>
+            <tr>
+                <td id="sbTable"></td>
+            </tr>
+            
+       
+    </table>
     </div>
-    <div class="col-md-6" id="sample-metadata2" class="colpanel-body" style="padding-left: 45px !important">
-        <h5 id="avgTable2"></h5></b>
-        <h5 id="opsTable2"></h5></b>
-        <h5 id="rTable2"></h5></b>
-        <h5 id="rbiTable2"></h5></b>
-        <h5 id="hrTable2"></h5></b>
-        <h5 id="sbTable2"></h5></b>
+    
+    <div class="col-md-3">
+    <table >
+       
+        <tr>
+            <th>
+                Differentials
+            </th>
+        </tr>
+
+            <tr>
+                <td id="avgDIF"></td>
+            </tr>
+                <tr>
+                    <td id="opsDIF"></td>
+                </tr>
+                <tr>
+                    <td id="rDIF"></td></b>
+                </tr>
+                <tr>
+                    <td id="rbiDIF"></td>
+                </tr>
+                <tr>
+                    <td id="hrDIF"></td>
+                </tr>
+                <tr>
+                    <td id="sbDIF"></td>
+                </tr>
+        
+    </table>
     </div>
+
+    <div class="col-md-3">
+     <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 45px !important">
+        <tr>
+            <td id="avgTable2"></td>
+        </tr>
+            <tr>
+                <td id="opsTable2"></td>
+            </tr>
+            <tr>
+                <td id="rTable2"></td></b>
+            </tr>
+            <tr>
+                <td id="rbiTable2"></td>
+            </tr>
+            <tr>
+                <td id="hrTable2"></td>
+            </tr>
+            <tr>
+                <td id="sbTable2"></td>
+            </tr>
+            
+       
+     </table>
+     </div>
     </div>
+
+    <table>
+
+    </table>
 
 
     <!-- Bar Graphs -->
@@ -176,7 +265,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="./static/hittersdata.js"></script>
+    <!-- <script src="./static/hittersdata.js"></script> -->
     <script src="./static/hitters.js"></script>
 </body>
 
