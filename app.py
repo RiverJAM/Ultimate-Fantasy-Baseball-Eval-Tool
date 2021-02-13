@@ -21,7 +21,8 @@ from flask_cors import CORS, cross_origin
 # Flask Setup
 
 app = Flask(__name__,static_url_path="/static",static_folder="static")
-app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.config["MONGO_URI"] = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority"
+
 CORS(app)
 
 #Use PyMongo
