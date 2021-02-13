@@ -3,7 +3,7 @@
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
-
+import os
 from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
 import json
@@ -21,10 +21,11 @@ from flask_cors import CORS, cross_origin
 # Flask Setup
 
 app = Flask(__name__,static_url_path="/static",static_folder="static")
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 CORS(app)
 
 #Use PyMongo
-mongo = PyMongo(app, uri = process.env.MONGODB_URI)
+mongo = PyMongo(app, uri = os.environ.get('MONGODB_URI'))
 
 # Flask Routes
 # pitchers url
