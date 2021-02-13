@@ -1,0 +1,79 @@
+#canvas-image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.navbar {
+    padding: 10px;
+    background: #5191fd;
+  }
+  
+  /* Making our navbar li's inline-block elements this makes it so we can have multiple on the same line. Floats could have been used too */
+  .navbar li {
+    display: inline-block;
+    padding: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 3px;
+  }
+  
+  /* Getting rid of the default link styles here */
+  .navbar li a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+
+#nav-select {
+    visibility: hidden;
+  }
+  .bg_bigtime {
+    background-color: white; 
+  }
+  
+  .white_text  {
+  
+    color: white !important;
+  
+  }
+  
+  
+  button {color: white;}
+  
+  /* Adding media queries to show the drop-down, and hide the navbar when the screen is smaller than 480 pixels */
+  @media (max-width: 1000px) {
+    .navbar li {
+      padding: 10px;
+      
+      
+    }
+    .butss{
+      color: white;
+      
+    }
+    .bg_bigtime {
+      background-color:teal;
+    }
+  
+    .post {
+      margin-right: 30px;
+      margin-left: 30px;
+    }
+  
+    .navbar ul {
+      visibility: hidden;
+      background-color:teal;
+    }
+  
+    #nav-select {
+      visibility: visible;
+    }
+  }
