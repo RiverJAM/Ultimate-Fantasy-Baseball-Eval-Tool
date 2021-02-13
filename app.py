@@ -24,7 +24,7 @@ app = Flask(__name__,static_url_path="/static",static_folder="static")
 CORS(app)
 
 #Use PyMongo
-mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
+mongo = PyMongo(app, uri = process.env.MONGODB_URI)
 
 # Flask Routes
 # pitchers url
