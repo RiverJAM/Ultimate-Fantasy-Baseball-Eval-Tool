@@ -90,21 +90,26 @@ function getSelectionHitters() {
     var fantasyData2 = hitter_data.filter((m) => m[0] === playerSelectedName2);
       console.log(fantasyData2)
     // pull out the data from the dropdown item for the demographic information
-    var avgData2 = fantasyData2.map((m) => m[5]);
-    var opsData2 = fantasyData2.map((m) => m[6]);
-    var rData2 = fantasyData2.map((m) => m[7]);
-    var rbiData2 = fantasyData2.map((m) => m[8]);
-    var hrData2 = fantasyData2.map((m) => m[9]);
-    var sbData2 = fantasyData2.map((m) => m[10]);
-    d3.select("#avgTable2").text(`BA: ${avgData2}`);
-    d3.select("#opsTable2").text(`OPS: ${opsData2}`);
-    d3.select("#rTable2").text(`Runs: ${rData2}`);
-    d3.select("#rbiTable2").text(`RBI: ${rbiData2}`);
-    d3.select("#hrTable2").text(`HR: ${hrData2}`);
-    d3.select("#sbTable2").text(`SB: ${sbData2}`);
 
-    OGraph2(playerSelectedName2);
-    ZGraph2(playerSelectedName2);
+
+    var fantasyData2 = hitter_data.filter((m) => m.name === playerSelectedName2);
+    console.log(fantasyData2)
+  // pull out the data from the dropdown item for the demographic information
+  var avgData2 = fantasyData2.map((m) => m.avg);
+  var opsData2 = fantasyData2.map((m) => m.ops);
+  var rData2 = fantasyData2.map((m) => m.r);
+  var rbiData2 = fantasyData2.map((m) => m.rbi);
+  var hrData2 = fantasyData2.map((m) => m.hr);
+  var sbData2 = fantasyData2.map((m) => m.sb);
+  d3.select("#avgTable2").text(`${avgData2}`);
+  d3.select("#opsTable2").text(`${opsData2}`);
+  d3.select("#rTable2").text(`${rData2}`);
+  d3.select("#rbiTable2").text(`${rbiData2}`);
+  d3.select("#hrTable2").text(`${hrData2}`);
+  d3.select("#sbTable2").text(`${sbData2}`);
+
+  OGraph2(playerSelectedName2);
+  ZGraph2(playerSelectedName2);
     // gaugeChart(testSubject)22
 
     
@@ -123,37 +128,6 @@ function getSelectionHitters() {
     d3.select("#sbDIF").text(` ${sbDif}`);
 
   };
-
-  // function getSelectionHitters2() {
-    
-
-      var playerSelectedName2 = (
-        d3.select("#selDataset2").property("value") 
-      );
-  
-      //filter the dataset by the dropdown item
-      var fantasyData2 = hitter_data.filter((m) => m.name === playerSelectedName2);
-        console.log(fantasyData2)
-      // pull out the data from the dropdown item for the demographic information
-      var avgData = fantasyData2.map((m) => m.avg);
-      var opsData = fantasyData2.map((m) => m.ops);
-      var rData = fantasyData2.map((m) => m.r);
-      var rbiData = fantasyData2.map((m) => m.rbi);
-      var hrData = fantasyData2.map((m) => m.hr);
-      var sbData = fantasyData2.map((m) => m.sb);
-      d3.select("#avgTable2").text(`${avgData}`);
-      d3.select("#opsTable2").text(`${opsData}`);
-      d3.select("#rTable2").text(`${rData}`);
-      d3.select("#rbiTable2").text(`${rbiData}`);
-      d3.select("#hrTable2").text(`${hrData}`);
-      d3.select("#sbTable2").text(`${sbData}`);
-  
-      OGraph2(playerSelectedName2);
-      ZGraph2(playerSelectedName2);
-      // gaugeChart(testSubject)
-    };
-
-
 
 
 // function which creates teh bar graph and bubble charts.  bar graph is only the first 10 data points.
