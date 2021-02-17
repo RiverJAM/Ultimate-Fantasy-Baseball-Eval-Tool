@@ -36,10 +36,11 @@ mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9
 def welcome():
     return render_template('index.html')
 
+#useless comment as a placeholder
 # pitchers url
 @app.route("/pitchers")
 def pitching():
-    return render_template('pitchersdata.html')
+    return render_template('pitchers.html')
    
 # Flask route to get hitter data
 @app.route("/hittersdata")
