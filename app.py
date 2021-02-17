@@ -3,10 +3,9 @@
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
-
+import os
 from flask import Flask, render_template, redirect, jsonify
 from flask_pymongo import PyMongo
-
 import json
 from bson.objectid import ObjectId
 from bson import json_util
@@ -22,21 +21,25 @@ from flask_cors import CORS, cross_origin
 # Flask Setup
 
 app = Flask(__name__,static_url_path="/static",static_folder="static")
+app.config["MONGO_URI"] = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority"
+
 CORS(app)
 
 #Use PyMongo
-mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
+mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
 
 # Flask Routes
-# pitchers url
-@app.route("/pitchers")
-def pitching():
-    return render_template('pitchers.html')
+
 
 # hitters url: main page
 @app.route("/")
 def welcome():
     return render_template('index.html')
+
+# pitchers url
+@app.route("/pitchers")
+def pitching():
+    return render_template('pitchersdata.html')
    
 # Flask route to get hitter data
 @app.route("/hittersdata")
@@ -122,4 +125,5 @@ def pitchersDictionary():
     return (jsonify(data))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5050))
+    app.run(debug=True, host="0.0.0.0", port=port)

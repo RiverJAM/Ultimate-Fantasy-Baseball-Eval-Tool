@@ -19,6 +19,8 @@ var firstGranim = new Granim({
   }
 });
 
+
+
 fetch("/hittersdata").then(function (response) {
   console.log("Test");
   if (response.status !== 200) {
@@ -35,7 +37,7 @@ fetch("/hittersdata").then(function (response) {
         d3.select("#selDataset2").append("option").text(IDs[i]["name"]);
       }
       getSelectionHitters();
-      getSelectionHitters2();
+      getSelectionHitters();
   });
   }).catch(function (error) {
 	console.log(error);
@@ -44,7 +46,7 @@ fetch("/hittersdata").then(function (response) {
 //call getSelection at the beginning on an initial value
 
 d3.selectAll("#selDataset").on("change", getSelectionHitters);
-d3.selectAll("#selDataset2").on("change", getSelectionHitters2);
+d3.selectAll("#selDataset2").on("change", getSelectionHitters);
 // var testSubject = d3.select("#selDataset").property("value");
 
 // function which will take the value of the drop down, then create the
@@ -61,6 +63,7 @@ function getSelectionHitters() {
     var fantasyData = hitter_data.filter((m) => m.name === playerSelectedName);
       console.log(fantasyData)
     // pull out the data from the dropdown item for the demographic information
+
     var avgData = fantasyData.map((m) => m.avg);
     var opsData = fantasyData.map((m) => m.ops);
     var rData = fantasyData.map((m) => m.r);
@@ -74,14 +77,56 @@ function getSelectionHitters() {
     d3.select("#hrTable").text(`${hrData}`);
     d3.select("#sbTable").text(`${sbData}`);
 
+    
+
     OGraph(playerSelectedName);
     ZGraph(playerSelectedName);
-    // gaugeChart(testSubject)
+    
+    var playerSelectedName2 = (
+      d3.select("#selDataset2").property("value") 
+    );
+
+    //filter the dataset by the dropdown item
+    var fantasyData2 = hitter_data.filter((m) => m[0] === playerSelectedName2);
+      console.log(fantasyData2)
+    // pull out the data from the dropdown item for the demographic information
+    var avgData2 = fantasyData2.map((m) => m[5]);
+    var opsData2 = fantasyData2.map((m) => m[6]);
+    var rData2 = fantasyData2.map((m) => m[7]);
+    var rbiData2 = fantasyData2.map((m) => m[8]);
+    var hrData2 = fantasyData2.map((m) => m[9]);
+    var sbData2 = fantasyData2.map((m) => m[10]);
+    d3.select("#avgTable2").text(`BA: ${avgData2}`);
+    d3.select("#opsTable2").text(`OPS: ${opsData2}`);
+    d3.select("#rTable2").text(`Runs: ${rData2}`);
+    d3.select("#rbiTable2").text(`RBI: ${rbiData2}`);
+    d3.select("#hrTable2").text(`HR: ${hrData2}`);
+    d3.select("#sbTable2").text(`SB: ${sbData2}`);
+
+    OGraph2(playerSelectedName2);
+    ZGraph2(playerSelectedName2);
+    // gaugeChart(testSubject)22
+
+    
+    console.log("What is going on?");
+    var avgDif = avgData - avgData2;
+    var opsDif = opsData - opsData2;
+    var rDif = rData - rData2;
+    var rbiDif = rbiData - rbiData2;
+    var hrDif = hrData - hrData2;
+    var sbDif = sbData - sbData2;
+    d3.select("#avgDIF").text(`${avgDif}`);
+    d3.select("#opsDIF").text(`${opsDif}`);
+    d3.select("#rDIF").text(`${rDif}`);
+    d3.select("#rbiDIF").text(`${rbiDif} `);
+    d3.select("#hrDIF").text(` ${hrDif}`);
+    d3.select("#sbDIF").text(` ${sbDif}`);
+
   };
 
-  function getSelectionHitters2() {
-    // need to fetch our csv data using flask here
+  // function getSelectionHitters2() {
     
+
       var playerSelectedName2 = (
         d3.select("#selDataset2").property("value") 
       );
@@ -107,6 +152,8 @@ function getSelectionHitters() {
       ZGraph2(playerSelectedName2);
       // gaugeChart(testSubject)
     };
+
+
 
 
 // function which creates teh bar graph and bubble charts.  bar graph is only the first 10 data points.
