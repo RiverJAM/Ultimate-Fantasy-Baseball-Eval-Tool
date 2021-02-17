@@ -228,35 +228,43 @@
 
 
     <!-- Bar Graphs -->
-    <div class="row">
-        <div class="col-md-3">
-            <div id="Obar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar3"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar4"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="Zbar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar3"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar4"></div>
-        </div>
-    </div>
+    <!-- 2/16 edited to include Scrollspy -->
+    <!-- List showing up on top of graphs rather than on the side -->
     
+    <div id="list-example" class="list-group">
+        <a class="list-group-item list-group-item-action" href="#list-item-1">O Charts</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-2">Z Charts</a>
+    </div>
+    <div  data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+        <div class="row" id="list-item-1">
+            <div class="col-md-3">
+                <div id="Obar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Obar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Obar3"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Obar4"></div>
+            </div>
+        </div>
+        <div class="row" id="list-item-2">
+            <div class="col-md-3">
+                <div id="Zbar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Zbar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Zbar3"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Zbar4"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Speedometer Graph -->
     <div class="col-md-5">
