@@ -65,20 +65,18 @@ def hitters_data():
     data = []
     for hitter_data in list(Fan_G_hitters):
         stats = {}
-        stats["name"] = hitter_data.get("name", {})
-        print(stats["name"])
-        stats["o_swing"] = hitter_data.get("o_swingpercen", {})
-        stats["o_contact"] = hitter_data.get("o_contactpercen", {})
-        stats["z_swing"] = hitter_data.get("z_swingpercen", {})
-        stats["z_contact"] = hitter_data.get("z_contactpercen", {})
-        stats["avg"] = hitter_data.get("avg", {})
-        stats["ops"] = hitter_data.get("ops", {})
-        stats["r"] = hitter_data.get("r", {})
-        stats["rbi"] = hitter_data.get("rbi", {})
-        stats["hr"] = hitter_data.get("hr", {})
-        stats["sb"] = hitter_data.get("sb", {})
+        stats["name_2018"] = hitter_data.get("name", {})
+        stats["o_swing_2018"] = hitter_data.get("o_swingpercen", {})
+        stats["o_contact_2018"] = hitter_data.get("o_contactpercen", {})
+        stats["z_swing_2018"] = hitter_data.get("z_swingpercen", {})
+        stats["z_contact_2018"] = hitter_data.get("z_contactpercen", {})
+        stats["avg_2018"] = hitter_data.get("avg", {})
+        stats["ops_2018"] = hitter_data.get("ops", {})
+        stats["r_2018"] = hitter_data.get("r", {})
+        stats["rbi_2018"] = hitter_data.get("rbi", {})
+        stats["hr_2018"] = hitter_data.get("hr", {})
+        stats["sb_2018"] = hitter_data.get("sb", {})
         data.append(stats)
-
         # name_dict.get('O-Swing%', {}),
         # name_dict.get('O-Contact%', {}),
         # name_dict.get('Z-Swing%', {}),

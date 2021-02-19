@@ -41,7 +41,7 @@ fetch("/hittersdropdown").then(function (response) {
     fetch("/hittersdata").then(function (res) {
       res.json().then(function (data) {
         hitter_data = data;
-        console.log(data)
+        // console.log(data)
         
       }
       )
@@ -72,23 +72,21 @@ function getSelectionHitters() {
   );
 
   //filter the dataset by the dropdown item
-  var fantasyData = hitter_data.filter((m) => m.name === playerSelectedName);
-  console.log(fantasyData)
+  var fantasyData_2018 = hitter_data.filter((m) => m.name_2018 === playerSelectedName);
   // pull out the data from the dropdown item for the demographic information
 
-  var avgData = fantasyData.map((m) => m.avg_2018);
-  console.log("Test2")
-  var opsData = fantasyData.map((m) => m.ops_2018);
-  var rData = fantasyData.map((m) => m.r_2018);
-  var rbiData = fantasyData.map((m) => m.rbi_2018);
-  var hrData = fantasyData.map((m) => m.hr_2018);
-  var sbData = fantasyData.map((m) => m.sb_2018);
-  d3.select("#avgTable_2018").text(`${avgData}`);
-  d3.select("#opsTable_2018").text(`${opsData}`);
-  d3.select("#rTable_2018").text(`${rData}`);
-  d3.select("#rbiTable_2018").text(`${rbiData}`);
-  d3.select("#hrTable_2018").text(`${hrData}`);
-  d3.select("#sbTable_2018git ").text(`${sbData}`);
+  var avgData_2018 = fantasyData_2018.map((m) => m.avg_2018);
+  var opsData_2018 = fantasyData_2018.map((m) => m.ops_2018);
+  var rData_2018 = fantasyData_2018.map((m) => m.r_2018);
+  var rbiData_2018 = fantasyData_2018.map((m) => m.rbi_2018);
+  var hrData_2018 = fantasyData_2018.map((m) => m.hr_2018);
+  var sbData_2018 = fantasyData_2018.map((m) => m.sb_2018);
+  d3.select("#avgTable_2018").text(`${avgData_2018}`);
+  d3.select("#opsTable_2018").text(`${opsData_2018}`);
+  d3.select("#rTable_2018").text(`${rData_2018}`);
+  d3.select("#rbiTable_2018").text(`${rbiData_2018}`);
+  d3.select("#hrTable_2018").text(`${hrData_2018}`);
+  d3.select("#sbTable_2018").text(`${sbData_2018}`);
 
 
 
@@ -100,45 +98,41 @@ function getSelectionHitters() {
   );
 
   //filter the dataset by the dropdown item
-  var fantasyData2 = hitter_data.filter((m) => m[0] === playerSelectedName2);
-  console.log(fantasyData2)
+  var fantasyData_2018_2 = hitter_data.filter((m) => m.name_2018 === playerSelectedName2);
+  console.log(fantasyData_2018_2)
   // pull out the data from the dropdown item for the demographic information
 
-
-  var fantasyData2 = hitter_data.filter((m) => m.name === playerSelectedName2);
-  console.log(fantasyData2)
-  // pull out the data from the dropdown item for the demographic information
-  var avgData2 = fantasyData2.map((m) => m.avg);
-  var opsData2 = fantasyData2.map((m) => m.ops);
-  var rData2 = fantasyData2.map((m) => m.r);
-  var rbiData2 = fantasyData2.map((m) => m.rbi);
-  var hrData2 = fantasyData2.map((m) => m.hr);
-  var sbData2 = fantasyData2.map((m) => m.sb);
-  d3.select("#avgTable2").text(`${avgData2}`);
-  d3.select("#opsTable2").text(`${opsData2}`);
-  d3.select("#rTable2").text(`${rData2}`);
-  d3.select("#rbiTable2").text(`${rbiData2}`);
-  d3.select("#hrTable2").text(`${hrData2}`);
-  d3.select("#sbTable2").text(`${sbData2}`);
+  var avgData_2018_2 = fantasyData_2018_2.map((m) => m.avg_2018);
+  var opsData_2018_2 = fantasyData_2018_2.map((m) => m.ops_2018);
+  var rData_2018_2 = fantasyData_2018_2.map((m) => m.r_2018);
+  var rbiData_2018_2 = fantasyData_2018_2.map((m) => m.rbi_2018);
+  var hrData_2018_2 = fantasyData_2018_2.map((m) => m.hr_2018);
+  var sbData_2018_2 = fantasyData_2018_2.map((m) => m.sb_2018);
+  d3.select("#avgTable_2018_2").text(`${avgData_2018_2}`);
+  d3.select("#opsTable_2018_2").text(`${opsData_2018_2}`);
+  d3.select("#rTable_2018_2").text(`${rData_2018_2}`);
+  d3.select("#rbiTable_2018_2").text(`${rbiData_2018_2}`);
+  d3.select("#hrTable_2018_2").text(`${hrData_2018_2}`);
+  d3.select("#sbTable_2018_2").text(`${sbData_2018_2}`);
 
   OGraph2(playerSelectedName2);
   ZGraph2(playerSelectedName2);
   // gaugeChart(testSubject)22
 
 
-  console.log("What is going on?");
-  var avgDif = avgData - avgData2;
-  var opsDif = opsData - opsData2;
-  var rDif = rData - rData2;
-  var rbiDif = rbiData - rbiData2;
-  var hrDif = hrData - hrData2;
-  var sbDif = sbData - sbData2;
-  d3.select("#avgDIF").text(`${avgDif}`);
-  d3.select("#opsDIF").text(`${opsDif}`);
-  d3.select("#rDIF").text(`${rDif}`);
-  d3.select("#rbiDIF").text(`${rbiDif} `);
-  d3.select("#hrDIF").text(` ${hrDif}`);
-  d3.select("#sbDIF").text(` ${sbDif}`);
+  // console.log("What is going on?");
+  // var avgDif = avgData - avgData2;
+  // var opsDif = opsData - opsData2;
+  // var rDif = rData - rData2;
+  // var rbiDif = rbiData - rbiData2;
+  // var hrDif = hrData - hrData2;
+  // var sbDif = sbData - sbData2;
+  // d3.select("#avgDIF").text(`${avgDif}`);
+  // d3.select("#opsDIF").text(`${opsDif}`);
+  // d3.select("#rDIF").text(`${rDif}`);
+  // d3.select("#rbiDIF").text(`${rbiDif} `);
+  // d3.select("#hrDIF").text(` ${hrDif}`);
+  // d3.select("#sbDIF").text(` ${sbDif}`);
 
 };
 
