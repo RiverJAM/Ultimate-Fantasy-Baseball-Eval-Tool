@@ -1,6 +1,7 @@
 # this code will utilize flask to pull data from a mongo db for the website
 # it also creates the webpages themselves.  several toolkits need to be imported
 
+import dns
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 import os
@@ -23,13 +24,14 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__,static_url_path="/static",static_folder="static")
 app.config["MONGO_URI"] = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority"
 
+
 CORS(app)
 
 #Use PyMongo
-mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
+# mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
 # Flask Routes
-
 
 # hitters url: main page
 @app.route("/")
@@ -41,27 +43,40 @@ def welcome():
 @app.route("/pitchers")
 def pitching():
     return render_template('pitchers.html')
-   
+
+@app.route("/hittersdropdown")
+def hitters_list():
+    hitters_dd = mongo.db.dropdown_hitters.find( {},
+    {'name': 1})
+    names = []
+    for name in list(hitters_dd):
+        name_list = {}
+        name_list["name"] = name.get("name", {})
+        names.append(name_list)
+    # print(name_list)
+    return (jsonify(names))
+
 # Flask route to get hitter data
 @app.route("/hittersdata")
-def hello():
-    Fan_G_hitters = mongo.db.Fangraphs_hitters.find( { }, 
-    {"Name": 1, 'O-Swing%': 1, 'O-Contact%': 1, 'Z-Swing%': 1, 'Z-Contact%':1,
-    'AVG': 1, 'OPS': 1, 'R': 1, 'RBI': 1, 'HR': 1, 'SB': 1})
+def hitters_data():
+    Fan_G_hitters = mongo.db.pybaseball_hitters_2018.find( { },
+    {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
+    'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1})
     data = []
     for hitter_data in list(Fan_G_hitters):
         stats = {}
-        stats["name"] = hitter_data.get("Name", {})
-        stats["o_swing"] = hitter_data.get("O-Swing%", {})
-        stats["o_contact"] = hitter_data.get("O-Contact%", {})
-        stats["z_swing"] = hitter_data.get("Z-Swing%", {})
-        stats["z_contact"] = hitter_data.get("Z-Contact%", {})
-        stats["avg"] = hitter_data.get("AVG", {})
-        stats["ops"] = hitter_data.get("OPS", {})
-        stats["r"] = hitter_data.get("R", {})
-        stats["rbi"] = hitter_data.get("RBI", {})
-        stats["hr"] = hitter_data.get("HR", {})
-        stats["sb"] = hitter_data.get("SB", {})
+        stats["name"] = hitter_data.get("name", {})
+        print(stats["name"])
+        stats["o_swing"] = hitter_data.get("o_swingpercen", {})
+        stats["o_contact"] = hitter_data.get("o_contactpercen", {})
+        stats["z_swing"] = hitter_data.get("z_swingpercen", {})
+        stats["z_contact"] = hitter_data.get("z_contactpercen", {})
+        stats["avg"] = hitter_data.get("avg", {})
+        stats["ops"] = hitter_data.get("ops", {})
+        stats["r"] = hitter_data.get("r", {})
+        stats["rbi"] = hitter_data.get("rbi", {})
+        stats["hr"] = hitter_data.get("hr", {})
+        stats["sb"] = hitter_data.get("sb", {})
         data.append(stats)
 
         # name_dict.get('O-Swing%', {}),
@@ -127,4 +142,4 @@ def pitchersDictionary():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5050))
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(debug=True, host="localhost", port=port)

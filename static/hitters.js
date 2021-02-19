@@ -21,27 +21,39 @@ var firstGranim = new Granim({
 
 
 
-fetch("/hittersdata").then(function (response) {
-  console.log("Test");
+fetch("/hittersdropdown").then(function (response) {
+  // console.log("Test");
   if (response.status !== 200) {
     console.log(
       "Looks like there was a problem. Status Code: " + response.status
     );
     return;
   }
-  response.json().then(function (data) {
-      hitter_data = data;
-      var IDs = Object.values(data);
-      for (i = 0; i < IDs.length; i++) {
-        d3.select("#selDataset").append("option").text(IDs[i]["name"]);
-        d3.select("#selDataset2").append("option").text(IDs[i]["name"]);
+  response.json().then(function (hitters_list) {
+  
+    var IDs = Object.values(hitters_list);
+    for (i = 0; i < IDs.length; i++) {
+      d3.select("#selDataset").append("option").text(IDs[i]["name"]);
+      d3.select("#selDataset2").append("option").text(IDs[i]["name"]);
+    }
+
+    getSelectionHitters()
+    fetch("/hittersdata").then(function (res) {
+      res.json().then(function (data) {
+        hitter_data = data;
+        console.log(data)
+        
       }
-      getSelectionHitters();
-      getSelectionHitters();
+      )
+    }).catch(function (error) {
+      console.log(error);
+    });
+
+
   });
-  }).catch(function (error) {
-	console.log(error);
-}); 
+}).catch(function (error) {
+  console.log(error);
+});
 
 //call getSelection at the beginning on an initial value
 
@@ -54,46 +66,47 @@ d3.selectAll("#selDataset2").on("change", getSelectionHitters);
 
 function getSelectionHitters() {
   // need to fetch our csv data using flask here
-  
-    var playerSelectedName = (
-      d3.select("#selDataset").property("value") 
-    );
 
-    //filter the dataset by the dropdown item
-    var fantasyData = hitter_data.filter((m) => m.name === playerSelectedName);
-      console.log(fantasyData)
-    // pull out the data from the dropdown item for the demographic information
+  var playerSelectedName = (
+    d3.select("#selDataset").property("value")
+  );
 
-    var avgData = fantasyData.map((m) => m.avg);
-    var opsData = fantasyData.map((m) => m.ops);
-    var rData = fantasyData.map((m) => m.r);
-    var rbiData = fantasyData.map((m) => m.rbi);
-    var hrData = fantasyData.map((m) => m.hr);
-    var sbData = fantasyData.map((m) => m.sb);
-    d3.select("#avgTable").text(`${avgData}`);
-    d3.select("#opsTable").text(`${opsData}`);
-    d3.select("#rTable").text(`${rData}`);
-    d3.select("#rbiTable").text(`${rbiData}`);
-    d3.select("#hrTable").text(`${hrData}`);
-    d3.select("#sbTable").text(`${sbData}`);
+  //filter the dataset by the dropdown item
+  var fantasyData = hitter_data.filter((m) => m.name === playerSelectedName);
+  console.log(fantasyData)
+  // pull out the data from the dropdown item for the demographic information
 
-    
-
-    OGraph(playerSelectedName);
-    ZGraph(playerSelectedName);
-    
-    var playerSelectedName2 = (
-      d3.select("#selDataset2").property("value") 
-    );
-
-    //filter the dataset by the dropdown item
-    var fantasyData2 = hitter_data.filter((m) => m[0] === playerSelectedName2);
-      console.log(fantasyData2)
-    // pull out the data from the dropdown item for the demographic information
+  var avgData = fantasyData.map((m) => m.avg_2018);
+  console.log("Test2")
+  var opsData = fantasyData.map((m) => m.ops_2018);
+  var rData = fantasyData.map((m) => m.r_2018);
+  var rbiData = fantasyData.map((m) => m.rbi_2018);
+  var hrData = fantasyData.map((m) => m.hr_2018);
+  var sbData = fantasyData.map((m) => m.sb_2018);
+  d3.select("#avgTable_2018").text(`${avgData}`);
+  d3.select("#opsTable_2018").text(`${opsData}`);
+  d3.select("#rTable_2018").text(`${rData}`);
+  d3.select("#rbiTable_2018").text(`${rbiData}`);
+  d3.select("#hrTable_2018").text(`${hrData}`);
+  d3.select("#sbTable_2018git ").text(`${sbData}`);
 
 
-    var fantasyData2 = hitter_data.filter((m) => m.name === playerSelectedName2);
-    console.log(fantasyData2)
+
+  OGraph(playerSelectedName);
+  ZGraph(playerSelectedName);
+
+  var playerSelectedName2 = (
+    d3.select("#selDataset2").property("value")
+  );
+
+  //filter the dataset by the dropdown item
+  var fantasyData2 = hitter_data.filter((m) => m[0] === playerSelectedName2);
+  console.log(fantasyData2)
+  // pull out the data from the dropdown item for the demographic information
+
+
+  var fantasyData2 = hitter_data.filter((m) => m.name === playerSelectedName2);
+  console.log(fantasyData2)
   // pull out the data from the dropdown item for the demographic information
   var avgData2 = fantasyData2.map((m) => m.avg);
   var opsData2 = fantasyData2.map((m) => m.ops);
@@ -110,24 +123,24 @@ function getSelectionHitters() {
 
   OGraph2(playerSelectedName2);
   ZGraph2(playerSelectedName2);
-    // gaugeChart(testSubject)22
+  // gaugeChart(testSubject)22
 
-    
-    console.log("What is going on?");
-    var avgDif = avgData - avgData2;
-    var opsDif = opsData - opsData2;
-    var rDif = rData - rData2;
-    var rbiDif = rbiData - rbiData2;
-    var hrDif = hrData - hrData2;
-    var sbDif = sbData - sbData2;
-    d3.select("#avgDIF").text(`${avgDif}`);
-    d3.select("#opsDIF").text(`${opsDif}`);
-    d3.select("#rDIF").text(`${rDif}`);
-    d3.select("#rbiDIF").text(`${rbiDif} `);
-    d3.select("#hrDIF").text(` ${hrDif}`);
-    d3.select("#sbDIF").text(` ${sbDif}`);
 
-  };
+  console.log("What is going on?");
+  var avgDif = avgData - avgData2;
+  var opsDif = opsData - opsData2;
+  var rDif = rData - rData2;
+  var rbiDif = rbiData - rbiData2;
+  var hrDif = hrData - hrData2;
+  var sbDif = sbData - sbData2;
+  d3.select("#avgDIF").text(`${avgDif}`);
+  d3.select("#opsDIF").text(`${opsDif}`);
+  d3.select("#rDIF").text(`${rDif}`);
+  d3.select("#rbiDIF").text(`${rbiDif} `);
+  d3.select("#hrDIF").text(` ${hrDif}`);
+  d3.select("#sbDIF").text(` ${sbDif}`);
+
+};
 
 
 // function which creates teh bar graph and bubble charts.  bar graph is only the first 10 data points.
@@ -136,54 +149,56 @@ function OGraph(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-    let swingValues = hitter_data.filter((m) => m.name === playerSelected);
-    console.log(swingValues)
-    let playerOSwingValues = swingValues.map((m) => m.o_swing);
-    OSwingValues = [playerOSwingValues[0], .320]
-    console.log(OSwingValues)
+  let swingValues = hitter_data.filter((m) => m.name === playerSelected);
+  console.log(swingValues)
+  let playerOSwingValues = swingValues.map((m) => m.o_swing);
+  OSwingValues = [playerOSwingValues[0], .320]
+  console.log(OSwingValues)
 
-    // bar graph the results
-    var trace1 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: OSwingValues,
-        type: "bar",
-        hoverinfo: 'none',
-        marker:{
-          color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
-        },
-        text: OSwingValues.map(String),
-        textposition: 'auto',
+  // bar graph the results
+  var trace1 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: OSwingValues,
+      type: "bar",
+      hoverinfo: 'none',
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)'],
       },
-    ];
-    var layout = {title: "O-Swing %", yaxis: {
-                range: [0, 1]
-                }}
-    Plotly.newPlot("Obar", trace1, layout);
-    
-    // O-contact data for the first hitter
-    let o_contactValues = hitter_data.filter((m) => m.name === playerSelected);
-    console.log(o_contactValues)
-    let playerOContactValues = o_contactValues.map((m) => m.o_contact);
-    OContactValues = [playerOContactValues[0], .630]
-    console.log(OContactValues)
+      text: OSwingValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {
+    title: "O-Swing %", yaxis: {
+      range: [0, 1]
+    }
+  }
+  Plotly.newPlot("Obar", trace1, layout);
 
-    // bar graph the results
-    var trace2 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: OContactValues,
-        type: "bar",
-        marker:{
-          color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
-        },
-        text: OContactValues.map(String),
-        textposition: 'auto',
+  // O-contact data for the first hitter
+  let o_contactValues = hitter_data.filter((m) => m.name === playerSelected);
+  console.log(o_contactValues)
+  let playerOContactValues = o_contactValues.map((m) => m.o_contact);
+  OContactValues = [playerOContactValues[0], .630]
+  console.log(OContactValues)
+
+  // bar graph the results
+  var trace2 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: OContactValues,
+      type: "bar",
+      marker: {
+        color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
       },
-    ];
-    var layout2 = {title: "O-Contact %", yaxis: {range: [0, 1]}}
-    Plotly.newPlot("Obar2", trace2, layout2);
-  
+      text: OContactValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout2 = { title: "O-Contact %", yaxis: { range: [0, 1] } }
+  Plotly.newPlot("Obar2", trace2, layout2);
+
 };
 
 // function which creates teh bar graph for Z-values.  
@@ -192,101 +207,101 @@ function ZGraph(playerSelected) {
 
   // first player z-swing data
 
-    let z_swingValues = hitter_data.filter((m) => m.name === playerSelected);
-    let playerZSwingValues = z_swingValues.map((m) => m.z_swing);
-    ZSwingValues = [playerZSwingValues[0], .690]
+  let z_swingValues = hitter_data.filter((m) => m.name === playerSelected);
+  let playerZSwingValues = z_swingValues.map((m) => m.z_swing);
+  ZSwingValues = [playerZSwingValues[0], .690]
 
-    // bar graph Z-swing results first player
-    var trace1 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: ZSwingValues,
-        type: "bar",
-        marker:{
-          color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ]
-        },
-        text: ZSwingValues.map(String),
-        textposition: 'auto',
+  // bar graph Z-swing results first player
+  var trace1 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: ZSwingValues,
+      type: "bar",
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)']
       },
-    ];
-    var layout = {title: "Z-Swing %", yaxis: {range: [0, 1]}}
-    Plotly.newPlot("Zbar", trace1, layout);
+      text: ZSwingValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = { title: "Z-Swing %", yaxis: { range: [0, 1] } }
+  Plotly.newPlot("Zbar", trace1, layout);
 
-    // Z-contact values for first player
-    let z_contactValues = hitter_data.filter((m) => m.name === playerSelected);
-    let playerZContactValues = z_contactValues.map((m) => m.z_contact);
-    ZContactValues = [playerZContactValues[0], .630]
+  // Z-contact values for first player
+  let z_contactValues = hitter_data.filter((m) => m.name === playerSelected);
+  let playerZContactValues = z_contactValues.map((m) => m.z_contact);
+  ZContactValues = [playerZContactValues[0], .630]
 
-    // bar graph the z-contact results
-    var trace2 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: ZContactValues,
-        type: "bar",
-        marker:{
-          color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
-        },
-        text: ZContactValues.map(String),
-        textposition: 'auto',
+  // bar graph the z-contact results
+  var trace2 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: ZContactValues,
+      type: "bar",
+      marker: {
+        color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
       },
-    ];
-    var layout2 = {title: "Z-Contact %", yaxis: {range: [0, 1]}}
-    Plotly.newPlot("Zbar2", trace2, layout2);
-  
+      text: ZContactValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout2 = { title: "Z-Contact %", yaxis: { range: [0, 1] } }
+  Plotly.newPlot("Zbar2", trace2, layout2);
+
 };
 
 
-  // second player o-swing graph
+// second player o-swing graph
 function OGraph2(playerSelected) {
   console.log(playerSelected);
 
   // create an array of the values filtered by the drop-down selection
   // for o-swing
-    let swingValues = hitter_data.filter((m) => m.name === playerSelected);
-    console.log(swingValues)
-    let playerOSwingValues = swingValues.map((m) => m.o_swing);
-    OSwingValues = [playerOSwingValues[0], .320]
-    console.log(OSwingValues)
+  let swingValues = hitter_data.filter((m) => m.name === playerSelected);
+  console.log(swingValues)
+  let playerOSwingValues = swingValues.map((m) => m.o_swing);
+  OSwingValues = [playerOSwingValues[0], .320]
+  console.log(OSwingValues)
 
-    // bar graph the o-swing results
-    var trace1 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: OSwingValues,
-        type: "bar",
-        marker:{
-          color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ]
-        },
-        text: OSwingValues.map(String),
-        textposition: 'auto',
+  // bar graph the o-swing results
+  var trace1 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: OSwingValues,
+      type: "bar",
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)']
       },
-    ];
-    var layout = {title: "O-Swing %", yaxis: {range: [0, 1]}}
-    Plotly.newPlot("Obar3", trace1, layout);
+      text: OSwingValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = { title: "O-Swing %", yaxis: { range: [0, 1] } }
+  Plotly.newPlot("Obar3", trace1, layout);
 
-    // o-contact data for second player
-    let o_contactValues = hitter_data.filter((m) => m.name === playerSelected);
-    console.log(o_contactValues)
-    let playerOContactValues = o_contactValues.map((m) => m.o_contact);
-    OContactValues = [playerOContactValues[0], .630]
-    console.log(OContactValues)
+  // o-contact data for second player
+  let o_contactValues = hitter_data.filter((m) => m.name === playerSelected);
+  console.log(o_contactValues)
+  let playerOContactValues = o_contactValues.map((m) => m.o_contact);
+  OContactValues = [playerOContactValues[0], .630]
+  console.log(OContactValues)
 
-    // bar graph the o-swing results
-    var trace2 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: OContactValues,
-        type: "bar",
-        marker:{
-          color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
-        },
-        text: OContactValues.map(String),
-        textposition: 'auto',
+  // bar graph the o-swing results
+  var trace2 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: OContactValues,
+      type: "bar",
+      marker: {
+        color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
       },
-    ];
-    var layout2 = {title: "O-Contact %", yaxis: {range: [0, 1]}}
-    Plotly.newPlot("Obar4", trace2, layout2);
-  
+      text: OContactValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout2 = { title: "O-Contact %", yaxis: { range: [0, 1] } }
+  Plotly.newPlot("Obar4", trace2, layout2);
+
 };
 
 function ZGraph2(playerSelected) {
@@ -294,50 +309,50 @@ function ZGraph2(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-    let z_swingValues = hitter_data.filter((m) => m.name === playerSelected);
-    console.log(z_swingValues)
-    let playerZSwingValues = z_swingValues.map((m) => m.z_swing);
-    ZSwingValues = [playerZSwingValues[0], .690]
-    console.log(ZSwingValues)
+  let z_swingValues = hitter_data.filter((m) => m.name === playerSelected);
+  console.log(z_swingValues)
+  let playerZSwingValues = z_swingValues.map((m) => m.z_swing);
+  ZSwingValues = [playerZSwingValues[0], .690]
+  console.log(ZSwingValues)
 
-    // bar graph the results
-    var trace1 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: ZSwingValues,
-        type: "bar",
-        marker:{
-          color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ]
-        },
-        text: ZSwingValues.map(String),
-        textposition: 'auto',
+  // bar graph the results
+  var trace1 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: ZSwingValues,
+      type: "bar",
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)']
       },
-    ];
-    var layout = {title: "Z-Swing %", yaxis: {range: [0, 1]}}
-    Plotly.newPlot("Zbar3", trace1, layout);
+      text: ZSwingValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = { title: "Z-Swing %", yaxis: { range: [0, 1] } }
+  Plotly.newPlot("Zbar3", trace1, layout);
 
-    // Z-contact values for second player
-    let z_contactValues2 = hitter_data.filter((m) => m.name === playerSelected);
-    console.log(z_contactValues2)
-    let playerZContactValues2 = z_contactValues2.map((m) => m.z_contact);
-    ZContactValues2 = [playerZContactValues2[0], .630]
-    console.log(ZContactValues2)
+  // Z-contact values for second player
+  let z_contactValues2 = hitter_data.filter((m) => m.name === playerSelected);
+  console.log(z_contactValues2)
+  let playerZContactValues2 = z_contactValues2.map((m) => m.z_contact);
+  ZContactValues2 = [playerZContactValues2[0], .630]
+  console.log(ZContactValues2)
 
-    // bar graph the results
-    var trace2 = [
-      {
-        x: [playerSelected, "League Average"],
-        y: ZContactValues2,
-        type: "bar",
-        marker:{
-          color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
-        },
-        text: ZContactValues2.map(String),
-        textposition: 'auto',
+  // bar graph the results
+  var trace2 = [
+    {
+      x: [playerSelected, "League Average"],
+      y: ZContactValues2,
+      type: "bar",
+      marker: {
+        color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
       },
-    ];
-    var layout2 = {title: "Z-Contact %", yaxis: {range: [0, 1]}}
-    Plotly.newPlot("Zbar4", trace2, layout2);
-  
+      text: ZContactValues2.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout2 = { title: "Z-Contact %", yaxis: { range: [0, 1] } }
+  Plotly.newPlot("Zbar4", trace2, layout2);
+
 };
 
