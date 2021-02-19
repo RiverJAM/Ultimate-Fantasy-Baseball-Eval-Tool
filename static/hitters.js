@@ -73,7 +73,7 @@ function getSelectionHitters() {
 
   //filter the dataset by the dropdown item
   var fantasyData_2018 = hitter_data.filter((m) => m.name_2018 === playerSelectedName);
-  // pull out the data from the dropdown item for the demographic information
+  // pull out the data from the dropdown item for the basic hitting information
 
   var avgData_2018 = fantasyData_2018.map((m) => m.avg_2018);
   var opsData_2018 = fantasyData_2018.map((m) => m.ops_2018);
@@ -88,7 +88,44 @@ function getSelectionHitters() {
   d3.select("#hrTable_2018").text(`${hrData_2018}`);
   d3.select("#sbTable_2018").text(`${sbData_2018}`);
 
+  var fantasyData_2019 = hitter_data.filter((m) => m.name_2019 === playerSelectedName);
+  // pull out the data from the dropdown item for the basic hitting information
 
+  var avgData_2019 = fantasyData_2019.map((m) => m.avg_2019);
+  var opsData_2019 = fantasyData_2019.map((m) => m.ops_2019);
+  var rData_2019 = fantasyData_2019.map((m) => m.r_2019);
+  var rbiData_2019 = fantasyData_2019.map((m) => m.rbi_2019);
+  var hrData_2019 = fantasyData_2019.map((m) => m.hr_2019);
+  var sbData_2019 = fantasyData_2019.map((m) => m.sb_2019);
+  d3.select("#avgTable_2019").text(`${avgData_2019}`);
+  d3.select("#opsTable_2019").text(`${opsData_2019}`);
+  d3.select("#rTable_2019").text(`${rData_2019}`);
+  d3.select("#rbiTable_2019").text(`${rbiData_2019}`);
+  d3.select("#hrTable_2019").text(`${hrData_2019}`);
+  d3.select("#sbTable_2019").text(`${sbData_2019}`);
+
+  var fantasyData_2020 = hitter_data.filter((m) => m.name_2020 === playerSelectedName);
+  // pull out the data from the dropdown item for the basic hitting information
+
+  var avgData_2020 = fantasyData_2020.map((m) => m.avg_2020);
+  var opsData_2020 = fantasyData_2020.map((m) => m.ops_2020);
+  var rData_2020 = fantasyData_2020.map((m) => m.r_2020);
+  var rbiData_2020 = fantasyData_2020.map((m) => m.rbi_2020);
+  var hrData_2020 = fantasyData_2020.map((m) => m.hr_2020);
+  var sbData_2020 = fantasyData_2020.map((m) => m.sb_2020);
+  d3.select("#avgTable_2020").text(`${avgData_2020}`);
+  d3.select("#opsTable_2020").text(`${opsData_2020}`);
+  d3.select("#rTable_2020").text(`${rData_2020}`);
+  d3.select("#rbiTable_2020").text(`${rbiData_2020}`);
+  d3.select("#hrTable_2020").text(`${hrData_2020}`);
+  d3.select("#sbTable_2020").text(`${sbData_2020}`);
+
+
+
+// tables for the extended data, 
+
+
+  
 
   OGraph(playerSelectedName);
   ZGraph(playerSelectedName);
@@ -114,6 +151,38 @@ function getSelectionHitters() {
   d3.select("#rbiTable_2018_2").text(`${rbiData_2018_2}`);
   d3.select("#hrTable_2018_2").text(`${hrData_2018_2}`);
   d3.select("#sbTable_2018_2").text(`${sbData_2018_2}`);
+
+  var fantasyData_2019_2 = hitter_data.filter((m) => m.name_2019 === playerSelectedName);
+  // pull out the data from the dropdown item for the demographic information
+
+  var avgData_2019_2 = fantasyData_2019_2.map((m) => m.avg_2019);
+  var opsData_2019_2 = fantasyData_2019_2.map((m) => m.ops_2019);
+  var rData_2019_2 = fantasyData_2019_2.map((m) => m.r_2019);
+  var rbiData_2019_2 = fantasyData_2019_2.map((m) => m.rbi_2019);
+  var hrData_2019_2 = fantasyData_2019_2.map((m) => m.hr_2019);
+  var sbData_2019_2 = fantasyData_2019_2.map((m) => m.sb_2019);
+  d3.select("#avgTable_2019_2").text(`${avgData_2019_2}`);
+  d3.select("#opsTable_2019_2").text(`${opsData_2019_2}`);
+  d3.select("#rTable_2019_2").text(`${rData_2019_2}`);
+  d3.select("#rbiTable_2019_2").text(`${rbiData_2019_2}`);
+  d3.select("#hrTable_2019_2").text(`${hrData_2019_2}`);
+  d3.select("#sbTable_2019_2").text(`${sbData_2019_2}`);
+
+  var fantasyData_2020_2 = hitter_data.filter((m) => m.name_2020 === playerSelectedName);
+  // pull out the data from the dropdown item for the demographic information
+
+  var avgData_2020_2 = fantasyData_2020_2.map((m) => m.avg_2020);
+  var opsData_2020_2 = fantasyData_2020_2.map((m) => m.ops_2020);
+  var rData_2020_2 = fantasyData_2020_2.map((m) => m.r_2020);
+  var rbiData_2020_2 = fantasyData_2020_2.map((m) => m.rbi_2020);
+  var hrData_2020_2 = fantasyData_2020_2.map((m) => m.hr_2020);
+  var sbData_2020_2 = fantasyData_2020_2.map((m) => m.sb_2020);
+  d3.select("#avgTable_2020_2").text(`${avgData_2020_2}`);
+  d3.select("#opsTable_2020_2").text(`${opsData_2020_2}`);
+  d3.select("#rTable_2020_2").text(`${rData_2020_2}`);
+  d3.select("#rbiTable_2020_2").text(`${rbiData_2020_2}`);
+  d3.select("#hrTable_2020_2").text(`${hrData_2020_2}`);
+  d3.select("#sbTable_2020_2").text(`${sbData_2020_2}`);
 
   OGraph2(playerSelectedName2);
   ZGraph2(playerSelectedName2);

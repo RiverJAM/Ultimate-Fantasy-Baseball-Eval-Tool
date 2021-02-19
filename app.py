@@ -59,11 +59,12 @@ def hitters_list():
 # Flask route to get hitter data
 @app.route("/hittersdata")
 def hitters_data():
-    Fan_G_hitters = mongo.db.pybaseball_hitters_2018.find( { },
+    pyball_hitters_2018 = mongo.db.pybaseball_hitters_2018.find( { },
     {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
-    'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1})
+    'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1, 'pa': 1, 'kpercen': 1,
+    'bbpercen':1, 'iffbpercen': 1})
     data = []
-    for hitter_data in list(Fan_G_hitters):
+    for hitter_data in list(pyball_hitters_2018):
         stats = {}
         stats["name_2018"] = hitter_data.get("name", {})
         stats["o_swing_2018"] = hitter_data.get("o_swingpercen", {})
@@ -76,17 +77,52 @@ def hitters_data():
         stats["rbi_2018"] = hitter_data.get("rbi", {})
         stats["hr_2018"] = hitter_data.get("hr", {})
         stats["sb_2018"] = hitter_data.get("sb", {})
+        stats["pa_2018"] = hitter_data.get("pa", {})
+        stats["kpercen_2018"] = hitter_data.get("kpercen", {})
+        stats["bbpercen_2018"] = hitter_data.get("bbpercen", {})
+        stats["iffbpercen_2018"] = hitter_data.get("iffbpercen", {})
         data.append(stats)
-        # name_dict.get('O-Swing%', {}),
-        # name_dict.get('O-Contact%', {}),
-        # name_dict.get('Z-Swing%', {}),
-        # name_dict.get('Z-Contact%', {}),
-        # name_dict.get('AVG', {}),
-        # name_dict.get('OPS', {}),
-        # name_dict.get('R', {}),
-        # name_dict.get('RBI', {}),
-        # name_dict.get('HR', {}),
-        # name_dict.get('SB', {}),) for name_dict in list(Fan_G_hitters)]
+        print(stats)
+
+    pyball_hitters_2019 = mongo.db.pybaseball_hitters_2019.find( { },
+    {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
+    'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1, 'pa': 1, 'kpercen': 1,
+    'bbpercen':1, 'iffbpercen': 1})
+    for hitter_data in list(pyball_hitters_2019):
+        stats = {}
+        stats["name_2019"] = hitter_data.get("name", {})
+        stats["o_swing_2019"] = hitter_data.get("o_swingpercen", {})
+        stats["o_contact_2019"] = hitter_data.get("o_contactpercen", {})
+        stats["z_swing_2019"] = hitter_data.get("z_swingpercen", {})
+        stats["z_contact_2019"] = hitter_data.get("z_contactpercen", {})
+        stats["avg_2019"] = hitter_data.get("avg", {})
+        stats["ops_2019"] = hitter_data.get("ops", {})
+        stats["r_2019"] = hitter_data.get("r", {})
+        stats["rbi_2019"] = hitter_data.get("rbi", {})
+        stats["hr_2019"] = hitter_data.get("hr", {})
+        stats["sb_2019"] = hitter_data.get("sb", {})
+        data.append(stats)
+
+    pyball_hitters_2020 = mongo.db.pybaseball_hitters_2020.find( { },
+    {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
+    'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1, 'pa': 1, 'kpercen': 1,
+    'bbpercen':1, 'iffbpercen': 1})
+    for hitter_data in list(pyball_hitters_2020):
+        stats = {}
+        stats["name_2020"] = hitter_data.get("name", {})
+        stats["o_swing_2020"] = hitter_data.get("o_swingpercen", {})
+        stats["o_contact_2020"] = hitter_data.get("o_contactpercen", {})
+        stats["z_swing_2020"] = hitter_data.get("z_swingpercen", {})
+        stats["z_contact_2020"] = hitter_data.get("z_contactpercen", {})
+        stats["avg_2020"] = hitter_data.get("avg", {})
+        stats["ops_2020"] = hitter_data.get("ops", {})
+        stats["r_2020"] = hitter_data.get("r", {})
+        stats["rbi_2020"] = hitter_data.get("rbi", {})
+        stats["hr_2020"] = hitter_data.get("hr", {})
+        stats["sb_2020"] = hitter_data.get("sb", {})
+        data.append(stats)
+
+
     return (jsonify(data))
 
 # pitchers data
@@ -111,31 +147,57 @@ def hitters_data():
 
 @app.route("/pitchersData")
 def pitchersDictionary():
-    Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find( { }, 
-    { "Name": 1, "W": 1, "L": 1, "SO": 1, "ERA": 1, "WHIP": 1, "SV": 1, "HLD": 1,
-    "K%": 1, "BB%": 1, "xFIP": 1, "Siera": 1, 
-    "wFB/C": 1, "wCT/C": 1, "wCB/C": 1, "wSL/C": 1, "wCH/C": 1} )
+    pyball_pitchers_2018 = mongo.db.Fangraphs_pitchers.find( { }, 
+    { "name": 1, "w": 1, "l": 1, "so": 1, "era": 1, "whip": 1, "sv": 1, "hld": 1,
+    "kpercen": 1, "bbpercen": 1, "xfip": 1, "siera": 1, "babip": 1,
+    "wfbperC": 1, "wctperc": 1, "wcbperc": 1, "wslperc": 1, "wchperc": 1} )
     data = []
-    for name_dict in list(Fan_G_pitchers):
+    for name_dict in list(pyball_pitchers_2018):
         item = {}
-        item["name"] = name_dict.get("Name", {})
-        item["win"] = name_dict.get("W", {})
-        item["loss"] = name_dict.get("L", {})
-        item["k"] = name_dict.get("SO", {})
-        item["era"] = name_dict.get("ERA", {})
-        item["whip"] = name_dict.get("WHIP", {})
-        item["save"] = name_dict.get("SV", {})
-        item["hold"] = name_dict.get("HLD", {})
-        item["kper"] = name_dict.get("K%", {})
-        item["bbper"] = name_dict.get("BB%", {})
-        item["xFIP"] = name_dict.get("xFIP", {})
-        item["siera"] = name_dict.get("Siera", {})
-        item["wfb_c"] = name_dict.get("wFB/C", {})
-        item["wct_c"] = name_dict.get("wCT/C", {})
-        item["wcb_c"] = name_dict.get("wCB/C", {})
-        item["wsl_c"] = name_dict.get("wSL/C", {})
-        item["wch_c"] = name_dict.get("wCH/C", {})
+        item["name_2018"] = name_dict.get("Name", {})
+        item["win_2018"] = name_dict.get("w", {})
+        item["loss_2018"] = name_dict.get("l", {})
+        item["k_2018"] = name_dict.get("so", {})
+        item["era_2018"] = name_dict.get("era", {})
+        item["whip_2018"] = name_dict.get("whip", {})
+        item["save_2018"] = name_dict.get("sv", {})
+        item["hold_2018"] = name_dict.get("hld", {})
+        item["kper_2018"] = name_dict.get("kpercen", {})
+        item["bbper_2018"] = name_dict.get("bbpercen", {})
+        item["xFIP_2018"] = name_dict.get("xfip", {})
+        item["siera_2018"] = name_dict.get("siera", {})
+        item["wfb_c_2018"] = name_dict.get("wfbperC", {})
+        item["wct_c_2018"] = name_dict.get("wctperc", {})
+        item["wcb_c_2018"] = name_dict.get("wcbperc", {})
+        item["wsl_c_2018"] = name_dict.get("wslperc", {})
+        item["wch_c_2018"] = name_dict.get("wchperc", {})
         data.append(item)
+
+    # Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find( { }, 
+    # { "Name": 1, "W": 1, "L": 1, "SO": 1, "ERA": 1, "WHIP": 1, "SV": 1, "HLD": 1,
+    # "K%": 1, "BB%": 1, "xFIP": 1, "Siera": 1, 
+    # "wFB/C": 1, "wCT/C": 1, "wCB/C": 1, "wSL/C": 1, "wCH/C": 1} )
+    # data = []
+    # for name_dict in list(Fan_G_pitchers):
+    #     item = {}
+    #     item["name"] = name_dict.get("Name", {})
+    #     item["win"] = name_dict.get("W", {})
+    #     item["loss"] = name_dict.get("L", {})
+    #     item["k"] = name_dict.get("SO", {})
+    #     item["era"] = name_dict.get("ERA", {})
+    #     item["whip"] = name_dict.get("WHIP", {})
+    #     item["save"] = name_dict.get("SV", {})
+    #     item["hold"] = name_dict.get("HLD", {})
+    #     item["kper"] = name_dict.get("K%", {})
+    #     item["bbper"] = name_dict.get("BB%", {})
+    #     item["xFIP"] = name_dict.get("xFIP", {})
+    #     item["siera"] = name_dict.get("Siera", {})
+    #     item["wfb_c"] = name_dict.get("wFB/C", {})
+    #     item["wct_c"] = name_dict.get("wCT/C", {})
+    #     item["wcb_c"] = name_dict.get("wCB/C", {})
+    #     item["wsl_c"] = name_dict.get("wSL/C", {})
+    #     item["wch_c"] = name_dict.get("wCH/C", {})
+    #     data.append(item)
     return (jsonify(data))
 
 if __name__ == "__main__":
