@@ -70,6 +70,10 @@ function getSelectionHitters() {
   var playerSelectedName = (
     d3.select("#selDataset").property("value")
   );
+  var playerSelectedName2 = (
+    d3.select("#selDataset2").property("value")
+  );
+
 
   //filter the dataset by the dropdown item
   var fantasyData_2018 = hitter_data.filter((m) => m.name_2018 === playerSelectedName);
@@ -122,10 +126,85 @@ function getSelectionHitters() {
 
 
 
-// tables for the extended data, 
+  // tables for the extended data, 
+  //filter the dataset by the dropdown item
+  var fantasyData_2018 = hitter_data.filter((m) => m.name_2018 === playerSelectedName);
+  // pull out the data from the dropdown item for the basic hitting information
 
+  var paData_2018 = fantasyData_2018.map((m) => m.pa_2018);
+  var kData_2018 = (fantasyData_2018.map((m) => m.kpercen_2018)) * 100;
+  var bbData_2018 = (fantasyData_2018.map((m) => m.bbpercen_2018)) * 100;
+  var iffbData_2018 = (fantasyData_2018.map((m) => m.iffbpercen_2018)) * 100;
+  d3.select("#paTable_2018").text(`${paData_2018}`);
+  d3.select("#kTable_2018").text(`${kData_2018}`);
+  d3.select("#bbTable_2018").text(`${bbData_2018}`);
+  d3.select("#iffbTable_2018").text(`${iffbData_2018}`);
+
+
+  var fantasyData_2019 = hitter_data.filter((m) => m.name_2019 === playerSelectedName);
+  // pull out the data from the dropdown item for the basic hitting information
+
+  var paData_2019 = fantasyData_2019.map((m) => m.pa_2019);
+  var kData_2019 = (fantasyData_2019.map((m) => m.kpercen_2019)) * 100;
+  var bbData_2019 = (fantasyData_2019.map((m) => m.bbpercen_2019)) * 100;
+  var iffbData_2019 = parseFloat(fantasyData_2019.map((m) => m.iffbpercen_2019) * 100);
+  d3.select("#paTable_2019").text(`${paData_2019}`);
+  d3.select("#kTable_2019").text(`${kData_2019}`);
+  d3.select("#bbTable_2019").text(`${bbData_2019}`);
+  d3.select("#iffbTable_2019").text(`${iffbData_2019}`);
+
+  var fantasyData_2020 = hitter_data.filter((m) => m.name_2020 === playerSelectedName);
+  // pull out the data from the dropdown item for the basic hitting information
+
+  var paData_2020 = fantasyData_2020.map((m) => m.pa_2020);
+  var kData_2020 = (fantasyData_2020.map((m) => m.kpercen_2020)) * 100;
+  var bbData_2020 = (fantasyData_2020.map((m) => m.bbpercen_2020)) * 100;
+  var iffbData_2020 = (fantasyData_2020.map((m) => m.iffbpercen_2020)) * 100;
+  d3.select("#paTable_2020").text(`${paData_2020}`);
+  d3.select("#kTable_2020").text(`${kData_2020}`);
+  d3.select("#bbTable_2020").text(`${bbData_2020}`);
+  d3.select("#iffbTable_2020").text(`${iffbData_2020}`);
 
   
+
+  // tables for the extended data, 
+  //filter the dataset by the dropdown item
+  var fantasyData_2018_2 = hitter_data.filter((m) => m.name_2018 === playerSelectedName2);
+  // pull out the data from the dropdown item for the basic hitting information
+
+  var paData_2018_2 = fantasyData_2018_2.map((m) => m.pa_2018);
+  var kData_2018_2 = (fantasyData_2018_2.map((m) => m.kpercen_2018)) * 100;
+  var bbData_2018_2 = (fantasyData_2018_2.map((m) => m.bbpercen_2018)) * 100;
+  var iffbData_2018_2 = (fantasyData_2018_2.map((m) => m.iffbpercen_2018)) * 100;
+  d3.select("#paTable_2018_2").text(`${paData_2018_2}`);
+  d3.select("#kTable_2018_2").text(`${kData_2018_2}`);
+  d3.select("#bbTable_2018_2").text(`${bbData_2018_2}`);
+  d3.select("#iffbTable_2018_2").text(`${iffbData_2018_2}`);
+
+
+  var fantasyData_2019_2 = hitter_data.filter((m) => m.name_2019 === playerSelectedName2);
+  // pull out the data from the dropdown item for the basic hitting information
+
+  var paData_2019_2 = fantasyData_2019_2.map((m) => m.pa_2019);
+  var kData_2019_2 = (fantasyData_2019_2.map((m) => m.kpercen_2019)) * 100;
+  var bbData_2019_2 = (fantasyData_2019_2.map((m) => m.bbpercen_2019)) * 100;
+  var iffbData_2019_2 = (fantasyData_2019_2.map((m) => m.iffbpercen_2019) * 100);
+  d3.select("#paTable_2019_2").text(`${paData_2019_2}`);
+  d3.select("#kTable_2019_2").text(`${kData_2019_2}`);
+  d3.select("#bbTable_2019_2").text(`${bbData_2019_2}`);
+  d3.select("#iffbTable_2019_2").text(`${iffbData_2019_2}`);
+
+  var fantasyData_2020_2 = hitter_data.filter((m) => m.name_2020 === playerSelectedName2);
+  // pull out the data from the dropdown item for the basic hitting information
+
+  var paData_2020_2 = fantasyData_2020_2.map((m) => m.pa_2020);
+  var kData_2020_2 = (fantasyData_2020_2.map((m) => m.kpercen_2020)) * 100;
+  var bbData_2020_2 = (fantasyData_2020_2.map((m) => m.bbpercen_2020)) * 100;
+  var iffbData_2020_2 = (fantasyData_2020_2.map((m) => m.iffbpercen_2020)) * 100;
+  d3.select("#paTable_2020_2").text(`${paData_2020_2}`);
+  d3.select("#kTable_2020_2").text(`${kData_2020_2}`);
+  d3.select("#bbTable_2020_2").text(`${bbData_2020_2}`);
+  d3.select("#iffbTable_2020_2").text(`${iffbData_2020_2}`);
 
   OGraph(playerSelectedName);
   ZGraph(playerSelectedName);
@@ -152,7 +231,7 @@ function getSelectionHitters() {
   d3.select("#hrTable_2018_2").text(`${hrData_2018_2}`);
   d3.select("#sbTable_2018_2").text(`${sbData_2018_2}`);
 
-  var fantasyData_2019_2 = hitter_data.filter((m) => m.name_2019 === playerSelectedName);
+  var fantasyData_2019_2 = hitter_data.filter((m) => m.name_2019 === playerSelectedName2);
   // pull out the data from the dropdown item for the demographic information
 
   var avgData_2019_2 = fantasyData_2019_2.map((m) => m.avg_2019);
@@ -168,7 +247,7 @@ function getSelectionHitters() {
   d3.select("#hrTable_2019_2").text(`${hrData_2019_2}`);
   d3.select("#sbTable_2019_2").text(`${sbData_2019_2}`);
 
-  var fantasyData_2020_2 = hitter_data.filter((m) => m.name_2020 === playerSelectedName);
+  var fantasyData_2020_2 = hitter_data.filter((m) => m.name_2020 === playerSelectedName2);
   // pull out the data from the dropdown item for the demographic information
 
   var avgData_2020_2 = fantasyData_2020_2.map((m) => m.avg_2020);
@@ -212,16 +291,18 @@ function OGraph(playerSelected) {
 
   // create an array of the values filtered by the drop-down selection
 
-  let swingValues = hitter_data.filter((m) => m.name === playerSelected);
-  console.log(swingValues)
-  let playerOSwingValues = swingValues.map((m) => m.o_swing);
-  OSwingValues = [playerOSwingValues[0], .320]
-  console.log(OSwingValues)
+  let o_swingValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected);
+  let OSwing_2018 = o_swingValue_2018.map((m) => m.o_swing_2018);
+  let o_swingValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected);
+  let OSwing_2019 = o_swingValue_2019.map((m) => m.o_swing_2019);
+  let o_swingValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected);
+  let OSwing_2020 = o_swingValue_2020.map((m) => m.o_swing_2020);
+  OSwingValues = [OSwing_2018[0], OSwing_2019[0], OSwing_2020[0], .316];
 
   // bar graph the results
   var trace1 = [
     {
-      x: [playerSelected, "League Average"],
+      x: ["2018", "2019", "2020", "League Average"],
       y: OSwingValues,
       type: "bar",
       hoverinfo: 'none',
@@ -240,16 +321,18 @@ function OGraph(playerSelected) {
   Plotly.newPlot("Obar", trace1, layout);
 
   // O-contact data for the first hitter
-  let o_contactValues = hitter_data.filter((m) => m.name === playerSelected);
-  console.log(o_contactValues)
-  let playerOContactValues = o_contactValues.map((m) => m.o_contact);
-  OContactValues = [playerOContactValues[0], .630]
-  console.log(OContactValues)
+  let o_contactValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected);
+  let OContact_2018 = o_contactValue_2018.map((m) => m.o_contact_2018);
+  let o_contactValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected);
+  let OContact_2019 = o_contactValue_2019.map((m) => m.o_contact_2019);
+  let o_contactValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected);
+  let OContact_2020 = o_contactValue_2020.map((m) => m.o_contact_2020);
+  OContactValues = [OContact_2018[0], OContact_2019[0], OContact_2020[0], .627];
 
   // bar graph the results
   var trace2 = [
     {
-      x: [playerSelected, "League Average"],
+      x: ["2018", "2019", "2020", "League Average"],
       y: OContactValues,
       type: "bar",
       marker: {
@@ -264,20 +347,25 @@ function OGraph(playerSelected) {
 
 };
 
+
 // function which creates teh bar graph for Z-values.  
 function ZGraph(playerSelected) {
   console.log(playerSelected);
 
   // first player z-swing data
 
-  let z_swingValues = hitter_data.filter((m) => m.name === playerSelected);
-  let playerZSwingValues = z_swingValues.map((m) => m.z_swing);
-  ZSwingValues = [playerZSwingValues[0], .690]
+  let z_swingValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected);
+  let ZSwing_2018 = z_swingValue_2018.map((m) => m.z_swing_2018);
+  let z_swingValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected);
+  let ZSwing_2019 = z_swingValue_2019.map((m) => m.z_swing_2019);
+  let z_swingValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected);
+  let ZSwing_2020 = z_swingValue_2020.map((m) => m.z_swing_2020);
+  ZSwingValues = [ZSwing_2018[0], ZSwing_2019[0], ZSwing_2020[0], .685];
 
   // bar graph Z-swing results first player
   var trace1 = [
     {
-      x: [playerSelected, "League Average"],
+      x: ["2018", "2019", "2020", "League Average"],
       y: ZSwingValues,
       type: "bar",
       marker: {
@@ -291,20 +379,24 @@ function ZGraph(playerSelected) {
   Plotly.newPlot("Zbar", trace1, layout);
 
   // Z-contact values for first player
-  let z_contactValues = hitter_data.filter((m) => m.name === playerSelected);
-  let playerZContactValues = z_contactValues.map((m) => m.z_contact);
-  ZContactValues = [playerZContactValues[0], .630]
+  let z_contactValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected);
+  let Zcontact_2018 = z_contactValue_2018.map((m) => m.z_contact_2018);
+  let z_contactValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected);
+  let Zcontact_2019 = z_contactValue_2019.map((m) => m.z_contact_2019);
+  let z_contactValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected);
+  let Zcontact_2020 = z_contactValue_2020.map((m) => m.z_contact_2020);
+  ZcontactValues = [Zcontact_2018[0], Zcontact_2019[0], Zcontact_2020[0], .849];
 
   // bar graph the z-contact results
   var trace2 = [
     {
-      x: [playerSelected, "League Average"],
-      y: ZContactValues,
+      x: ["2018", "2019", "2020", "League Average"],
+      y: ZcontactValues,
       type: "bar",
       marker: {
         color: ['rgba(255,20,223,0.8)', 'rgba(0,114,214,1)']
       },
-      text: ZContactValues.map(String),
+      text: ZcontactValues.map(String),
       textposition: 'auto',
     },
   ];
@@ -315,21 +407,23 @@ function ZGraph(playerSelected) {
 
 
 // second player o-swing graph
-function OGraph2(playerSelected) {
-  console.log(playerSelected);
+function OGraph2(playerSelected2) {
+  console.log(playerSelected2);
 
   // create an array of the values filtered by the drop-down selection
   // for o-swing
-  let swingValues = hitter_data.filter((m) => m.name === playerSelected);
-  console.log(swingValues)
-  let playerOSwingValues = swingValues.map((m) => m.o_swing);
-  OSwingValues = [playerOSwingValues[0], .320]
-  console.log(OSwingValues)
+  let o_swingValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected2);
+  let OSwing_2018 = o_swingValue_2018.map((m) => m.o_swing_2018);
+  let o_swingValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected2);
+  let OSwing_2019 = o_swingValue_2019.map((m) => m.o_swing_2019);
+  let o_swingValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected2);
+  let OSwing_2020 = o_swingValue_2020.map((m) => m.o_swing_2020);
+  OSwingValues = [OSwing_2018[0], OSwing_2019[0], OSwing_2020[0], .316];
 
   // bar graph the o-swing results
   var trace1 = [
     {
-      x: [playerSelected, "League Average"],
+      x: ["2018", "2019", "2020", "League Average"],
       y: OSwingValues,
       type: "bar",
       marker: {
@@ -343,16 +437,18 @@ function OGraph2(playerSelected) {
   Plotly.newPlot("Obar3", trace1, layout);
 
   // o-contact data for second player
-  let o_contactValues = hitter_data.filter((m) => m.name === playerSelected);
-  console.log(o_contactValues)
-  let playerOContactValues = o_contactValues.map((m) => m.o_contact);
-  OContactValues = [playerOContactValues[0], .630]
-  console.log(OContactValues)
+  let o_contactValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected2);
+  let OContact_2018 = o_contactValue_2018.map((m) => m.o_contact_2018);
+  let o_contactValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected2);
+  let OContact_2019 = o_contactValue_2019.map((m) => m.o_contact_2019);
+  let o_contactValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected2);
+  let OContact_2020 = o_contactValue_2020.map((m) => m.o_contact_2020);
+  OContactValues = [OContact_2018[0], OContact_2019[0], OContact_2020[0], .627];
 
   // bar graph the o-swing results
   var trace2 = [
     {
-      x: [playerSelected, "League Average"],
+      x: ["2018", "2019", "2020", "League Average"],
       y: OContactValues,
       type: "bar",
       marker: {
@@ -367,21 +463,23 @@ function OGraph2(playerSelected) {
 
 };
 
-function ZGraph2(playerSelected) {
-  console.log(playerSelected);
+function ZGraph2(playerSelected2) {
+  console.log(playerSelected2);
 
   // create an array of the values filtered by the drop-down selection
 
-  let z_swingValues = hitter_data.filter((m) => m.name === playerSelected);
-  console.log(z_swingValues)
-  let playerZSwingValues = z_swingValues.map((m) => m.z_swing);
-  ZSwingValues = [playerZSwingValues[0], .690]
-  console.log(ZSwingValues)
+  let z_swingValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected2);
+  let ZSwing_2018 = z_swingValue_2018.map((m) => m.z_swing_2018);
+  let z_swingValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected2);
+  let ZSwing_2019 = z_swingValue_2019.map((m) => m.z_swing_2019);
+  let z_swingValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected2);
+  let ZSwing_2020 = z_swingValue_2020.map((m) => m.z_swing_2020);
+  ZSwingValues = [ZSwing_2018[0], ZSwing_2019[0], ZSwing_2020[0], .685];
 
   // bar graph the results
   var trace1 = [
     {
-      x: [playerSelected, "League Average"],
+      x: ["2018", "2019", "2020", "League Average"],
       y: ZSwingValues,
       type: "bar",
       marker: {
@@ -395,16 +493,18 @@ function ZGraph2(playerSelected) {
   Plotly.newPlot("Zbar3", trace1, layout);
 
   // Z-contact values for second player
-  let z_contactValues2 = hitter_data.filter((m) => m.name === playerSelected);
-  console.log(z_contactValues2)
-  let playerZContactValues2 = z_contactValues2.map((m) => m.z_contact);
-  ZContactValues2 = [playerZContactValues2[0], .630]
-  console.log(ZContactValues2)
+  let z_contactValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected2);
+  let Zcontact_2018 = z_contactValue_2018.map((m) => m.z_contact_2018);
+  let z_contactValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected2);
+  let Zcontact_2019 = z_contactValue_2019.map((m) => m.z_contact_2019);
+  let z_contactValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected2);
+  let Zcontact_2020 = z_contactValue_2020.map((m) => m.z_contact_2020);
+  ZContactValues2 = [Zcontact_2018[0], Zcontact_2019[0], Zcontact_2020[0], .849];
 
   // bar graph the results
   var trace2 = [
     {
-      x: [playerSelected, "League Average"],
+      x: ["2018", "2019", "2020", "League Average"],
       y: ZContactValues2,
       type: "bar",
       marker: {

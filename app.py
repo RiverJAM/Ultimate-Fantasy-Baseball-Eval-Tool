@@ -67,22 +67,21 @@ def hitters_data():
     for hitter_data in list(pyball_hitters_2018):
         stats = {}
         stats["name_2018"] = hitter_data.get("name", {})
-        stats["o_swing_2018"] = hitter_data.get("o_swingpercen", {})
-        stats["o_contact_2018"] = hitter_data.get("o_contactpercen", {})
-        stats["z_swing_2018"] = hitter_data.get("z_swingpercen", {})
-        stats["z_contact_2018"] = hitter_data.get("z_contactpercen", {})
-        stats["avg_2018"] = hitter_data.get("avg", {})
-        stats["ops_2018"] = hitter_data.get("ops", {})
-        stats["r_2018"] = hitter_data.get("r", {})
-        stats["rbi_2018"] = hitter_data.get("rbi", {})
-        stats["hr_2018"] = hitter_data.get("hr", {})
-        stats["sb_2018"] = hitter_data.get("sb", {})
-        stats["pa_2018"] = hitter_data.get("pa", {})
-        stats["kpercen_2018"] = hitter_data.get("kpercen", {})
-        stats["bbpercen_2018"] = hitter_data.get("bbpercen", {})
-        stats["iffbpercen_2018"] = hitter_data.get("iffbpercen", {})
+        stats["o_swing_2018"] = round(float(hitter_data.get("o_swingpercen", {})), 3)
+        stats["o_contact_2018"] = round(float(hitter_data.get("o_contactpercen", {})), 3)
+        stats["z_swing_2018"] = round(float(hitter_data.get("z_swingpercen", {})), 3)
+        stats["z_contact_2018"] = round(float(hitter_data.get("z_contactpercen", {})), 3)
+        stats["avg_2018"] = round(float(hitter_data.get("avg", {})), 3)
+        stats["ops_2018"] = round(float(hitter_data.get("ops", {})),3 )
+        stats["r_2018"] = int(hitter_data.get("r", {}))
+        stats["rbi_2018"] = int(hitter_data.get("rbi", {}))
+        stats["hr_2018"] = int(hitter_data.get("hr", {}))
+        stats["sb_2018"] = int(hitter_data.get("sb", {}))
+        stats["pa_2018"] = int(hitter_data.get("pa", {}))
+        stats["kpercen_2018"] = round(float(hitter_data.get("kpercen", {})), 3)
+        stats["bbpercen_2018"] = round(float(hitter_data.get("bbpercen", {})), 3)
+        stats["iffbpercen_2018"] = round(float(hitter_data.get("iffbpercen", {})), 3)
         data.append(stats)
-        print(stats)
 
     pyball_hitters_2019 = mongo.db.pybaseball_hitters_2019.find( { },
     {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
@@ -101,7 +100,12 @@ def hitters_data():
         stats["rbi_2019"] = hitter_data.get("rbi", {})
         stats["hr_2019"] = hitter_data.get("hr", {})
         stats["sb_2019"] = hitter_data.get("sb", {})
+        stats["pa_2019"] = hitter_data.get("pa", {})
+        stats["kpercen_2019"] = hitter_data.get("kpercen", {})
+        stats["bbpercen_2019"] = hitter_data.get("bbpercen", {})
+        stats["iffbpercen_2019"] = hitter_data.get("iffbpercen", {})
         data.append(stats)
+        
 
     pyball_hitters_2020 = mongo.db.pybaseball_hitters_2020.find( { },
     {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
@@ -120,6 +124,10 @@ def hitters_data():
         stats["rbi_2020"] = hitter_data.get("rbi", {})
         stats["hr_2020"] = hitter_data.get("hr", {})
         stats["sb_2020"] = hitter_data.get("sb", {})
+        stats["pa_2020"] = hitter_data.get("pa", {})
+        stats["kpercen_2020"] = hitter_data.get("kpercen", {})
+        stats["bbpercen_2020"] = hitter_data.get("bbpercen", {})
+        stats["iffbpercen_2020"] = hitter_data.get("iffbpercen", {})
         data.append(stats)
 
 
@@ -172,6 +180,7 @@ def pitchersDictionary():
         item["wsl_c_2018"] = name_dict.get("wslperc", {})
         item["wch_c_2018"] = name_dict.get("wchperc", {})
         data.append(item)
+        print(item)
 
     # Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find( { }, 
     # { "Name": 1, "W": 1, "L": 1, "SO": 1, "ERA": 1, "WHIP": 1, "SV": 1, "HLD": 1,
