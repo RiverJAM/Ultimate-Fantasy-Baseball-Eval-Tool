@@ -56,6 +56,18 @@ def hitters_list():
     # print(name_list)
     return (jsonify(names))
 
+@app.route("/pitchersdropdown")
+def pitchers_list():
+    pitchers_dd = mongo.db.dropdown_pitchers.find( {},
+    {'name': 1})
+    names = []
+    for name in list(pitchers_dd):
+        name_list = {}
+        name_list["name"] = name.get("name", {})
+        names.append(name_list)
+    # print(name_list)
+    return (jsonify(names))
+
 # Flask route to get hitter data
 @app.route("/hittersdata")
 def hitters_data():
@@ -238,36 +250,45 @@ def pitchersDictionary():
         # print(item)
 
         
-    for name_dict in list(pyball_pitchers_2019):
+    pyball_pitchers_2020 = mongo.db.pybaseball_pitchers_2020.find( { }, 
+        { "name": 1, "w": 1, "l": 1, "so": 1, "era": 1, "whip": 1, "sv": 1, "hld": 1,
+        "kpercen": 1, "bbpercen": 1, "xfip": 1, "siera": 1, "babip": 1,
+        "wfbperc": 1, "wctperc": 1, "wcbperc": 1, "wslperc": 1, "wchperc": 1,
+        "FBpercen 2": 1, "fbv": 1, "slpercen": 1, "slv": 1,
+        "ctpercen": 1, "ctv": 1, "cbpercen": 1, "cbv": 1, "chpercen": 1, "chv": 1
+    } )
+
+
+    for name_dict in list(pyball_pitchers_2020):
         item = {}
-        item["name_2019"] = name_dict.get("name", {})
-        item["win_2019"] = name_dict.get("w", {})
-        item["loss_2019"] = name_dict.get("l", {})
-        item["k_2019"] = name_dict.get("so", {})
-        item["era_2019"] = name_dict.get("era", {})
-        item["whip_2019"] = name_dict.get("whip", {})
-        item["save_2019"] = name_dict.get("sv", {})
-        item["hold_2019"] = name_dict.get("hld", {})
-        item["kper_2019"] = name_dict.get("kpercen", {})
-        item["bbper_2019"] = name_dict.get("bbpercen", {})
-        item["xFIP_2019"] = name_dict.get("xfip", {})
-        item["siera_2019"] = name_dict.get("siera", {})
-        item["babip_2019"] = name_dict.get("babip", {})
-        item["wfb_c_2019"] = name_dict.get("wfbperc", {})
-        item["wct_c_2019"] = name_dict.get("wctperc", {})
-        item["wcb_c_2019"] = name_dict.get("wcbperc", {})
-        item["wsl_c_2019"] = name_dict.get("wslperc", {})
-        item["wch_c_2019"] = name_dict.get("wchperc", {})
-        item["fb_percen_2019"] = name_dict.get("FBpercen 2", {})
-        item["fb_velo_2019"] = name_dict.get("fbv", {})
-        item["sl_percen_2019"] = name_dict.get("slpercen", {})
-        item["sl_velo_2019"] = name_dict.get("slv", {})
-        item["ct_percen_2019"] = name_dict.get("ctpercen", {})
-        item["ct_velo_2019"] = name_dict.get("ctv", {})
-        item["cb_percen_2019"] = name_dict.get("cbpercen", {})
-        item["cb_velo_2019"] = name_dict.get("cbv", {})
-        item["ch_percen_2019"] = name_dict.get("chpercen", {})
-        item["ch_velo_2019"] = name_dict.get("chv", {})
+        item["name_2020"] = name_dict.get("name", {})
+        item["win_2020"] = name_dict.get("w", {})
+        item["loss_2020"] = name_dict.get("l", {})
+        item["k_2020"] = name_dict.get("so", {})
+        item["era_2020"] = name_dict.get("era", {})
+        item["whip_2020"] = name_dict.get("whip", {})
+        item["save_2020"] = name_dict.get("sv", {})
+        item["hold_2020"] = name_dict.get("hld", {})
+        item["kper_2020"] = name_dict.get("kpercen", {})
+        item["bbper_2020"] = name_dict.get("bbpercen", {})
+        item["xFIP_2020"] = name_dict.get("xfip", {})
+        item["siera_2020"] = name_dict.get("siera", {})
+        item["babip_2020"] = name_dict.get("babip", {})
+        item["wfb_c_2020"] = name_dict.get("wfbperc", {})
+        item["wct_c_2020"] = name_dict.get("wctperc", {})
+        item["wcb_c_2020"] = name_dict.get("wcbperc", {})
+        item["wsl_c_2020"] = name_dict.get("wslperc", {})
+        item["wch_c_2020"] = name_dict.get("wchperc", {})
+        item["fb_percen_2020"] = name_dict.get("FBpercen 2", {})
+        item["fb_velo_2020"] = name_dict.get("fbv", {})
+        item["sl_percen_2020"] = name_dict.get("slpercen", {})
+        item["sl_velo_2020"] = name_dict.get("slv", {})
+        item["ct_percen_2020"] = name_dict.get("ctpercen", {})
+        item["ct_velo_2020"] = name_dict.get("ctv", {})
+        item["cb_percen_2020"] = name_dict.get("cbpercen", {})
+        item["cb_velo_2020"] = name_dict.get("cbv", {})
+        item["ch_percen_2020"] = name_dict.get("chpercen", {})
+        item["ch_velo_2020"] = name_dict.get("chv", {})
         data.append(item)
 
     # Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find( { }, 
