@@ -38,8 +38,6 @@ fetch("/pitchersdropdown").then(function (response) {
     fetch("/pitchersData").then(function (res) {
       res.json().then(function (data) {
         pitcher_data = data;
-        console.log("Test3")
-        console.log(pitcher_data)
         // console.log(pitcher_data)
       })
     })
@@ -166,6 +164,10 @@ function getSelectionPitchers() {
     d3.select("#babipTable_2020").text(`${babip_2020}`);
 
 
+    fbVelo(playerSelectedName);
+    brVelo(playerSelectedName);
+    chVelo(playerSelectedName);
+
     fbGraph(playerSelectedName);
     brGraph(playerSelectedName);
     chGraph(playerSelectedName);
@@ -270,6 +272,8 @@ function getSelectionPitchers() {
     d3.select("#xFIPTable_2020_2").text(`${xFIPData_2020_2}`);
     d3.select("#sieraTable_2020_2").text(`${sieraData_2020_2}`);
     d3.select("#babipTable_2020_2").text(`${babip_2020_2}`);
+
+    fbVelo2(playerSelectedName2);
   
     fbGraph2(playerSelectedName2);
     brGraph2(playerSelectedName2);
@@ -278,12 +282,224 @@ function getSelectionPitchers() {
       // gaugeChart(testSubject)
 };
   
+function fbVelo(playerSelected) {
+  
+  // pitch velocity graphs
+    let FFVelos_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelected);
+    let FFVelo_2018 = FFVelos_2018.map((m) => m.fb_velo_2018);
+    let FFVelos_2019 = pitcher_data.filter((m) => m.name_2019 === playerSelected);
+    let FFVelo_2019 = FFVelos_2019.map((m) => m.fb_velo_2019);
+    let FFVelos_2020= pitcher_data.filter((m) => m.name_2020=== playerSelected);
+    let FFVelo_2020= FFVelos_2020.map((m) => m.fb_velo_2020);
+    FFVelos = [FFVelo_2018[0], FFVelo_2019[0], FFVelo_2020[0], 93.7]
+    console.log(FFVelos)
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: FFVelos,
+      type: "bar",
+      hoverinfo: 'none',
+      marker:{
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
+      },
+      text: FFVelos.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {title: "FB velo", yaxis: {range: [85, 100]}}
+  Plotly.newPlot("ffVeloBar", trace1, layout);
 
 
-// function which creates teh bar graph and bubble charts.  bar graph is only the first 10 data points.
-function fbGraph(playerSelected) {
+  let CtVelos_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelected);
+  let CtVelo_2018 = CtVelos_2018.map((m) => m.ct_velo_2018);
+  let CtVelos_2019 = pitcher_data.filter((m) => m.name_2019 === playerSelected);
+  let CtVelo_2019 = CtVelos_2019.map((m) => m.ct_velo_2019);
+  let CtVelos_2020= pitcher_data.filter((m) => m.name_2020=== playerSelected);
+  let CtVelo_2020= CtVelos_2020.map((m) => m.ct_velo_2020);
+  CtVelos = [CtVelo_2018[0], CtVelo_2019[0], CtVelo_2020[0], 88.4]
+  console.log(CtVelos)
+
+// bar graph the results
+var trace1 = [
+  {
+    x: ["2018", "2019", "2020", "League Average"],
+    y: CtVelos,
+    type: "bar",
+    hoverinfo: 'none',
+    marker:{
+      color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
+    },
+    text: CtVelos.map(String),
+    textposition: 'auto',
+  },
+];
+var layout = {title: "CT velo", yaxis: {range: [80, 100]}}
+Plotly.newPlot("ctVeloBar", trace1, layout);
+  
   console.log(playerSelected);
+};
 
+
+
+function brVelo(playerSelected) {
+  
+  // pitch velocity graphs
+    let cbVelos_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelected);
+    let cbVelo_2018 = cbVelos_2018.map((m) => m.cb_velo_2018);
+    let cbVelos_2019 = pitcher_data.filter((m) => m.name_2019 === playerSelected);
+    let cbVelo_2019 = cbVelos_2019.map((m) => m.cb_velo_2019);
+    let cbVelos_2020= pitcher_data.filter((m) => m.name_2020=== playerSelected);
+    let cbVelo_2020= cbVelos_2020.map((m) => m.cb_velo_2020);
+    cbVelos = [cbVelo_2018[0], cbVelo_2019[0], cbVelo_2020[0], 79.5]
+    console.log(cbVelos)
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: cbVelos,
+      type: "bar",
+      hoverinfo: 'none',
+      marker:{
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
+      },
+      text: cbVelos.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {title: "CB velo", yaxis: {range: [70, 95]}}
+  Plotly.newPlot("cbVeloBar", trace1, layout);
+
+
+  let slVelos_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelected);
+  let slVelo_2018 = slVelos_2018.map((m) => m.sl_velo_2018);
+  let slVelos_2019 = pitcher_data.filter((m) => m.name_2019 === playerSelected);
+  let slVelo_2019 = slVelos_2019.map((m) => m.sl_velo_2019);
+  let slVelos_2020= pitcher_data.filter((m) => m.name_2020=== playerSelected);
+  let slVelo_2020= slVelos_2020.map((m) => m.sl_velo_2020);
+  slVelos = [slVelo_2018[0], slVelo_2019[0], slVelo_2020[0], 84.5]
+  console.log(slVelos)
+
+// bar graph the results
+var trace1 = [
+  {
+    x: ["2018", "2019", "2020", "League Average"],
+    y: slVelos,
+    type: "bar",
+    hoverinfo: 'none',
+    marker:{
+      color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
+    },
+    text: slVelos.map(String),
+    textposition: 'auto',
+  },
+];
+var layout = {title: "SL velo", yaxis: {range: [70, 95]}}
+Plotly.newPlot("slVeloBar", trace1, layout);
+  
+  console.log(playerSelected);
+};
+
+
+function chVelo(playerSelected) {
+  
+  // pitch velocity graphs
+    let chVelos_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelected);
+    let chVelo_2018 = chVelos_2018.map((m) => m.ch_velo_2018);
+    let chVelos_2019 = pitcher_data.filter((m) => m.name_2019 === playerSelected);
+    let chVelo_2019 = chVelos_2019.map((m) => m.ch_velo_2019);
+    let chVelos_2020= pitcher_data.filter((m) => m.name_2020=== playerSelected);
+    let chVelo_2020= chVelos_2020.map((m) => m.ch_velo_2020);
+    chVelos = [chVelo_2018[0], chVelo_2019[0], chVelo_2020[0], 93.7]
+    console.log(chVelos)
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: chVelos,
+      type: "bar",
+      hoverinfo: 'none',
+      marker:{
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
+      },
+      text: chVelos.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {title: "CH velo", yaxis: {range: [85, 100]}}
+  Plotly.newPlot("chVeloBar", trace1, layout);
+
+
+
+};
+
+function fbVelo2(playerSelected2) {
+  
+  // pitch velocity graphs
+    let FFVelos_2018_2 = pitcher_data.filter((m) => m.name_2018 === playerSelected2);
+    let FFVelo_2018_2 = FFVelos_2018_2.map((m) => m.fb_velo_2018);
+    let FFVelos_2019_2 = pitcher_data.filter((m) => m.name_2019 === playerSelected2);
+    let FFVelo_2019_2 = FFVelos_2019_2.map((m) => m.fb_velo_2019);
+    let FFVelos_2020_2= pitcher_data.filter((m) => m.name_2020=== playerSelected2);
+    let FFVelo_2020_2= FFVelos_2020_2.map((m) => m.fb_velo_2020);
+    FFVelos = [FFVelo_2018_2[0], FFVelo_2019_2[0], FFVelo_2020_2[0], 93.7]
+    console.log(FFVelos)
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: FFVelos,
+      type: "bar",
+      hoverinfo: 'none',
+      marker:{
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
+      },
+      text: FFVelos.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {title: "FB velo", yaxis: {range: [85, 100]}}
+  Plotly.newPlot("ffVeloBar", trace1, layout);
+
+
+  let CtVelos_2018_2 = pitcher_data.filter((m) => m.name_2018 === playerSelected2);
+  let CtVelo_2018_2 = CtVelos_2018_2.map((m) => m.ct_velo_2018);
+  let CtVelos_2019_2 = pitcher_data.filter((m) => m.name_2019 === playerSelected2);
+  let CtVelo_2019_2 = CtVelos_2019_2.map((m) => m.ct_velo_2019);
+  let CtVelos_2020_2= pitcher_data.filter((m) => m.name_2020=== playerSelected2);
+  let CtVelo_2020_2= CtVelos_2020_2.map((m) => m.ct_velo_2020);
+  CtVelos = [CtVelo_2018_2[0], CtVelo_2019_2[0], CtVelo_2020_2[0], 88.4]
+  console.log(CtVelos)
+
+// bar graph the results
+var trace1 = [
+  {
+    x: ["2018", "2019", "2020", "League Average"],
+    y: CtVelos,
+    type: "bar",
+    hoverinfo: 'none',
+    marker:{
+      color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)' ],
+    },
+    text: CtVelos.map(String),
+    textposition: 'auto',
+  },
+];
+var layout = {title: "CT velo", yaxis: {range: [80, 100]}}
+Plotly.newPlot("ctVeloBar", trace1, layout);
+  
+  console.log(playerSelected);
+};
+
+
+// functions which creates the bar graphs.  
+function fbGraph(playerSelected) {
+  
+  // pitch value graphs
   // create an array of the values filtered by the drop-down selection
 
     let FFValues_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelected);
