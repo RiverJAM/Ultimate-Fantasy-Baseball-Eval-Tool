@@ -74,7 +74,7 @@ def hitters_data():
     pyball_hitters_2018 = mongo.db.pybaseball_hitters_2018.find( { },
     {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
     'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1, 'pa': 1, 'kpercen': 1,
-    'bbpercen':1, 'iffbpercen': 1, 'barel_rate': 1, 'maxev': 1, 'hardhitpercen': 1})
+    'bbpercen':1, 'iffbpercen': 1, 'barel_rate': 1, 'maxev': 1, 'hardhitpercen':1})
     data = []
     for hitter_data in list(pyball_hitters_2018):
         stats = {}
