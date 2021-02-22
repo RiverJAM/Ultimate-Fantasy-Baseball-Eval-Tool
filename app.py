@@ -28,8 +28,8 @@ app.config["MONGO_URI"] = "mongodb+srv://somethingsimple:something@cluster0.bq9e
 CORS(app)
 
 #Use PyMongo
-# mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
-mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
+mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
+# mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
 # Flask Routes
 
