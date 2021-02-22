@@ -28,8 +28,8 @@ app.config["MONGO_URI"] = "mongodb+srv://somethingsimple:something@cluster0.bq9e
 CORS(app)
 
 #Use PyMongo
-mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
-# mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
+# mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
 # Flask Routes
 
@@ -79,23 +79,23 @@ def hitters_data():
     for hitter_data in list(pyball_hitters_2018):
         stats = {}
         stats["name_2018"] = hitter_data.get("name", {})
-        stats["o_swing_2018"] = round(float(hitter_data.get("o_swingpercen", {})), 3)
-        stats["o_contact_2018"] = round(float(hitter_data.get("o_contactpercen", {})), 3)
-        stats["z_swing_2018"] = round(float(hitter_data.get("z_swingpercen", {})), 3)
-        stats["z_contact_2018"] = round(float(hitter_data.get("z_contactpercen", {})), 3)
-        stats["avg_2018"] = round(float(hitter_data.get("avg", {})), 3)
-        stats["ops_2018"] = round(float(hitter_data.get("ops", {})),3 )
-        stats["r_2018"] = int(hitter_data.get("r", {}))
-        stats["rbi_2018"] = int(hitter_data.get("rbi", {}))
-        stats["hr_2018"] = int(hitter_data.get("hr", {}))
-        stats["sb_2018"] = int(hitter_data.get("sb", {}))
-        stats["pa_2018"] = int(hitter_data.get("pa", {}))
-        stats["kpercen_2018"] = round(float(hitter_data.get("kpercen", {})), 3)
-        stats["bbpercen_2018"] = round(float(hitter_data.get("bbpercen", {})), 3)
-        stats["iffbpercen_2018"] = round(float(hitter_data.get("iffbpercen", {})), 3)
-        stats["barrel_rate_2018"] = round(float(hitter_data.get("barrelpercen", {})), 3)
-        stats["maxev_2018"] = round(float(hitter_data.get("maxev", {})), 3)
-        stats["hardhitpercen_2018"] = round(float(hitter_data.get("hardhitpercen", {})), 3)
+        stats["o_swing_2018"] = hitter_data.get("o_swingpercen", {})
+        stats["o_contact_2018"] = hitter_data.get("o_contactpercen", {})
+        stats["z_swing_2018"] = hitter_data.get("z_swingpercen", {})
+        stats["z_contact_2018"] = hitter_data.get("z_contactpercen", {})
+        stats["avg_2018"] = hitter_data.get("avg", {})
+        stats["ops_2018"] = hitter_data.get("ops", {})
+        stats["r_2018"] = hitter_data.get("r", {})
+        stats["rbi_2018"] = hitter_data.get("rbi", {})
+        stats["hr_2018"] = hitter_data.get("hr", {})
+        stats["sb_2018"] = hitter_data.get("sb", {})
+        stats["pa_2018"] = hitter_data.get("pa", {})
+        stats["kpercen_2018"] = hitter_data.get("kpercen", {})
+        stats["bbpercen_2018"] = hitter_data.get("bbpercen", {})
+        stats["iffbpercen_2018"] = hitter_data.get("iffbpercen", {})
+        stats["barrel_rate_2018"] = hitter_data.get("barrelpercen", {})
+        stats["maxev_2018"] = hitter_data.get("maxev", {})
+        stats["hardhitpercen_2018"] = hitter_data.get("hardhitpercen", {})
         data.append(stats)
 
     pyball_hitters_2019 = mongo.db.pybaseball_hitters_2019.find( { },
@@ -119,9 +119,9 @@ def hitters_data():
         stats["kpercen_2019"] = hitter_data.get("kpercen", {})
         stats["bbpercen_2019"] = hitter_data.get("bbpercen", {})
         stats["iffbpercen_2019"] = hitter_data.get("iffbpercen", {})
-        stats["barrel_rate_2019"] = round(float(hitter_data.get("barrelpercen", {})), 3)
-        stats["maxev_2019"] = round(float(hitter_data.get("maxev", {})), 3)
-        stats["hardhitpercen_2019"] = round(float(hitter_data.get("hardhitpercen", {})), 3)
+        stats["barrel_rate_2019"] = hitter_data.get("barrelpercen", {})
+        stats["maxev_2019"] = hitter_data.get("maxev", {})
+        stats["hardhitpercen_2019"] = hitter_data.get("hardhitpercen", {})
         data.append(stats)
         
 
@@ -146,9 +146,9 @@ def hitters_data():
         stats["kpercen_2020"] = hitter_data.get("kpercen", {})
         stats["bbpercen_2020"] = hitter_data.get("bbpercen", {})
         stats["iffbpercen_2020"] = hitter_data.get("iffbpercen", {})
-        stats["barrel_rate_2020"] = round(float(hitter_data.get("barrelpercen", {})), 3)
-        stats["maxev_2020"] = round(float(hitter_data.get("maxev", {})), 3)
-        stats["hardhitpercen_2020"] = round(float(hitter_data.get("hardhitpercen", {})), 3)
+        stats["barrel_rate_2020"] = hitter_data.get("barrelpercen", {})
+        stats["maxev_2020"] = hitter_data.get("maxev", {})
+        stats["hardhitpercen_2020"] = hitter_data.get("hardhitpercen", {})
         data.append(stats)
 
     return (jsonify(data))
@@ -329,5 +329,5 @@ def pitchersDictionary():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5050))
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(debug=True, host="localhost", port=port)
 

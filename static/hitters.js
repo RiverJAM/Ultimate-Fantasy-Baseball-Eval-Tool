@@ -37,23 +37,24 @@ fetch("/hittersdropdown").then(function (response) {
       d3.select("#selDataset2").append("option").text(IDs[i]["name"]);
     }
 
-    getSelectionHitters()
-    fetch("/hittersdata").then(function (res) {
-      res.json().then(function (data) {
-        hitter_data = data;
-        // console.log(data)
-        
-      }
-      )
-    }).catch(function (error) {
-      console.log(error);
-    });
-
-
+    // getSelectionHitters()
   });
 }).catch(function (error) {
   console.log(error);
 });
+
+fetch("/hittersdata").then(function (res) {
+  console.log(res)
+  res.json().then(function (data) {
+    hitter_data = data;
+    // hitter_data.push(data)
+    // console.log(hitter_data)
+  })
+}).catch(function (error) {
+  console.log(error);
+});
+
+getSelectionHitters()
 
 //call getSelection at the beginning on an initial value
 
