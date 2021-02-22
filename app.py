@@ -74,7 +74,7 @@ def hitters_data():
     pyball_hitters_2018 = mongo.db.pybaseball_hitters_2018.find( { },
     {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
     'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1, 'pa': 1, 'kpercen': 1,
-    'bbpercen':1, 'iffbpercen': 1, 'barel_rate': 1, 'maxev': 1, 'hardhitpercen':1})
+    'bbpercen':1, 'iffbpercen': 1, 'barrelpercen': 1, 'maxev': 1, 'hardhitpercen':1})
     data = []
     for hitter_data in list(pyball_hitters_2018):
         stats = {}
@@ -93,7 +93,7 @@ def hitters_data():
         stats["kpercen_2018"] = hitter_data.get("kpercen", {})
         stats["bbpercen_2018"] = hitter_data.get("bbpercen", {})
         stats["iffbpercen_2018"] = hitter_data.get("iffbpercen", {})
-        stats["barrel_rate_2018"] = hitter_data.get("barrelpercen", {})
+        stats["barrel_percen_2018"] = hitter_data.get("barrelpercen", {})
         stats["maxev_2018"] = hitter_data.get("maxev", {})
         stats["hardhitpercen_2018"] = hitter_data.get("hardhitpercen", {})
         data.append(stats)
@@ -101,7 +101,7 @@ def hitters_data():
     pyball_hitters_2019 = mongo.db.pybaseball_hitters_2019.find( { },
     {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
     'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1, 'pa': 1, 'kpercen': 1,
-    'bbpercen':1, 'iffbpercen': 1})
+    'bbpercen':1, 'iffbpercen': 1, 'barrelpercen': 1, 'maxev': 1, 'hardhitpercen':1})
     for hitter_data in list(pyball_hitters_2019):
         stats = {}
         stats["name_2019"] = hitter_data.get("name", {})
@@ -119,7 +119,7 @@ def hitters_data():
         stats["kpercen_2019"] = hitter_data.get("kpercen", {})
         stats["bbpercen_2019"] = hitter_data.get("bbpercen", {})
         stats["iffbpercen_2019"] = hitter_data.get("iffbpercen", {})
-        stats["barrel_rate_2019"] = hitter_data.get("barrelpercen", {})
+        stats["barrel_percen_2019"] = hitter_data.get("barrelpercen", {})
         stats["maxev_2019"] = hitter_data.get("maxev", {})
         stats["hardhitpercen_2019"] = hitter_data.get("hardhitpercen", {})
         data.append(stats)
@@ -128,7 +128,7 @@ def hitters_data():
     pyball_hitters_2020 = mongo.db.pybaseball_hitters_2020.find( { },
     {'name': 1, 'o_swingpercen': 1, 'o_contactpercen': 1, 'z_swingpercen': 1, 'z_contactpercen': 1,
     'avg': 1, 'ops': 1, 'r': 1, 'rbi': 1, 'hr': 1, 'sb': 1, 'pa': 1, 'kpercen': 1,
-    'bbpercen':1, 'iffbpercen': 1})
+    'bbpercen':1, 'iffbpercen': 1, 'barrelpercen': 1, 'maxev': 1, 'hardhitpercen':1})
     for hitter_data in list(pyball_hitters_2020):
         stats = {}
         stats["name_2020"] = hitter_data.get("name", {})
@@ -146,7 +146,7 @@ def hitters_data():
         stats["kpercen_2020"] = hitter_data.get("kpercen", {})
         stats["bbpercen_2020"] = hitter_data.get("bbpercen", {})
         stats["iffbpercen_2020"] = hitter_data.get("iffbpercen", {})
-        stats["barrel_rate_2020"] = hitter_data.get("barrelpercen", {})
+        stats["barrel_percen_2020"] = hitter_data.get("barrelpercen", {})
         stats["maxev_2020"] = hitter_data.get("maxev", {})
         stats["hardhitpercen_2020"] = hitter_data.get("hardhitpercen", {})
         data.append(stats)
@@ -329,5 +329,6 @@ def pitchersDictionary():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5050))
+    # app.run(debug=True, host="localhost", port=port)
     app.run(debug=True, host="localhost", port=port)
 

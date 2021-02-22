@@ -207,6 +207,7 @@ function getSelectionHitters() {
   d3.select("#bbTable_2020_2").text(`${bbData_2020_2}`);
   d3.select("#iffbTable_2020_2").text(`${iffbData_2020_2}`);
 
+  statcastGraph(playerSelectedName);
   OGraph(playerSelectedName);
   ZGraph(playerSelectedName);
 
@@ -264,6 +265,7 @@ function getSelectionHitters() {
   d3.select("#hrTable_2020_2").text(`${hrData_2020_2}`);
   d3.select("#sbTable_2020_2").text(`${sbData_2020_2}`);
 
+  statcastGraph2(playerSelectedName2)
   OGraph2(playerSelectedName2);
   ZGraph2(playerSelectedName2);
   // gaugeChart(testSubject)22
@@ -285,6 +287,102 @@ function getSelectionHitters() {
 
 };
 
+
+function statcastGraph(playerSelected) {
+
+  // create an array of the values filtered by the drop-down selection
+
+  let barrelValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected);
+  let barrel_2018 = barrelValue_2018.map((m) => m.barrel_percen_2018);
+  let barrelValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected);
+  let barrel_2019 = barrelValue_2019.map((m) => m.barrel_percen_2019);
+  let barrelValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected);
+  let barrel_2020 = barrelValue_2020.map((m) => m.barrel_percen_2020);
+  barrelValues = [barrel_2018[0], barrel_2019[0], barrel_2020[0], .075];
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: barrelValues,
+      type: "bar",
+      hoverinfo: 'none',
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)'],
+      },
+      text: barrelValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {
+    title: "Barrel %", yaxis: {
+      range: [0, .15]
+    }
+  }
+  Plotly.newPlot("barrelsBar", trace1, layout);
+
+  // Max EV data for the first hitter
+  let evValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected);
+  let EV_2018 = evValue_2018.map((m) => m.maxev_2018);
+  let evValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected);
+  let EV_2019 = evValue_2019.map((m) => m.maxev_2019);
+  let evValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected);
+  let EV_2020 = evValue_2020.map((m) => m.maxev_2020);
+  evValues = [EV_2018[0], EV_2019[0], EV_2020[0], .075];
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: evValues,
+      type: "bar",
+      hoverinfo: 'none',
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)'],
+      },
+      text: evValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {
+    title: "Max EV", yaxis: {
+      range: [95, 120]
+    }
+  }
+  Plotly.newPlot("EVBar", trace1, layout);
+
+
+  // Hard Hit percentage data for the first hitter
+  let hhValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected);
+  let hh_2018 = hhValue_2018.map((m) => m.hardhitpercen_2018);
+  let hhValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected);
+  let hh_2019 = hhValue_2019.map((m) => m.hardhitpercen_2019);
+  let hhValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected);
+  let hh_2020 = hhValue_2020.map((m) => m.hardhitpercen_2020);
+  hhValues = [hh_2018[0], hh_2019[0], hh_2020[0], .075];
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: hhValues,
+      type: "bar",
+      hoverinfo: 'none',
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)'],
+      },
+      text: hhValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {
+    title: "Hard Hit %", yaxis: {
+      range: [.25, .75]
+    }
+  }
+  Plotly.newPlot("hardHitBar", trace1, layout);
+
+};
 
 // function which creates teh bar graph and bubble charts.  bar graph is only the first 10 data points.
 function OGraph(playerSelected) {
@@ -348,7 +446,6 @@ function OGraph(playerSelected) {
 
 };
 
-
 // function which creates teh bar graph for Z-values.  
 function ZGraph(playerSelected) {
   console.log(playerSelected);
@@ -406,6 +503,102 @@ function ZGraph(playerSelected) {
 
 };
 
+
+function statcastGraph2(playerSelected2) {
+
+  // create an array of the values filtered by the drop-down selection
+
+  let barrelValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected2);
+  let barrel_2018 = barrelValue_2018.map((m) => m.barrel_percen_2018);
+  let barrelValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected2);
+  let barrel_2019 = barrelValue_2019.map((m) => m.barrel_percen_2019);
+  let barrelValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected2);
+  let barrel_2020 = barrelValue_2020.map((m) => m.barrel_percen_2020);
+  barrelValues = [barrel_2018[0], barrel_2019[0], barrel_2020[0], .075];
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: barrelValues,
+      type: "bar",
+      hoverinfo: 'none',
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)'],
+      },
+      text: barrelValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {
+    title: "Barrel %", yaxis: {
+      range: [0, .15]
+    }
+  }
+  Plotly.newPlot("barrelsBar2", trace1, layout);
+
+  // Max EV data for the first hitter
+  let evValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected2);
+  let EV_2018 = evValue_2018.map((m) => m.maxev_2018);
+  let evValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected2);
+  let EV_2019 = evValue_2019.map((m) => m.maxev_2019);
+  let evValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected2);
+  let EV_2020 = evValue_2020.map((m) => m.maxev_2020);
+  evValues = [EV_2018[0], EV_2019[0], EV_2020[0], .075];
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: evValues,
+      type: "bar",
+      hoverinfo: 'none',
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)'],
+      },
+      text: evValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {
+    title: "Max EV", yaxis: {
+      range: [95, 120]
+    }
+  }
+  Plotly.newPlot("EVBar2", trace1, layout);
+
+
+  // Hard Hit percentage data for the first hitter
+  let hhValue_2018 = hitter_data.filter((m) => m.name_2018 === playerSelected2);
+  let hh_2018 = hhValue_2018.map((m) => m.hardhitpercen_2018);
+  let hhValue_2019 = hitter_data.filter((m) => m.name_2019 === playerSelected2);
+  let hh_2019 = hhValue_2019.map((m) => m.hardhitpercen_2019);
+  let hhValue_2020 = hitter_data.filter((m) => m.name_2020 === playerSelected2);
+  let hh_2020 = hhValue_2020.map((m) => m.hardhitpercen_2020);
+  hhValues = [hh_2018[0], hh_2019[0], hh_2020[0], .075];
+
+  // bar graph the results
+  var trace1 = [
+    {
+      x: ["2018", "2019", "2020", "League Average"],
+      y: hhValues,
+      type: "bar",
+      hoverinfo: 'none',
+      marker: {
+        color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)'],
+      },
+      text: hhValues.map(String),
+      textposition: 'auto',
+    },
+  ];
+  var layout = {
+    title: "Hard Hit %", yaxis: {
+      range: [.25, .75]
+    }
+  }
+  Plotly.newPlot("hardHitBar2", trace1, layout);
+
+};
 
 // second player o-swing graph
 function OGraph2(playerSelected2) {
