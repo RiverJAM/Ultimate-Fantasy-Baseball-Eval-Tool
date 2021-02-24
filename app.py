@@ -38,11 +38,21 @@ mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9
 def welcome():
     return render_template('index.html')
 
+# hitters url
+@app.route("/hitters")
+def hitters():
+    return render_template('hitters.html')
+
 #useless comment as a placeholder
 # pitchers url
 @app.route("/pitchers")
 def pitching():
     return render_template('pitchers.html')
+
+    # fantasy value url
+@app.route("/fantasyvalue")
+def fantasyvalue():
+    return render_template('fantasyvalue.html')
 
 @app.route("/hittersdropdown")
 def hitters_list():
