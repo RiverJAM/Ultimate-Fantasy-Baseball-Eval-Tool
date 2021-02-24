@@ -1,0 +1,262 @@
+<!-- main page of website for the fantasy baseball evaluation tool -->
+<!-- this is also the hitters eval tool landing page -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- <script type="text/javascript" {{ url_for('static', filename='CRapp.py')}}></script> -->
+  <script type="text/javascript" {{ url_for('static', filename='hitters.js' )}}></script>
+  <link rel="shortcut icon" href="#">
+  </link>
+  <script src="../static/granim.min.js"></script>
+  <script src="../static/granim.js"></script>
+  <script src="../static/anime.min.js"></script>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+
+<body style="background-color: #002D72">
+  <nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg_bigtime" role="navigation">
+    <a class="navbar-brand btn btn-primary butss white_text" style="color: #dddddd" href="http://localhost:5050/">Home</a>
+
+    <div class="dropdown">
+      <button class="navbar-toggler btn btn-secondary" type="button" id="navbarDropdownMenuButton"
+        data-toggle="dropdown" data-target=".navbar-collapse" aria-expanded="false">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+        <a class="dropdown-item" href="http://127.0.0.1:5000/pitchers">Pitchers</a>
+        <a class="dropdown-item" href="index.html">Hitters</a>
+
+      </div>
+
+    </div>
+
+    <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <!-- <div class="dropdown"> -->
+
+          <!-- <button class="btn btn-secondary dropdown-toggle" type="button" 
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false">
+  
+               
+                 </button> -->
+          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+                <a class="dropdown-item" href="index.html">hitters</a>
+                <a class="dropdown-item" href="pitchersdata.html">pithcers</a>
+              
+              </div> -->
+
+
+          <!-- </div> -->
+
+        </li>
+        <!-- DK ADDED -->
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/hitters">Hitters <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/pitchers">Pitchers <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/fantasyvalue">Fantasy Value</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/hittersdata">Hitters Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/pitchersdata">Pitchers Data</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1 class="display-4" style="color:#D50032; font-weight: 400; outline: #dddddd;">Player Fantasy Value</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table col-md-6 colpanel-body ml-2" id="fantasy-overvalued" style="padding-left: 45px !important">
+        <thead>
+        <tr>
+          <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Overvalued Fantasy Players</th>
+        </tr>
+      </thead>
+        <tr style="text-align: center; color: #dddddd;">
+          <th>Player Name</th>
+          <th>Predicted Rank</th>
+          <th>Actual Rank</th>
+          <th>ADP</th>
+        </tr>
+        <tr>
+          <td>Player1</td>
+          <td>Predicted1</td>
+          <td>Actual1</td>
+          <td>ADP1</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player2</td>
+          <td>Predicted2</td>
+          <td>Actual2</td>
+          <td>ADP2</td>
+        </tr>
+        <tr>
+          <td>Player3</td>
+          <td>Predicted3</td>
+          <td>Actual3</td>
+          <td>ADP3</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player4</td>
+          <td>Predicted4</td>
+          <td>Actual4</td>
+          <td>ADP4</td>
+        </tr>
+        <tr>
+          <td>Player5</td>
+          <td>Predicted5</td>
+          <td>Actual5</td>
+          <td>ADP5</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player6</td>
+          <td>Predicted6</td>
+          <td>Actual6</td>
+          <td>ADP6</td>
+        </tr>
+        <tr>
+          <td>Player7</td>
+          <td>Predicted7</td>
+          <td>Actual7</td>
+          <td>ADP7</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player8</td>
+          <td>Predicted8</td>
+          <td>Actual8</td>
+          <td>ADP8</td>
+        </tr>
+        <tr>
+          <td>Player9</td>
+          <td>Predicted9</td>
+          <td>Actual9</td>
+          <td>ADP9</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player10</td>
+          <td>Predicted10</td>
+          <td>Actual10</td>
+          <td>ADP10</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <table class="table col-md-6 colpanel-body ml-2" id="fantasy-sleeper" style="padding-left: 45px !important">
+        <thead>
+          <tr>
+            <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Fantasy Sleepers</th>
+          </tr>
+        </thead>
+        <tr style="text-align: center; color: #dddddd;">
+          <th>Player Name</th>
+          <th>Predicted Rank</th>
+          <th>Actual Rank</th>
+          <th>ADP</th>
+        </tr>
+        <tr>
+          <td>Player1</td>
+          <td>Predicted1</td>
+          <td>Actual1</td>
+          <td>ADP1</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player2</td>
+          <td>Predicted2</td>
+          <td>Actual2</td>
+          <td>ADP2</td>
+        </tr>
+        <tr>
+          <td>Player3</td>
+          <td>Predicted3</td>
+          <td>Actual3</td>
+          <td>ADP3</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player4</td>
+          <td>Predicted4</td>
+          <td>Actual4</td>
+          <td>ADP4</td>
+        </tr>
+        <tr>
+          <td>Player5</td>
+          <td>Predicted5</td>
+          <td>Actual5</td>
+          <td>ADP5</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player6</td>
+          <td>Predicted6</td>
+          <td>Actual6</td>
+          <td>ADP6</td>
+        </tr>
+        <tr>
+          <td>Player7</td>
+          <td>Predicted7</td>
+          <td>Actual7</td>
+          <td>ADP7</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player8</td>
+          <td>Predicted8</td>
+          <td>Actual8</td>
+          <td>ADP8</td>
+        </tr>
+        <tr>
+          <td>Player9</td>
+          <td>Predicted9</td>
+          <td>Actual9</td>
+          <td>ADP9</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Player10</td>
+          <td>Predicted10</td>
+          <td>Actual10</td>
+          <td>ADP10</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
