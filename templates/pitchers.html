@@ -19,67 +19,420 @@
 
 <body>
 <!-- This is the Code for the Navbar-->
-<nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg_bigtime" role="navigation">
-   
-  
-      
-    <a class="navbar-brand btn btn-primary butss white_text" href="http://127.0.0.1:5000/">Home</a>
+    <nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg_bigtime" role="navigation">
     
-    <div class="dropdown">
-    <button class="navbar-toggler btn btn-secondary" type="button" 
-    id="navbarDropdownMenuButton"
-    data-toggle="dropdown" data-target=".navbar-collapse" 
-    aria-expanded="false" >
-      
-      <span class="navbar-toggler-icon"></span>
     
-    </button>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
-      <a class="dropdown-item" href="http://127.0.0.1:5000/pitchers">Pitchers</a>
-      <a class="dropdown-item" href="index.html">Hitters</a>
-   
-    </div>
-  
-  </div>
- 
-
-  <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
-
-    <ul class="navbar-nav ml-auto">
-      <li>
-        <!-- <div class="dropdown"> -->
-          
-            <!-- <button class="btn btn-secondary dropdown-toggle" type="button" 
-            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
-            aria-expanded="false">
-
-           
-             </button> -->
-          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
-            <a class="dropdown-item" href="index.html">hitters</a>
-            <a class="dropdown-item" href="pitchersdata.html">pithcers</a>
-          
-          </div> -->
         
+        <a class="navbar-brand btn btn-primary butss white_text" href="http://127.0.0.1:5000/">Home</a>
+        
+        <div class="dropdown">
+        <button class="navbar-toggler btn btn-secondary" type="button" 
+        id="navbarDropdownMenuButton"
+        data-toggle="dropdown" data-target=".navbar-collapse" 
+        aria-expanded="false" >
+        
+        <span class="navbar-toggler-icon"></span>
+        
+        </button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+        <a class="dropdown-item" href="http://127.0.0.1:5000/pitchers">Pitchers</a>
+        <a class="dropdown-item" href="index.html">Hitters</a>
+    
+        </div>
+    
+    </div>
+    
 
-        <!-- </div> -->
-      
-      </li>
-     
-      <li class="nav-item active">
-        <a class="nav-link" href="http://127.0.0.1:5000/pitchers">Pitchers <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="http://127.0.0.1:5000/hittersdata">Hitters Data</a>
+    <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+
+        <ul class="navbar-nav ml-auto">
+        <li>
+            <!-- <div class="dropdown"> -->
+            
+                <!-- <button class="btn btn-secondary dropdown-toggle" type="button" 
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false">
+
+            
+                </button> -->
+            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+                <a class="dropdown-item" href="index.html">hitters</a>
+                <a class="dropdown-item" href="pitchersdata.html">pithcers</a>
+            
+            </div> -->
+            
+
+            <!-- </div> -->
+        
         </li>
-      <li class="nav-item">
-        <a class="nav-link" href="http://127.0.0.1:5000//pitchersdata">Pitchers Data</a>
-      </li>
-   
-    </ul>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="http://127.0.0.1:5000/pitchers">Pitchers <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://127.0.0.1:5000/hittersdata">Hitters Data</a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://127.0.0.1:5000//pitchersdata">Pitchers Data</a>
+        </li>
+    
+        </ul>
 
-  </div>
-</nav>
+    </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <!-- Table of major statistics -->
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Year</th>
+                            <th scope="col">Category</th>
+                            <th scope="col" style="width: 25%;">Player 1
+                                <div class="well" style="padding-left: 30px">
+                                    <select id="selDataset"></select>  <!-- onchange="optionChanged(this.value)"" -->
+                                </div>
+                            </th>
+                            <th scope="col" style="width: 25%;">Player 2
+                                <div class="well" style="padding-left: 30px">
+                                    <select id="selDataset2"></select>  <!-- onchange="optionChanged(this.value)"" -->
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">2020</th>
+                            <td>W's</td>
+                            <td id="wTable_2020"></td>
+                            <td id="wTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>L's</td>
+                            <td id="lTable_2020"></td>
+                            <td id="lTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K's</td>
+                            <td id="soTable_2020"></td>
+                            <td id="soTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>ERA</td>
+                            <td id="eraTable_2020"></td>
+                            <td id="eraTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>WHIP</td>
+                            <td id="whipTable_2020"></td>
+                            <td id="whipTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Svs</td>
+                            <td id="saveTable_2020"></td>
+                            <td id="saveTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Hlds</td>
+                            <td id="holdTable_2020"></td>
+                            <td id="holdTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K %</td>
+                            <td id="kperTable_2020"></td>
+                            <td id="kperTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BB %</td>
+                            <td id="bbperTable_2020"></td>
+                            <td id="bbperTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BABIP</td>
+                            <td id="babipTable_2020"></td>
+                            <td id="babipTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>xFIP</td>
+                            <td id="xFIPTable_2020"></td>
+                            <td id="xFIPTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>SIERA</td>
+                            <td id="sieraTable_2020"></td>
+                            <td id="sieraTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2019</th>
+                            <td>W's</td>
+                            <td id="wTable_2019"></td>
+                            <td id="wTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>L's</td>
+                            <td id="lTable_2019"></td>
+                            <td id="lTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K's</td>
+                            <td id="soTable_2019"></td>
+                            <td id="soTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>ERA</td>
+                            <td id="eraTable_2019"></td>
+                            <td id="eraTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>WHIP</td>
+                            <td id="whipTable_2019"></td>
+                            <td id="whipTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Svs</td>
+                            <td id="saveTable_2019"></td>
+                            <td id="saveTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Hlds</td>
+                            <td id="holdTable_2019"></td>
+                            <td id="holdTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K %</td>
+                            <td id="kperTable_2019"></td>
+                            <td id="kperTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BB %</td>
+                            <td id="bbperTable_2019"></td>
+                            <td id="bbperTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BABIP</td>
+                            <td id="babipTable_2019"></td>
+                            <td id="babipTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>xFIP</td>
+                            <td id="xFIPTable_2019"></td>
+                            <td id="xFIPTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>SIERA</td>
+                            <td id="sieraTable_2019"></td>
+                            <td id="sieraTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2018</th>
+                            <td>W's</td>
+                            <td id="wTable_2018"></td>
+                            <td id="wTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>L's</td>
+                            <td id="lTable_2018"></td>
+                            <td id="lTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K's</td>
+                            <td id="soTable_2018"></td>
+                            <td id="soTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>ERA</td>
+                            <td id="eraTable_2018"></td>
+                            <td id="eraTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>WHIP</td>
+                            <td id="whipTable_2018"></td>
+                            <td id="whipTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Svs</td>
+                            <td id="saveTable_2018"></td>
+                            <td id="saveTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Hlds</td>
+                            <td id="holdTable_2018"></td>
+                            <td id="holdTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K %</td>
+                            <td id="kperTable_2018"></td>
+                            <td id="kperTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BB %</td>
+                            <td id="bbperTable_2018"></td>
+                            <td id="bbperTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BABIP</td>
+                            <td id="babipTable_2018"></td>
+                            <td id="babipTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>xFIP</td>
+                            <td id="xFIPTable_2018"></td>
+                            <td id="xFIPTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>SIERA</td>
+                            <td id="sieraTable_2018"></td>
+                            <td id="sieraTable_2018_2"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Bar Graphs next to table -->
+            <div class="col-md-6">
+                <div class="row">
+                    <h3 style="text-align: center;">Pitch Velocity Graphs</h2>
+                    <div class="col-md-6">
+                        <h5 style="text-align: center;">Player 1</h5>
+                        <div id="ffVeloBar"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="text-align: center;">Player 2</h5>
+                        <div id="ffVeloBar2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="ctVeloBar"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="ctVeloBar2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="cbVeloBar"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="cbVeloBar2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <h3 style="text-align: center;">More Pitch Velocity Graphs</h2>
+            <div class="col-md-6">
+                <h5 style="text-align: center;">Player 1</h5>
+            </div>
+            <div class="col-md-6">
+                <h5 style="text-align: center;">Player 2</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="slVeloBar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="chVeloBar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="slVeloBar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="chVeloBar2"></div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <h3 style="text-align: center;">Pitch Value Graphs</h3>
+            <div class="col-md-6">
+                <h5 style="text-align: center;">Player 1</h5>
+            </div>
+            <div class="col-md-6">
+                <h5 style="text-align: center;">Player 2</h5>
+            </div>
+            <div class="col-md-3">
+                <div id="ffBar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="ctBar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="ffBar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="ctBar2"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="cbBar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="slBar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="cbBar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="slBar2"></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div id="chBar"></div>
+            </div>
+            <div class="col-md-3">
+                <div></div>
+            </div>
+            <div class="col-md-3">
+                <div id="chBar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div></div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="wrapper" style="padding-left: 20px">
@@ -93,207 +446,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <!-- Select Player Dropdown -->
-        <div class="col-md-6">
-            <div class="well" style="padding-left: 30px">
-                <h5>Select Player</h5>
-                <select id="selDataset"></select>  <!-- onchange="optionChanged(this.value)"" -->
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="well" style="padding-left: 30px">
-                <h5>Select Player</h5>
-                <select id="selDataset2"></select>  <!-- onchange="optionChanged(this.value)"" -->
-            </div>
-        </div>
-        <!-- Select Year Dropdown
-        <div class="col-md-2">
-            <div class="well">
-                <h5>Select Year</h5>
-                <select id="selDataset2"></select>
-            </div>
-        </div> -->
-    </div>
-    <!-- Table for player stats -->
-    <div class="row">
-    <div class="col-md-6" id="sample-metadata" class="colpanel-body" style="padding-left: 45px !important">
-        <table style="width: 300px">
-        <tr>
-            <th>Year</th>
-            <th>W's</th>
-            <th>L's</th>
-            <th>K's</th>
-            <th>ERA</th>
-            <th>WHIP</th>
-            <th>Svs</th>
-            <th>Hlds</th>
-            <th>K%</th>
-            <th>BB%</th>
-            <th>babip</th>
-            <th>xFIP</th>
-            <th>siera</th>
-        </tr>
-        <tr>
-            <td>2018</td>
-            <td id="wTable_2018"></td>
-            <td id="lTable_2018"></td>
-            <td id="soTable_2018"></td>
-            <td id="eraTable_2018"></td>
-            <td id="whipTable_2018"></td>
-            <td id="saveTable_2018"></td>
-            <td id="holdTable_2018"></td>
-            <td id="kperTable_2018"></td>
-            <td id="bbperTable_2018"></td>
-            <td id="xFIPTable_2018"></td>
-            <td id="sieraTable_2018"></td>
-            <td id="babipTable_2018"></td>
-        </tr>
-        <tr>
-            <td>2019</td>
-            <td id="wTable_2019"></td>
-            <td id="lTable_2019"></td>
-            <td id="soTable_2019"></td>
-            <td id="eraTable_2019"></td>
-            <td id="whipTable_2019"></td>
-            <td id="saveTable_2019"></td>
-            <td id="holdTable_2019"></td>
-            <td id="kperTable_2019"></td>
-            <td id="bbperTable_2019"></td>
-            <td id="xFIPTable_2019"></td>
-            <td id="sieraTable_2019"></td>
-            <td id="babipTable_2019"></td>
-        </tr>
-        <tr>
-            <td>2020</td>
-            <td id="wTable_2020"></td>
-            <td id="lTable_2020"></td>
-            <td id="soTable_2020"></td>
-            <td id="eraTable_2020"></td>
-            <td id="whipTable_2020"></td>
-            <td id="saveTable_2020"></td>
-            <td id="holdTable_2020"></td>
-            <td id="kperTable_2020"></td>
-            <td id="bbperTable_2020"></td>
-            <td id="xFIPTable_2020"></td>
-            <td id="sieraTable_2020"></td>
-            <td id="babipTable_2020"></td>
-        </tr>
-
-
-
-        </table>
-    </div>
-    <div class="col-md-6" id="sample-metadata2" class="colpanel-body" style="padding-left: 45px !important">
-        <table style="width: 300px">
-        <tr>
-            <th>Year</th>
-            <th>W's</th>
-            <th>L's</th>
-            <th>K's</th>
-            <th>ERA</th>
-            <th>WHIP</th>
-            <th>Svs</th>
-            <th>Hlds</th>
-            <th>K%</th>
-            <th>BB%</th>
-            <th>babip</th>
-            <th>xFIP</th>
-            <th>siera</th>
-        </tr>
-        <tr>
-            <td>2018</td>
-            <td id="wTable_2018_2"></td>
-            <td id="lTable_2018_2"></td>
-            <td id="soTable_2018_2"></td>
-            <td id="eraTable_2018_2"></td>
-            <td id="whipTable_2018_2"></td>
-            <td id="saveTable_2018_2"></td>
-            <td id="holdTable_2018_2"></td>
-            <td id="kperTable_2018_2"></td>
-            <td id="bbperTable_2018_2"></td>
-            <td id="xFIPTable_2018_2"></td>
-            <td id="sieraTable_2018_2"></td>
-            <td id="babipTable_2018_2"></td>
-        </tr>
-        <tr>
-            <td>2019</td>
-            <td id="wTable_2019_2"></td>
-            <td id="lTable_2019_2"></td>
-            <td id="soTable_2019_2"></td>
-            <td id="eraTable_2019_2"></td>
-            <td id="whipTable_2019_2"></td>
-            <td id="saveTable_2019_2"></td>
-            <td id="holdTable_2019_2"></td>
-            <td id="kperTable_2019_2"></td>
-            <td id="bbperTable_2019_2"></td>
-            <td id="xFIPTable_2019_2"></td>
-            <td id="sieraTable_2019_2"></td>
-            <td id="babipTable_2019_2"></td>
-        </tr>
-        <tr>
-            <td>2020</td>
-            <td id="wTable_2020_2"></td>
-            <td id="lTable_2020_2"></td>
-            <td id="soTable_2020_2"></td>
-            <td id="eraTable_2020_2"></td>
-            <td id="whipTable_2020_2"></td>
-            <td id="saveTable_2020_2"></td>
-            <td id="holdTable_2020_2"></td>
-            <td id="kperTable_2020_2"></td>
-            <td id="bbperTable_2020_2"></td>
-            <td id="xFIPTable_2020_2"></td>
-            <td id="sieraTable_2020_2"></td>
-            <td id="babipTable_2020_2"></td>
-        </tr>
-
-        </table>
-    </div>
-    </div>
 
     <!-- Pitch velocity graphs -->
-    <div class="row">
-        <div class="col-md-3">
-            <div id="ffVeloBar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="ctVeloBar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="ffVeloBar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="ctVeloBar2"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="cbVeloBar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="slVeloBar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="cbVeloBar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="slVeloBar2"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="chVeloBar"></div>
-        </div>
-        <div class="col-md-3">
-            <div></div>
-        </div>
-        <div class="col-md-3">
-            <div id="chVeloBar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div></div>
-        </div>
-    </div>
 
     <!-- Bar Graphs -->
     <div class="row">

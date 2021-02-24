@@ -10,6 +10,8 @@
     <!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}" /> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- <script type="text/javascript" {{ url_for('static', filename='CRapp.py')}}></script> -->
     <script type="text/javascript" {{ url_for('static', filename='hitters.js')}}></script>
     <link rel="shortcut icon" href="#"></link>
@@ -21,12 +23,13 @@
           font-family: arial, sans-serif;
           border-collapse: collapse;
           width: 100%;
+          
         }
         
         td, th {
           border: 1px solid #dddddd;
           text-align: left;
-          padding: 8px;
+          padding: 4px;
         }
         
         tr:nth-child(even) {
@@ -99,299 +102,299 @@
     </nav>
     
     
-    <div class="container">
-        <div class="wrapper" style="padding-left: 20px">
-            <canvas id="first" class="col-sm-12"></canvas>
-        </div>
-    </div>
+    
+    
+    
+    <!-- Table For Hitters -->
     <div class="container">
         <div class="row">
-            <div class="col-md-12 jumbotron text-center">
-                
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Year</th>
+                            <th scope="col">Category</th>
+                            <th scope="col" style="width: 25%;">Player 1
+                                <div class="well" style="padding-left: 30px">
+                                    <select id="selDataset"></select>  <!-- onchange="optionChanged(this.value)"" -->
+                                </div>
+                            </th>
+                            <th scope="col" style="width: 25%;">Player 2
+                                <div class="well" style="padding-left: 30px">
+                                    <select id="selDataset2"></select>  <!-- onchange="optionChanged(this.value)"" -->
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">2020</th>
+                            <td>AVG</td>
+                            <td id="avgTable_2020"></td>
+                            <td id="avgTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>OPS</td>
+                            <td id="opsTable_2020"></td>
+                            <td id="opsTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>R</td>
+                            <td id="rTable_2020"></td>
+                            <td id="rTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>RBI</td>
+                            <td id="rbiTable_2020"></td>
+                            <td id="rbiTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>HR</td>
+                            <td id="hrTable_2020"></td>
+                            <td id="hrTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>SB</td>
+                            <td id="sbTable_2020"></td>
+                            <td id="sbTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>PA's</td>
+                            <td id="paTable_2020"></td>
+                            <td id="paTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K %</td>
+                            <td id="kTable_2020"></td>
+                            <td id="kTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BB %</td>
+                            <td id="bbTable_2020"></td>
+                            <td id="bbTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>IFFB %</td>
+                            <td id="iffbTable_2020"></td>
+                            <td id="iffbTable_2020_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2019</th>
+                            <td>AVG</td>
+                            <td id="avgTable_2019"></td>
+                            <td id="avgTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>OPS</td>
+                            <td id="opsTable_2019"></td>
+                            <td id="opsTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>R</td>
+                            <td id="rTable_2019"></td>
+                            <td id="rTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>RBI</td>
+                            <td id="rbiTable_2019"></td>
+                            <td id="rbiTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>HR</td>
+                            <td id="hrTable_2019"></td>
+                            <td id="hrTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>SB</td>
+                            <td id="sbTable_2019"></td>
+                            <td id="sbTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>PA's</td>
+                            <td id="paTable_2019"></td>
+                            <td id="paTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K %</td>
+                            <td id="kTable_2019"></td>
+                            <td id="kTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BB %</td>
+                            <td id="bbTable_2019"></td>
+                            <td id="bbTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>IFFB %</td>
+                            <td id="iffbTable_2019"></td>
+                            <td id="iffbTable_2019_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2018</th>
+                            <td>AVG</td>
+                            <td id="avgTable_2018"></td>
+                            <td id="avgTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>OPS</td>
+                            <td id="opsTable_2018"></td>
+                            <td id="opsTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>R</td>
+                            <td id="rTable_2018"></td>
+                            <td id="rTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>RBI</td>
+                            <td id="rbiTable_2018"></td>
+                            <td id="rbiTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>HR</td>
+                            <td id="hrTable_2018"></td>
+                            <td id="hrTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>SB</td>
+                            <td id="sbTable_2018"></td>
+                            <td id="sbTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>PA's</td>
+                            <td id="paTable_2018"></td>
+                            <td id="paTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>K %</td>
+                            <td id="kTable_2018"></td>
+                            <td id="kTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>BB %</td>
+                            <td id="bbTable_2018"></td>
+                            <td id="bbTable_2018_2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>IFFB %</td>
+                            <td id="iffbTable_2018"></td>
+                            <td id="iffbTable_2018_2"></td>
+                        </tr>
+                    </tbody>    
+        
+                </table>
+            </div>
+            <!-- Bar Graphs next to table -->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 style="text-align: center;">Player 1</h5>
+                        <div id="barrelsBar"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="text-align: center;">Player 2</h5>
+                        <div id="barrelsBar2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="hardHitBar"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="hardHitBar2"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="EVBar"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="EVBar2"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <!-- Select Player Dropdown -->
-        <div class="col-md-6">
-            <div class="well" style="padding-left: 30px">
-                <h5>Select Player</h5>
-                <select id="selDataset"></select>  <!-- onchange="optionChanged(this.value)"" -->
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="well" style="padding-left: 30px">
-                <h5>Select Player</h5>
-                <select id="selDataset2"></select>  <!-- onchange="optionChanged(this.value)"" -->
-            </div>
-        </div>
-        <!-- Select Year Dropdown
-        <div class="col-md-2">
-            <div class="well">
-                <h5>Select Year</h5>
-                <select id="selDataset2"></select>
-            </div>
-        </div> -->
     </div>
     
+    <hr>
+
+    <!-- Bar Graphs below table -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5 style="text-align: center;">Player 1</h5>
+            </div>
+            <div class="col-md-6">
+                <h5 style="text-align: center;">Player 2</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="Obar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Obar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Obar3"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Obar4"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="Zbar"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Zbar2"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Zbar3"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="Zbar4"></div>
+            </div>
+        </div>
+    </div>
     
-    <!-- New Table For Hitters -->
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Year</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Player 1</th>
-                    <th scope="col">Player 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">2018</th>
-                    <td>AVG</td>
-                    <td id="avgTable_2018"></td>
-                    <td id="avgTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>OPS</td>
-                    <td id="opsTable_2018"></td>
-                    <td id="opsTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>R</td>
-                    <td id="rTable_2018"></td>
-                    <td id="rTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>RBI</td>
-                    <td id="rbiTable_2018"></td>
-                    <td id="rbiTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>HR</td>
-                    <td id="hrTable_2018"></td>
-                    <td id="hrTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>SB</td>
-                    <td id="sbTable_2018"></td>
-                    <td id="sbTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>PA's</td>
-                    <td id="paTable_2018"></td>
-                    <td id="paTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>K %</td>
-                    <td id="kTable_2018"></td>
-                    <td id="kTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>BB %</td>
-                    <td id="bbTable_2018"></td>
-                    <td id="bbTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>IFFB %</td>
-                    <td id="iffbTable_2018"></td>
-                    <td id="iffbTable_2018_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row">2019</th>
-                    <td>AVG</td>
-                    <td id="avgTable_2019"></td>
-                    <td id="avgTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>OPS</td>
-                    <td id="opsTable_2019"></td>
-                    <td id="opsTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>R</td>
-                    <td id="rTable_2019"></td>
-                    <td id="rTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>RBI</td>
-                    <td id="rbiTable_2019"></td>
-                    <td id="rbiTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>HR</td>
-                    <td id="hrTable_2019"></td>
-                    <td id="hrTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>SB</td>
-                    <td id="sbTable_2019"></td>
-                    <td id="sbTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>PA's</td>
-                    <td id="paTable_2019"></td>
-                    <td id="paTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>K %</td>
-                    <td id="kTable_2019"></td>
-                    <td id="kTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>BB %</td>
-                    <td id="bbTable_2019"></td>
-                    <td id="bbTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>IFFB %</td>
-                    <td id="iffbTable_2019"></td>
-                    <td id="iffbTable_2019_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row">2020</th>
-                    <td>AVG</td>
-                    <td id="avgTable_2020"></td>
-                    <td id="avgTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>OPS</td>
-                    <td id="opsTable_2020"></td>
-                    <td id="opsTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>R</td>
-                    <td id="rTable_2020"></td>
-                    <td id="rTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>RBI</td>
-                    <td id="rbiTable_2020"></td>
-                    <td id="rbiTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>HR</td>
-                    <td id="hrTable_2020"></td>
-                    <td id="hrTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>SB</td>
-                    <td id="sbTable_2020"></td>
-                    <td id="sbTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>PA's</td>
-                    <td id="paTable_2020"></td>
-                    <td id="paTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>K %</td>
-                    <td id="kTable_2020"></td>
-                    <td id="kTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>BB %</td>
-                    <td id="bbTable_2020"></td>
-                    <td id="bbTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td>IFFB %</td>
-                    <td id="iffbTable_2020"></td>
-                    <td id="iffbTable_2020_2"></td>
-                </tr>
-            </tbody>    
-
-        </table>
-    </div>
-
-
-    <!-- Bar Graphs -->
-    <div class="row">
-        <div class="col-md-2">
-            <div id="barrelsBar"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="EVBar"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="hardHitBar"></div>
-        </div>
-
-        <div class="col-md-2">
-            <div id="barrelsBar2"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="EVBar2"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="hardHitBar2"></div>
-        </div>
-    </div>
-
-
-
-
-    <div class="row">
-        <div class="col-md-3">
-            <div id="Obar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar3"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar4"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="Zbar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar3"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar4"></div>
-        </div>
-    </div>
     
 
     <!-- Speedometer Graph -->
     <div class="col-md-5">
         <div id="gauge"></div>
+    </div>
+    <div class="container">
+        <div class="wrapper" style="padding-left: 20px">
+            <canvas id="first" class="col-sm-12"></canvas>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
