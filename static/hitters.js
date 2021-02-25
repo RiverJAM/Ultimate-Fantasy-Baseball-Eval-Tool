@@ -133,9 +133,9 @@ function getSelectionHitters() {
   // pull out the data from the dropdown item for the basic hitting information
 
   var paData_2018 = fantasyData_2018.map((m) => m.pa_2018);
-  var kData_2018 = (fantasyData_2018.map((m) => m.kpercen_2018)) * 100;
-  var bbData_2018 = (fantasyData_2018.map((m) => m.bbpercen_2018)) * 100;
-  var iffbData_2018 = (fantasyData_2018.map((m) => m.iffbpercen_2018)) * 100;
+  var kData_2018 = ((fantasyData_2018.map((m) => m.kpercen_2018)) * 100).toFixed(2);
+  var bbData_2018 = ((fantasyData_2018.map((m) => m.bbpercen_2018)) * 100).toFixed(2);
+  var iffbData_2018 = ((fantasyData_2018.map((m) => m.iffbpercen_2018)) * 100).toFixed(2);
   d3.select("#paTable_2018").text(`${paData_2018}`);
   d3.select("#kTable_2018").text(`${kData_2018}`);
   d3.select("#bbTable_2018").text(`${bbData_2018}`);
@@ -146,9 +146,9 @@ function getSelectionHitters() {
   // pull out the data from the dropdown item for the basic hitting information
 
   var paData_2019 = fantasyData_2019.map((m) => m.pa_2019);
-  var kData_2019 = (fantasyData_2019.map((m) => m.kpercen_2019)) * 100;
-  var bbData_2019 = (fantasyData_2019.map((m) => m.bbpercen_2019)) * 100;
-  var iffbData_2019 = parseFloat(fantasyData_2019.map((m) => m.iffbpercen_2019) * 100);
+  var kData_2019 = ((fantasyData_2019.map((m) => m.kpercen_2019)) * 100).toFixed(2);
+  var bbData_2019 = ((fantasyData_2019.map((m) => m.bbpercen_2019)) * 100).toFixed(2);
+  var iffbData_2019 = (parseFloat(fantasyData_2019.map((m) => m.iffbpercen_2019) * 100)).toFixed(2);
   d3.select("#paTable_2019").text(`${paData_2019}`);
   d3.select("#kTable_2019").text(`${kData_2019}`);
   d3.select("#bbTable_2019").text(`${bbData_2019}`);
@@ -158,9 +158,9 @@ function getSelectionHitters() {
   // pull out the data from the dropdown item for the basic hitting information
 
   var paData_2020 = fantasyData_2020.map((m) => m.pa_2020);
-  var kData_2020 = (fantasyData_2020.map((m) => m.kpercen_2020)) * 100;
-  var bbData_2020 = (fantasyData_2020.map((m) => m.bbpercen_2020)) * 100;
-  var iffbData_2020 = (fantasyData_2020.map((m) => m.iffbpercen_2020)) * 100;
+  var kData_2020 = ((fantasyData_2020.map((m) => m.kpercen_2020)) * 100).toFixed(2);
+  var bbData_2020 = ((fantasyData_2020.map((m) => m.bbpercen_2020)) * 100).toFixed(2);
+  var iffbData_2020 = ((fantasyData_2020.map((m) => m.iffbpercen_2020)) * 100).toFixed(2);
   d3.select("#paTable_2020").text(`${paData_2020}`);
   d3.select("#kTable_2020").text(`${kData_2020}`);
   d3.select("#bbTable_2020").text(`${bbData_2020}`);
@@ -174,9 +174,9 @@ function getSelectionHitters() {
   // pull out the data from the dropdown item for the basic hitting information
 
   var paData_2018_2 = fantasyData_2018_2.map((m) => m.pa_2018);
-  var kData_2018_2 = (fantasyData_2018_2.map((m) => m.kpercen_2018)) * 100;
-  var bbData_2018_2 = (fantasyData_2018_2.map((m) => m.bbpercen_2018)) * 100;
-  var iffbData_2018_2 = (fantasyData_2018_2.map((m) => m.iffbpercen_2018)) * 100;
+  var kData_2018_2 = ((fantasyData_2018_2.map((m) => m.kpercen_2018)) * 100).toFixed(2);
+  var bbData_2018_2 = ((fantasyData_2018_2.map((m) => m.bbpercen_2018)) * 100).toFixed(2);
+  var iffbData_2018_2 = ((fantasyData_2018_2.map((m) => m.iffbpercen_2018)) * 100).toFixed(2);
   d3.select("#paTable_2018_2").text(`${paData_2018_2}`);
   d3.select("#kTable_2018_2").text(`${kData_2018_2}`);
   d3.select("#bbTable_2018_2").text(`${bbData_2018_2}`);
@@ -187,9 +187,9 @@ function getSelectionHitters() {
   // pull out the data from the dropdown item for the basic hitting information
 
   var paData_2019_2 = fantasyData_2019_2.map((m) => m.pa_2019);
-  var kData_2019_2 = (fantasyData_2019_2.map((m) => m.kpercen_2019)) * 100;
-  var bbData_2019_2 = (fantasyData_2019_2.map((m) => m.bbpercen_2019)) * 100;
-  var iffbData_2019_2 = (fantasyData_2019_2.map((m) => m.iffbpercen_2019) * 100);
+  var kData_2019_2 = ((fantasyData_2019_2.map((m) => m.kpercen_2019)) * 100).toFixed(2);
+  var bbData_2019_2 = ((fantasyData_2019_2.map((m) => m.bbpercen_2019)) * 100).toFixed(2);
+  var iffbData_2019_2 = ((fantasyData_2019_2.map((m) => m.iffbpercen_2019) * 100)).toFixed(2);
   d3.select("#paTable_2019_2").text(`${paData_2019_2}`);
   d3.select("#kTable_2019_2").text(`${kData_2019_2}`);
   d3.select("#bbTable_2019_2").text(`${bbData_2019_2}`);
@@ -199,9 +199,9 @@ function getSelectionHitters() {
   // pull out the data from the dropdown item for the basic hitting information
 
   var paData_2020_2 = fantasyData_2020_2.map((m) => m.pa_2020);
-  var kData_2020_2 = (fantasyData_2020_2.map((m) => m.kpercen_2020)) * 100;
-  var bbData_2020_2 = (fantasyData_2020_2.map((m) => m.bbpercen_2020)) * 100;
-  var iffbData_2020_2 = (fantasyData_2020_2.map((m) => m.iffbpercen_2020)) * 100;
+  var kData_2020_2 = ((fantasyData_2020_2.map((m) => m.kpercen_2020)) * 100).toFixed(2);
+  var bbData_2020_2 = ((fantasyData_2020_2.map((m) => m.bbpercen_2020)) * 100).toFixed(2);
+  var iffbData_2020_2 = ((fantasyData_2020_2.map((m) => m.iffbpercen_2020)) * 100).toFixed(2);
   d3.select("#paTable_2020_2").text(`${paData_2020_2}`);
   d3.select("#kTable_2020_2").text(`${kData_2020_2}`);
   d3.select("#bbTable_2020_2").text(`${bbData_2020_2}`);
