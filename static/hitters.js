@@ -345,7 +345,7 @@ function statcastGraph(playerSelected) {
     },
   ];
   var layout = {
-    title: "Max EV", yaxis: {
+    title: "Max. Exit Velocity", yaxis: {
       range: [95, 120]
     }
   }
@@ -561,7 +561,7 @@ function statcastGraph2(playerSelected2) {
     },
   ];
   var layout = {
-    title: "Max EV", yaxis: {
+    title: "Max. Exit Velocity", yaxis: {
       range: [95, 120]
     }
   }

@@ -310,7 +310,7 @@ function fbVelo(playerSelected) {
       textposition: 'auto',
     },
   ];
-  var layout = {title: "FB velo", yaxis: {range: [85, 100]}}
+  var layout = {title: "Fastball Avg. Velocity", yaxis: {range: [85, 100]}}
   Plotly.newPlot("ffVeloBar", trace1, layout);
 
 
@@ -337,7 +337,7 @@ var trace1 = [
     textposition: 'auto',
   },
 ];
-var layout = {title: "CT velo", yaxis: {range: [80, 100]}}
+var layout = {title: "Cutter Avg. Velocity", yaxis: {range: [80, 100]}}
 Plotly.newPlot("ctVeloBar", trace1, layout);
   
   console.log(playerSelected);
@@ -371,7 +371,7 @@ function brVelo(playerSelected) {
       textposition: 'auto',
     },
   ];
-  var layout = {title: "CB velo", yaxis: {range: [70, 95]}}
+  var layout = {title: "Curveball Avg. Velocity", yaxis: {range: [70, 95]}}
   Plotly.newPlot("cbVeloBar", trace1, layout);
 
 
@@ -398,7 +398,7 @@ var trace1 = [
     textposition: 'auto',
   },
 ];
-var layout = {title: "SL velo", yaxis: {range: [70, 95]}}
+var layout = {title: "Slider Avg. Velocity", yaxis: {range: [70, 95]}}
 Plotly.newPlot("slVeloBar", trace1, layout);
   
   console.log(playerSelected);
@@ -431,7 +431,7 @@ function chVelo(playerSelected) {
       textposition: 'auto',
     },
   ];
-  var layout = {title: "CH velo", yaxis: {range: [85, 100]}}
+  var layout = {title: "Changeup Avg. Velocity", yaxis: {range: [85, 100]}}
   Plotly.newPlot("chVeloBar", trace1, layout);
 };
 
@@ -461,7 +461,7 @@ function fbVelo2(playerSelected2) {
       textposition: 'auto',
     },
   ];
-  var layout = {title: "FB velo", yaxis: {range: [85, 100]}}
+  var layout = {title: "Fastball Avg. Velocity", yaxis: {range: [85, 100]}}
   Plotly.newPlot("ffVeloBar2", trace1, layout);
 
 
@@ -487,7 +487,7 @@ var trace1 = [
     textposition: 'auto',
   },
 ];
-var layout = {title: "CT velo", yaxis: {range: [80, 100]}}
+var layout = {title: "Cutter Avg. Velocity", yaxis: {range: [80, 100]}}
 Plotly.newPlot("ctVeloBar2", trace1, layout);
 };
 
@@ -516,7 +516,7 @@ function brVelo2(playerSelected) {
       textposition: 'auto',
     },
   ];
-  var layout = {title: "CB velo", yaxis: {range: [70, 95]}}
+  var layout = {title: "Curveball Avg. Velocity", yaxis: {range: [70, 95]}}
   Plotly.newPlot("cbVeloBar2", trace1, layout);
 
 
@@ -543,7 +543,7 @@ var trace1 = [
     textposition: 'auto',
   },
 ];
-var layout = {title: "SL velo", yaxis: {range: [70, 95]}}
+var layout = {title: "Slider Avg. Velocity", yaxis: {range: [70, 95]}}
 Plotly.newPlot("slVeloBar2", trace1, layout);
   
   console.log(playerSelected);
@@ -576,7 +576,7 @@ function chVelo2(playerSelected) {
       textposition: 'auto',
     },
   ];
-  var layout = {title: "CH velo", yaxis: {range: [85, 100]}}
+  var layout = {title: "Changeup Avg. Velocity", yaxis: {range: [85, 100]}}
   Plotly.newPlot("chVeloBar2", trace1, layout);
 };
 
@@ -609,7 +609,7 @@ function fbGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "FB value", yaxis: {range: [-3, 4]}}
+    var layout = {title: "Fastball Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("ffBar", trace1, layout);
 
     let CtValues_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelected);
@@ -667,7 +667,7 @@ function brGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "CB Value", yaxis: {range: [-3, 4]}}
+    var layout = {title: "Curveball Value", yaxis: {range: [-3, 4]}}
     Plotly.newPlot("cbBar", trace1, layout);
 
 
@@ -724,7 +724,7 @@ function chGraph(playerSelected) {
         textposition: 'auto',
       },
     ];
-    var layout = {title: "CH Value", yaxis: {range: [-3, 4], }}
+    var layout = {title: "Changeup Value", yaxis: {range: [-3, 4], }}
     Plotly.newPlot("chBar", trace1, layout);
 
 };
