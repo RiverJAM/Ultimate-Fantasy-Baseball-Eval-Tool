@@ -183,7 +183,7 @@ def hitters_data():
 #     name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
 #     return (jsonify(pitchers))
 
-@app.route("/pitchersData")
+@app.route("/pitchersdata")
 def pitchersDictionary():
     pyball_pitchers_2018 = mongo.db.pybaseball_pitchers_2018.find( { }, 
     { "name": 1, "w": 1, "l": 1, "so": 1, "era": 1, "whip": 1, "sv": 1, "hld": 1,
