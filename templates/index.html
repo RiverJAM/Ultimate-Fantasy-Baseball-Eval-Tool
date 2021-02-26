@@ -11,458 +11,139 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- <script type="text/javascript" {{ url_for('static', filename='CRapp.py')}}></script> -->
-    <script type="text/javascript" {{ url_for('static', filename='hitters.js')}}></script>
-    <link rel="shortcut icon" href="#"></link>
+    <script type="text/javascript" {{ url_for('static', filename='hitters.js' )}}></script>
+    <link rel="shortcut icon" href="#">
+    </link>
     <script src="../static/granim.min.js"></script>
     <script src="../static/granim.js"></script>
+    <script src="../static/anime.js"></script>
 
     <style>
         table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
-        
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
         }
-        
+
         tr:nth-child(even) {
-          background-color: #dddddd;
+            background-color: #dddddd;
         }
     </style>
 </head>
 
-<body>
+<body style="background-image: url('https://marvel-b1-cdn.bc0a.com/f00000000067087/www.bdcnetwork.com/sites/bdc/files/styles/content_features/public/2.%20MAIN%20IMAGE%20Final%20Interior.jpeg?itok=xAnuEYzC'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
     <nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg_bigtime" role="navigation">
-   
-  
-      
-        <a class="navbar-brand btn btn-primary butss white_text" href="http://127.0.0.1:5000/">Home</a>
-        
+
+        <a class="navbar-brand btn btn-primary butss white_text" href="/">Home</a>
+
         <div class="dropdown">
-        <button class="navbar-toggler btn btn-secondary" type="button" 
-        id="navbarDropdownMenuButton"
-        data-toggle="dropdown" data-target=".navbar-collapse" 
-        aria-expanded="false" >
-          
-          <span class="navbar-toggler-icon"></span>
-        
-        </button>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
-          <a class="dropdown-item" href="http://127.0.0.1:5000/pitchers">Pitchers</a>
-          <a class="dropdown-item" href="index.html">Hitters</a>
-       
+            <button class="navbar-toggler btn btn-secondary" type="button" id="navbarDropdownMenuButton"
+                data-toggle="dropdown" data-target=".navbar-collapse" aria-expanded="false">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+                <a class="dropdown-item" href="/pitchers">Pitchers</a>
+                <a class="dropdown-item" href="/hitters">Hitters</a>
+
+            </div>
+
         </div>
-      
-      </div>
-     
-  
-      <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
-   
-        <ul class="navbar-nav ml-auto">
-          <li>
-            <!-- <div class="dropdown"> -->
-              
-                <!-- <button class="btn btn-secondary dropdown-toggle" type="button" 
+
+
+        <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <!-- <div class="dropdown"> -->
+
+                    <!-- <button class="btn btn-secondary dropdown-toggle" type="button" 
                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
                 aria-expanded="false">
   
                
                  </button> -->
-              <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+                    <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
                 <a class="dropdown-item" href="index.html">hitters</a>
                 <a class="dropdown-item" href="pitchersdata.html">pithcers</a>
               
               </div> -->
-            
-  
-            <!-- </div> -->
-          
-          </li>
-         
-          <li class="nav-item active">
-            <a class="nav-link" href="/pitchers">Pitchers <span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/hittersdata">Hitters Data</a>
-            </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/pitchersdata">Pitchers Data</a>
-          </li>
-       
-        </ul>
-    
-      </div>
-    </nav>
-    
-    
-    <div class="container">
-        <div class="wrapper" style="padding-left: 20px">
-            <canvas id="first" class="col-sm-12"></canvas>
+
+
+                    <!-- </div> -->
+
+                </li>
+                <!-- DK ADDED -->
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #070707" href="/hitters">Hitters <span class="sr-only"></span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #070707" href="/pitchers">Pitchers <span
+                            class="sr-only"></span></a>
+                </li>
+                <!-- DK ADDED -->
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #070707" href="/fantasyvalue">Fantasy Value</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #070707" href="/hittersdata">Hitters Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #070707" href="/pitchersdata">Pitchers Data</a>
+                </li>
+            </ul>
+
         </div>
-    </div>
+    </nav>
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 jumbotron text-center">
-                
+                <h1 class="display-4" style="color:#D50032; font-weight: 400; outline: #dddddd;">Ultimate Fantasy
+                    Baseball Tool</h1>
             </div>
         </div>
     </div>
-    <div class="row">
-        <!-- Select Player Dropdown -->
-        <div class="col-md-6">
-            <div class="well" style="padding-left: 30px">
-                <h5>Select Player</h5>
-                <select id="selDataset"></select>  <!-- onchange="optionChanged(this.value)"" -->
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="well" style="padding-left: 30px">
-                <h5>Select Player</h5>
-                <select id="selDataset2"></select>  <!-- onchange="optionChanged(this.value)"" -->
-            </div>
-        </div>
-        <!-- Select Year Dropdown
-        <div class="col-md-2">
-            <div class="well">
-                <h5>Select Year</h5>
-                <select id="selDataset2"></select>
-            </div>
-        </div> -->
-    </div>
-    
-    
-    <!-- Table for hitter stats -->
-    <div class="row">
 
-    <div class="col-md-6">
-    <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 145px !important">
-       
-        <tr>
-            <td id="avgTable_2018"></td>
-        </tr>
-        <tr>
-            <td id="opsTable_2018"></td>
-        </tr>
-        <tr>
-            <td id="rTable_2018"></td></b>
-        </tr>
-        <tr>
-            <td id="rbiTable_2018"></td>
-        </tr>
-        <tr>
-            <td id="hrTable_2018"></td>
-        </tr>
-        <tr>
-            <td id="sbTable_2018"></td>
-        </tr>
-            
-       
-    </table>
-    </div>
-    
-    <!-- <div class="col-md-4">
-    <table >
-       
-        <tr>
-            <th>
-                Differentials
-            </th>
-        </tr>
-
-            <tr>
-                <td id="avgDIF"></td>
-            </tr>
-            <tr>
-                <td id="opsDIF"></td>
-            </tr>
-            <tr>
-                <td id="rDIF"></td></b>
-            </tr>
-            <tr>
-                <td id="rbiDIF"></td>
-            </tr>
-            <tr>
-                <td id="hrDIF"></td>
-            </tr>
-            <tr>
-                <td id="sbDIF"></td>
-            </tr>
-        
-    </table> -->
-
-    <!-- </div> -->
-
-    <!-- Table for 2018, player 2 stats-->
-    <div class="col-md-6">
-     <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 45px !important">
-        <tr>
-            <td id="avgTable_2018_2"></td>
-        </tr>
-        <tr>
-            <td id="opsTable_2018_2"></td>
-        </tr>
-        <tr>
-            <td id="rTable_2018_2"></td></b>
-        </tr>
-        <tr>
-            <td id="rbiTable_2018_2"></td>
-        </tr>
-        <tr>
-            <td id="hrTable_2018_2"></td>
-        </tr>
-        <tr>
-            <td id="sbTable_2018_2"></td>
-        </tr>
-            
-       
-     </table>
-     </div>
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-6">
-        <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 145px !important">
-           
-            <tr>
-                <td id="avgTable_2019"></td>
-            </tr>
-            <tr>
-                <td id="opsTable_2019"></td>
-            </tr>
-            <tr>
-                <td id="rTable_2019"></td></b>
-            </tr>
-            <tr>
-                <td id="rbiTable_2019"></td>
-            </tr>
-            <tr>
-                <td id="hrTable_2019"></td>
-            </tr>
-            <tr>
-                <td id="sbTable_2019"></td>
-            </tr>
-                
-           
-        </table>
-        </div>
-    
-        <div class="col-md-6">
-         <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 45px !important">
-            <tr>
-                <td id="avgTable_2019_2"></td>
-            </tr>
-            <tr>
-                <td id="opsTable_2019_2"></td>
-            </tr>
-            <tr>
-                <td id="rTable_2019_2"></td></b>
-            </tr>
-            <tr>
-                <td id="rbiTable_2019_2"></td>
-            </tr>
-            <tr>
-                <td id="hrTable_2019_2"></td>
-            </tr>
-            <tr>
-                <td id="sbTable_2019_2"></td>
-            </tr>
-                
-           
-         </table>
-         </div>
-        </div>
-
+    <!-- <div class="container">
         <div class="row">
-
-            <div class="col-md-6">
-            <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 145px !important">
-               
-                <tr>
-                    <td id="avgTable_2020"></td>
-                </tr>
-                <tr>
-                    <td id="opsTable_2020"></td>
-                </tr>
-                <tr>
-                    <td id="rTable_2020"></td></b>
-                </tr>
-                <tr>
-                    <td id="rbiTable_2020"></td>
-                </tr>
-                <tr>
-                    <td id="hrTable_2020"></td>
-                </tr>
-                <tr>
-                    <td id="sbTable_2020"></td>
-                </tr>
-                    
-               
-            </table>
-            </div>
-        
-            <div class="col-md-6">
-             <table class="table-sm col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 45px !important">
-                <tr>
-                    <td id="avgTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <td id="opsTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <td id="rTable_2020_2"></td></b>
-                </tr>
-                <tr>
-                    <td id="rbiTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <td id="hrTable_2020_2"></td>
-                </tr>
-                <tr>
-                    <td id="sbTable_2020_2"></td>
-                </tr>
-                    
-               
-             </table>
-             </div>
-            </div>
-    
-
-
-            <div class="row">
-
-                <div class="col-md-6">
-                <table class="table-md col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 145px !important">
-                    <tr>
-                        <td>Year</td>
-                        <td>PA's</td>
-                        <td>K %</td>
-                        <td>BB %</td>
-                        <td>IFFB %</td>
-                    </tr>
-                    <tr>
-                        <td id="nameTable_2018"></td>
-                        <td id="paTable_2018"></td>
-                        <td id="kTable_2018"></td>
-                        <td id="bbTable_2018"></td>
-                        <td id="iffbTable_2018"></td>
-                    </tr>
-                    <tr>
-                        <td id="nameTable_2019"></td>
-                        <td id="paTable_2019"></td>
-                        <td id="kTable_2019"></td>
-                        <td id="bbTable_2019"></td>
-                        <td id="iffbTable_2019"></td>
-                    </tr>
-                    <tr>
-                        <td id="nameTable_2020"></td>
-                        <td id="paTable_2020"></td>
-                        <td id="kTable_2020"></td>
-                        <td id="bbTable_2020"></td>
-                        <td id="iffbTable_2020"></td>
-                    </tr>
-                </table>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn-secondary">1</button>
+                <button type="button" class="btn btn-secondary">2</button>
+              
+                <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" href="#">Dropdown link</a>
+                    <a class="dropdown-item" href="#">Dropdown link</a>
+                  </div>
                 </div>
+              </div>
+        </div>
+    </div> -->
 
-                <div class="col-md-6">
-                    <table class="table-md col-md-6 colpanel-body ml-2" id="sample-metadata" style="padding-left: 145px !important">
-                        <tr>
-                            <td>Year</td>
-                            <td>PA's</td>
-                            <td>K %</td>
-                            <td>BB %</td>
-                            <td>IFFB %</td>
-                        </tr>
-                        <tr>
-                            <td id="nameTable_2018_2"></td>
-                            <td id="paTable_2018_2"></td>
-                            <td id="kTable_2018_2"></td>
-                            <td id="bbTable_2018_2"></td>
-                            <td id="iffbTable_2018_2"></td>
-                        </tr>
-                        <tr>
-                            <td id="nameTable_2019_2"></td>
-                            <td id="paTable_2019_2"></td>
-                            <td id="kTable_2019_2"></td>
-                            <td id="bbTable_2019_2"></td>
-                            <td id="iffbTable_2019_2"></td>
-                        </tr>
-                        <tr>
-                            <td id="nameTable_2020_2"></td>
-                            <td id="paTable_2020_2"></td>
-                            <td id="kTable_2020_2"></td>
-                            <td id="bbTable_2020_2"></td>
-                            <td id="iffbTable_2020_2"></td>
-                        </tr>
-                    </table>
-                    </div>
-            </div>
-
-
-    <!-- Bar Graphs -->
-    <div class="row">
-        <div class="col-md-2">
-            <div id="barrelsBar"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="EVBar"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="hardHitBar"></div>
-        </div>
-
-        <div class="col-md-2">
-            <div id="barrelsBar2"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="EVBar2"></div>
-        </div>
-        <div class="col-md-2">
-            <div id="hardHitBar2"></div>
-        </div>
+    <div>
+        <!-- <iframe src="https://assets.pinterest.com/ext/embed.html?id=655273814506933870" height="445" width="345" frameborder="0" scrolling="no" ></iframe> -->
     </div>
 
-
-
-
-    <div class="row">
-        <div class="col-md-3">
-            <div id="Obar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar3"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Obar4"></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <div id="Zbar"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar2"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar3"></div>
-        </div>
-        <div class="col-md-3">
-            <div id="Zbar4"></div>
-        </div>
-    </div>
-    
 
     <!-- Speedometer Graph -->
-    <div class="col-md-5">
+    <!-- <div class="col-md-5">
         <div id="gauge"></div>
-    </div>
+    </div> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>

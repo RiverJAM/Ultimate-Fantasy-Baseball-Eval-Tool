@@ -28,8 +28,8 @@ app.config["MONGO_URI"] = "mongodb+srv://somethingsimple:something@cluster0.bq9e
 CORS(app)
 
 #Use PyMongo
-# mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
-mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
+mongo = PyMongo(app, uri = "mongodb+srv://somethingsimple:something@cluster0.bq9eu.mongodb.net/Ultimate_Baseball_Project?retryWrites=true&w=majority")
+# mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 
 # Flask Routes
 
@@ -38,11 +38,21 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Ultimate_Baseball_Project")
 def welcome():
     return render_template('index.html')
 
+# hitters url
+@app.route("/hitters")
+def hitters():
+    return render_template('hitters.html')
+
 #useless comment as a placeholder
 # pitchers url
 @app.route("/pitchers")
 def pitching():
     return render_template('pitchers.html')
+
+    # fantasy value url
+@app.route("/fantasyvalue")
+def fantasyvalue():
+    return render_template('fantasyvalue.html')
 
 @app.route("/hittersdropdown")
 def hitters_list():
@@ -173,7 +183,7 @@ def hitters_data():
 #     name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
 #     return (jsonify(pitchers))
 
-@app.route("/pitchersData")
+@app.route("/pitchersdata")
 def pitchersDictionary():
     pyball_pitchers_2018 = mongo.db.pybaseball_pitchers_2018.find( { }, 
     { "name": 1, "w": 1, "l": 1, "so": 1, "era": 1, "whip": 1, "sv": 1, "hld": 1,

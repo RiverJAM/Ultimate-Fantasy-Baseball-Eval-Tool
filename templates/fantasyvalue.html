@@ -1,0 +1,579 @@
+<!-- main page of website for the fantasy baseball evaluation tool -->
+<!-- this is also the hitters eval tool landing page -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- <script type="text/javascript" {{ url_for('static', filename='CRapp.py')}}></script> -->
+  <script type="text/javascript" {{ url_for('static', filename='hitters.js' )}}></script>
+  <link rel="shortcut icon" href="#">
+  </link>
+  <script src="../static/granim.min.js"></script>
+  <script src="../static/granim.js"></script>
+  <script src="../static/anime.min.js"></script>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      margin: auto;
+      width: 50% !important; 
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+  </style>
+</head>
+
+<body style="background-color: #002D72">
+  <nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg_bigtime" role="navigation">
+    <a class="navbar-brand btn btn-primary butss white_text" style="color: #dddddd" href="/">Home</a>
+
+    <div class="dropdown">
+      <button class="navbar-toggler btn btn-secondary" type="button" id="navbarDropdownMenuButton"
+        data-toggle="dropdown" data-target=".navbar-collapse" aria-expanded="false">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+        <a class="dropdown-item" href="/pitchers">Pitchers</a>
+        <a class="dropdown-item" href="/hitters">Hitters</a>
+
+      </div>
+
+    </div>
+
+    <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <!-- <div class="dropdown"> -->
+
+          <!-- <button class="btn btn-secondary dropdown-toggle" type="button" 
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false">
+  
+               
+                 </button> -->
+          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+                <a class="dropdown-item" href="index.html">hitters</a>
+                <a class="dropdown-item" href="pitchersdata.html">pithcers</a>
+              
+              </div> -->
+
+
+          <!-- </div> -->
+
+        </li>
+        <!-- DK ADDED -->
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/hitters">Hitters <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/pitchers">Pitchers <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/fantasyvalue">Fantasy Value</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/hittersdata">Hitters Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #dddddd" href="/pitchersData">Pitchers Data</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1 class="display-4" style="color:#D50032; font-weight: 400; outline: #dddddd;">Player Fantasy Value 2019</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container justify-content-center">
+    <div class="row justify-content-center">
+      <div class="col-md-6 justify-content-center">
+        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-overvalued" style="padding-left: 45px !important">
+          <thead>
+          <tr>
+            <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Overvalued Fantasy Players</th>
+          </tr>
+        </thead>
+          <tr style="text-align: center; color: #dddddd;">
+            <th>Player Name</th>
+            <th>Predicted Rank</th>
+            <th>Actual Rank</th>
+            <th>ADP</th>
+          </tr>
+          <tr>
+            <td>Corey Kluber</td>
+            <td>70</td>
+            <td>71</td>
+            <td>5</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Carlos Carrasco</td>
+            <td>57</td>
+            <td>50</td>
+            <td>11</td>
+          </tr>
+          <tr>
+            <td>Wade Davis</td>
+            <td>67</td>
+            <td>64.5</td>
+            <td>25</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>David Price</td>
+            <td>61</td>
+            <td>47</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>Aaron Nola</td>
+            <td>37</td>
+            <td>16</td>
+            <td>6</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Kevin Gausman</td>
+            <td>73</td>
+            <td>68</td>
+            <td>43</td>
+          </tr>
+          <tr>
+            <td>Jon Lester</td>
+            <td>60</td>
+            <td>41</td>
+            <td>35</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Masahiro Tanaka</td>
+            <td>48</td>
+            <td>35</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>Blake Snell</td>
+            <td>30</td>
+            <td>43</td>
+            <td>8</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Collin McHugh</td>
+            <td>66</td>
+            <td>58.5</td>
+            <td>44</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-sleeper" style="padding-left: 45px !important">
+          <thead>
+            <tr>
+              <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Fantasy Sleepers</th>
+            </tr>
+          </thead>
+          <tr style="text-align: center; color: #dddddd;">
+            <th>Player Name</th>
+            <th>Predicted Rank</th>
+            <th>Actual Rank</th>
+            <th>ADP</th>
+          </tr>
+          <tr>
+            <td>Ian Kennedy</td>
+            <td>29</td>
+            <td>28</td>
+            <td>77</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Vince Velasquez</td>
+            <td>23</td>
+            <td>54</td>
+            <td>57</td>
+          </tr>
+          <tr>
+            <td>Jake Odorizzi</td>
+            <td>25</td>
+            <td>12</td>
+            <td>59</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Jeff Samardzija</td>
+            <td>28</td>
+            <td>24</td>
+            <td>61</td>
+          </tr>
+          <tr>
+            <td>Alex Colome</td>
+            <td>16</td>
+            <td>21.5</td>
+            <td>42</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Marcus Stroman</td>
+            <td>27</td>
+            <td>31</td>
+            <td>51</td>
+          </tr>
+          <tr>
+            <td>Hector Rondon</td>
+            <td>51</td>
+            <td>56</td>
+            <td>74</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Adam Wainwright</td>
+            <td>45</td>
+            <td>34</td>
+            <td>68</td>
+          </tr>
+          <tr>
+            <td>Kenta Maeda</td>
+            <td>15</td>
+            <td>17</td>
+            <td>38</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Eduardo Rodriguez</td>
+            <td>11</td>
+            <td>10.5</td>
+            <td>34</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-overvalued" style="padding-left: 45px !important">
+          <thead>
+          <tr>
+            <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Overvalued Fantasy Hitters</th>
+          </tr>
+        </thead>
+          <tr style="text-align: center; color: #dddddd;">
+            <th>Player Name</th>
+            <th>Predicted Rank</th>
+            <th>Actual Rank</th>
+            <th>ADP</th>
+          </tr>
+          <tr>
+            <td>Khris Davis</td>
+            <td>83</td>
+            <td>90</td>
+            <td>20</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Joey Votto</td>
+            <td>88</td>
+            <td>81</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>Buster Posey</td>
+            <td>106</td>
+            <td>88</td>
+            <td>45</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Rougned Odor</td>
+            <td>105</td>
+            <td>44</td>
+            <td>47.5</td>
+          </tr>
+          <tr>
+            <td>Yadeir Molina</td>
+            <td>100</td>
+            <td>58</td>
+            <td>47.5</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Corey Seager</td>
+            <td>76</td>
+            <td>56</td>
+            <td>31</td>
+          </tr>
+          <tr>
+            <td>Robinson Cano</td>
+            <td>85</td>
+            <td>104</td>
+            <td>40</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Jose Peraza</td>
+            <td>86</td>
+            <td>110</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>Miguel Cabrera</td>
+            <td>96</td>
+            <td>95</td>
+            <td>53</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Stephen Piscotty</td>
+            <td>92</td>
+            <td>103</td>
+            <td>55</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-sleeper" style="padding-left: 45px !important">
+          <thead>
+            <tr>
+              <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Hitters Sleepers</th>
+            </tr>
+          </thead>
+          <tr style="text-align: center; color: #dddddd;">
+            <th>Player Name</th>
+            <th>Predicted Rank</th>
+            <th>Actual Rank</th>
+            <th>ADP</th>
+          </tr>
+          <tr>
+            <td>Jason Heyward</td>
+            <td>41</td>
+            <td>59</td>
+            <td>101</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Joc Pederson</td>
+            <td>22</td>
+            <td>44</td>
+            <td>81</td>
+          </tr>
+          <tr>
+            <td>Howie Kendrick</td>
+            <td>52</td>
+            <td>55</td>
+            <td>110</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Jorge Soler</td>
+            <td>34</td>
+            <td>12</td>
+            <td>82</td>
+          </tr>
+          <tr>
+            <td>Jason Kipnis</td>
+            <td>45</td>
+            <td>79</td>
+            <td>91</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Miguel Sano</td>
+            <td>37</td>
+            <td>53</td>
+            <td>77</td>
+          </tr>
+          <tr>
+            <td>Kevin Kiermaier	</td>
+            <td>50</td>
+            <td>70</td>
+            <td>86</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Hunter Pence</td>
+            <td>72</td>
+            <td>68</td>
+            <td>108</td>
+          </tr>
+          <tr>
+            <td>DJ LeMahieu</td>
+            <td>31</td>
+            <td>9</td>
+            <td>65</td>
+          </tr>
+          <tr style="color: #dddddd;">
+            <td>Adam Eaton</td>
+            <td>29</td>
+            <td>40</td>
+            <td>63</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <div class="row">
+  
+    <div class="col-md-6">
+      <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-sleeper" style="padding-left: 45px !important">
+        <thead>
+          <tr>
+            <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Pitchers 2019 Projections</th>
+          </tr>
+        </thead>
+        <tr style="text-align: center; color: #dddddd;">
+          <th>Player Name</th>
+          <th>Predicted Rank</th>
+          <th>Actual Rank</th>
+          <th>ADP</th>
+        </tr>
+        <tr>
+          <td>Justin Verlander</td>
+          <td>1</td>
+          <td>1</td>
+          <td>4</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Gerrit Cole</td>
+          <td>2</td>
+          <td>2</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Jacob deGrom</td>
+          <td>3</td>
+          <td>4</td>
+          <td>2</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Max Scherzer</td>
+          <td>4</td>
+          <td>7</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Patrick Corbin</td>
+          <td>5</td>
+          <td>8</td>
+          <td>12</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Clayton Kershaw</td>
+          <td>6</td>
+          <td>6</td>
+          <td>14</td>
+        </tr>
+        <tr>
+          <td>Zack Greinke</td>
+          <td>7</td>
+          <td>5</td>
+          <td>15</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>James Paxton</td>
+          <td>8</td>
+          <td>15</td>
+          <td>13</td>
+        </tr>
+        <tr>
+          <td>Stephen Strasburg</td>
+          <td>9</td>
+          <td>3</td>
+          <td>16</td>
+        </tr>
+        <tr style="color: #dddddd;">
+          <td>Kenley Jansen</td>
+          <td>10</td>
+          <td>14</td>
+          <td>18</td>
+        </tr>
+      </table>
+    </div>
+  
+  
+    <div class="col-md-6">
+    <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-sleeper" style="padding-left: 45px !important">
+      <thead>
+        <tr>
+          <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Hitters 2019 Projections</th>
+        </tr>
+      </thead>
+      <tr style="text-align: center; color: #dddddd;">
+        <th>Player Name</th>
+        <th>Predicted Rank</th>
+        <th>Actual Rank</th>
+        <th>ADP</th>
+      </tr>
+      <tr>
+        <td>Mike Trout</td>
+        <td>1</td>
+        <td>3</td>
+        <td>1</td>
+      </tr>
+      <tr style="color: #dddddd;">
+        <td>Christian Yelich</td>
+        <td>2</td>
+        <td>1</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Mookie Betts</td>
+        <td>3</td>
+        <td>6</td>
+        <td>2</td>
+      </tr>
+      <tr style="color: #dddddd;">
+        <td>Bryce Harper</td>
+        <td>4</td>
+        <td>11</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>Paul Goldschmidt</td>
+        <td>5</td>
+        <td>30.5</td>
+        <td>12.5</td>
+      </tr>
+      <tr style="color: #dddddd;">
+        <td>Trevor Story</td>
+        <td>6</td>
+        <td>7</td>
+        <td>12.5</td>
+      </tr>
+      <tr>
+        <td>J.D. Martinez	</td>
+        <td>7</td>
+        <td>15.5</td>
+        <td>3</td>
+      </tr>
+      <tr style="color: #dddddd;">
+        <td>Xander Bogaerts</td>
+        <td>8</td>
+        <td>10</td>
+        <td>21.5</td>
+      </tr>
+      <tr>
+        <td>Nolan Arenado</td>
+        <td>9</td>
+        <td>5</td>
+        <td>4</td>
+      </tr>
+      <tr style="color: #dddddd;">
+        <td>George Springer</td>
+        <td>10</td>
+        <td>17</td>
+        <td>24</td>
+      </tr>
+    </table>
+    </div>
+    </div>
+    </div>
+    
+  </div>
+  </div>
+  
+
+</body>
