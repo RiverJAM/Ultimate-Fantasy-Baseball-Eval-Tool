@@ -8,10 +8,14 @@ ALTER TABLE razz_hitters ALTER COLUMN value TYPE real USING value::real;
 ALTER TABLE razz_hitters ALTER COLUMN year TYPE integer USING year::integer;
 ALTER TABLE razz_pitchers ALTER COLUMN year TYPE integer USING year::integer;
 ALTER TABLE razz_pitchers ALTER COLUMN value TYPE real USING value::real;
+ALTER TABLE smart_fantasy_all ALTER COLUMN Value TYPE real USING value::real;
+ALTER TABLE smart_fantasy_all ALTER COLUMN season TYPE integer USING season::integer;
+
+select * from smart_fantasy_all
 
 --create csv files from the tables for pitchers
 COPY (
-	SELECT A.score as FT_score, C.avg, D.value as Razz_value, B.* FROM ft_scores2012_2020_corrected as A
+	SELECT A.score as FT_score, C.avg, D.value as razz_value, B.* FROM ft_scores2012_2020_corrected as A
 	INNER JOIN fg_pitcher_data_2012_2020 as B
 	ON A.player=B.name AND A.season=B.season
 	INNER JOIN fantasy_pros_adp as C
@@ -19,7 +23,7 @@ COPY (
 	LEFT JOIN razz_pitchers as D
 	ON A.player=D.name AND A.season=D.year
 --  	WHERE A.season=2020
-	ORDER BY Razz_value DESC
+	ORDER BY smartfantasy_value DESC
 	)
 TO 'C:\Ro Family\Charles\Fantasy Bball\NU_Final_Project\pitchers_all_data.csv' 
 DELIMITER ','
@@ -27,13 +31,13 @@ csv header;
 
 --create csv files from the tables for hitters
 COPY (
-	SELECT A.score as FT_score, C.avg, D.value as Razz_value,  B.* FROM ft_scores2012_2020_corrected as A
+	SELECT A.score as FT_score, C.avg, D.value as razz_value,  B.* FROM ft_scores2012_2020_corrected as A
 	INNER JOIN fg_hitter_data_2012_2020 as B
 	ON A.player=B.name AND A.season=B.season
 	INNER JOIN fantasy_pros_adp as C
 	ON A.player=C.player AND A.season=C.season
-	LEFT JOIN razz_hitters as D
-	ON A.player=D.name AND A.season=D.year
+	LEFT JOIN smart_fantasy_all as D
+	ON A.player=D.name AND A.season=D.season
 -- 	WHERE A.season=2020
 	ORDER BY A.score DESC
 	)
