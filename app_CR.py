@@ -101,7 +101,7 @@ def hello():
 #     name_dict.get('HLD', {}),) for name_dict in list(Fan_G_pitchers)]
 #     return (jsonify(pitchers))
 
-@app.route("/pitchersData")
+@app.route("/pitchersdata")
 def pitchersDictionary():
     Fan_G_pitchers = mongo.db.Fangraphs_pitchers.find( { }, 
     { "Name": 1, "W": 1, "L": 1, "SO": 1, "ERA": 1, "WHIP": 1, "SV": 1, "HLD": 1,
