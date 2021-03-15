@@ -20,7 +20,7 @@ var firstGranim = new Granim({
 });
 
 fetch("/pitchersdropdown").then(function (response) {
-  console.log("Test");
+  // console.log("Test");
   if (response.status !== 200) {
     console.log(
       "Looks like there was a problem. Status Code: " + response.status
@@ -35,7 +35,7 @@ fetch("/pitchersdropdown").then(function (response) {
         d3.select("#selDataset2").append("option").text(IDs[i]["name"]);
       }
       
-    fetch("/pitchersData").then(function (res) {
+    fetch("/pitchersdata").then(function (res) {
       res.json().then(function (data) {
         pitcher_data = data;
         // console.log(pitcher_data)
