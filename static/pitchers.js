@@ -74,10 +74,10 @@ function getSelectionPitchers() {
     
     //filter the dataset by the dropdown item
     var fantasyPitcherData_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelectedName);
-
+    console.log(fantasyPitcherData_2018);
     // pull out the data from the dropdown item for the demographic information
     var wData_2018 = fantasyPitcherData_2018.map((m) => m.win_2018);
-    console.log(wData_2018)
+    
     var lData_2018 = fantasyPitcherData_2018.map((m) => m.loss_2018);
     var soData_2018 = fantasyPitcherData_2018.map((m) => m.k_2018);
     var eraData_2018 = fantasyPitcherData_2018.map((m) => m.era_2018);
