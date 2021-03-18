@@ -20,7 +20,7 @@ var firstGranim = new Granim({
 });
 
 fetch("/pitchersdropdown").then(function (response) {
-  console.log("Test");
+  // console.log("Test");
   if (response.status !== 200) {
     console.log(
       "Looks like there was a problem. Status Code: " + response.status
@@ -35,7 +35,7 @@ fetch("/pitchersdropdown").then(function (response) {
         d3.select("#selDataset2").append("option").text(IDs[i]["name"]);
       }
       
-    fetch("/pitchersData").then(function (res) {
+    fetch("/pitchersdata").then(function (res) {
       res.json().then(function (data) {
         pitcher_data = data;
         // console.log(pitcher_data)
@@ -74,10 +74,10 @@ function getSelectionPitchers() {
     
     //filter the dataset by the dropdown item
     var fantasyPitcherData_2018 = pitcher_data.filter((m) => m.name_2018 === playerSelectedName);
-
+    console.log(fantasyPitcherData_2018);
     // pull out the data from the dropdown item for the demographic information
     var wData_2018 = fantasyPitcherData_2018.map((m) => m.win_2018);
-    console.log(wData_2018)
+    
     var lData_2018 = fantasyPitcherData_2018.map((m) => m.loss_2018);
     var soData_2018 = fantasyPitcherData_2018.map((m) => m.k_2018);
     var eraData_2018 = fantasyPitcherData_2018.map((m) => m.era_2018);

@@ -29,6 +29,26 @@ TO 'C:\Ro Family\Charles\Fantasy Bball\NU_Final_Project\pitchers_all_data.csv'
 DELIMITER ','
 csv header;
 
+--FT scores and fg pitcher data produce 3566 rows
+--smart_fantasy and fg_pitchers create 3483 rows
+--smart_fantasy and fg_hitters create 4040 rows
+
+COPY(
+SELECT * FROM smart_fantasy_all as A
+	INNER JOIN fg_pitcher_data_2012_2020 as B
+	ON A.name=B.name AND A.season=B.season
+	ORDER BY A.value DESC
+	)
+TO 'C:\Ro Family\Charles\Fantasy Bball\NU_Final_Project\pitchers_FG_smartfantasy.csv' 
+DELIMITER ','
+csv header;
+
+-- fg_pitcher_data has 3698 rows.  fg hitter data is 4200
+-- smart_fantasy has 10160 pitchers, 4714 hitters
+SELECT * FROM smart_fantasy_all
+WHERE pos != 'P'
+
+
 --create csv files from the tables for hitters
 COPY (
 	SELECT A.score as FT_score, C.avg, D.value as razz_value,  B.* FROM ft_scores2012_2020_corrected as A
