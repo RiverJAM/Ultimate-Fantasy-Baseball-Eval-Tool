@@ -16,7 +16,7 @@
   </link>
   <script src="../static/granim.min.js"></script>
   <script src="../static/granim.js"></script>
-  <script src="../static/anime.min.js"></script>
+  <!-- <script src="../static/anime.min.js"></script> -->
 
   <style>
     table {
@@ -28,19 +28,19 @@
 
     td,
     th {
-      border: 1px solid #dddddd;
+      border: 1px solid black;
       text-align: left;
       padding: 8px;
     }
 
-    tr:nth-child(even) {
+    /* tr:nth-child(even) {
       background-color: #dddddd;
-    }
+    } */
 
   </style>
 </head>
 
-<body style="background-color: #002D72">
+<body style="background-color: lightgray">
   <nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg_bigtime" role="navigation">
     <a class="navbar-brand btn btn-primary butss white_text" style="color: #dddddd" href="/">Home</a>
 
@@ -83,20 +83,26 @@
         </li>
         <!-- DK ADDED -->
         <li class="nav-item">
-          <a class="nav-link" style="color: #dddddd" href="/hitters">Hitters <span class="sr-only"></span></a>
+          <a class="nav-link" style="color: black" href="/hitters">Hitters <span class="sr-only"></span></a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" style="color: #dddddd" href="/pitchers">Pitchers <span class="sr-only"></span></a>
+          <a class="nav-link" style="color: black" href="/pitchers">Pitchers <span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: #dddddd" href="/fantasyvalue">Fantasy Value</a>
+          <a class="nav-link" style="color: black" href="/fantasyvalue">Sleepers</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/fantasyvalueplayers">Value Players</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: black" href="/_2021predictions">2021 Predictions</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/hittersdata">Hitters Data</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: #dddddd" href="/hittersdata">Hitters Data</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color: #dddddd" href="/pitchersdata">Pitchers Data</a>
+          <a class="nav-link" style="color: black" href="/pitchersdata">Pitchers Data</a>
         </li>
       </ul>
 
@@ -105,24 +111,29 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1 class="display-4" style="color:#D50032; font-weight: 400; outline: #dddddd;">Player Fantasy Value 2019</h1>
+        <h1 class="display-4" style="color:#D50032; font-weight: 400; outline: #dddddd;">Overvalued Players from 2019</h1>
+        <h2 class="display-8" style="color: navy; font-weight: 150; outline: #dddddd;">
+        Our methodology involves a regression of traditional and advanced stats to create a 
+      predicted ranking of players.  We have discovered a correlation of R-squared = , 
+    as opposed to ADP which has an R-squared = </h2>
       </div>
     </div>
   </div>
+  <br><br>
   <div class="container justify-content-center">
     <div class="row justify-content-center">
-      <div class="col-md-6 justify-content-center">
-        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-overvalued" style="padding-left: 45px !important">
-          <thead>
+      <div class="col-md-12 justify-content-center">
+        <table class="table col-md-12"  id="fantasy-overvalued" style="padding-left: 45px !important">
+          <thead class = "thead-dark">
           <tr>
-            <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Overvalued Fantasy Players</th>
+            <th colspan="12" style="text-align: center;  table-layout: fixed;">Top 10 Overvalued Fantasy Pitchers</th>
           </tr>
-        </thead>
-          <tr style="text-align: center; color: #dddddd;">
-            <th>Player Name</th>
-            <th>Predicted Rank</th>
-            <th>Actual Rank</th>
-            <th>ADP</th>
+          </thead>
+          <tr style="text-align: center; color: black;">
+            <th style="width:40%;">Player Name</th>
+            <th style="width:20%;">Our Predicted Rank</th>
+            <th style="width:20%;">Actual Rank</th>
+            <th style="width:20%;">ADP</th>
           </tr>
           <tr>
             <td>Corey Kluber</td>
@@ -130,7 +141,7 @@
             <td>71</td>
             <td>5</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Carlos Carrasco</td>
             <td>57</td>
             <td>50</td>
@@ -142,7 +153,7 @@
             <td>64.5</td>
             <td>25</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>David Price</td>
             <td>61</td>
             <td>47</td>
@@ -154,7 +165,7 @@
             <td>16</td>
             <td>6</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Kevin Gausman</td>
             <td>73</td>
             <td>68</td>
@@ -166,7 +177,7 @@
             <td>41</td>
             <td>35</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Masahiro Tanaka</td>
             <td>48</td>
             <td>35</td>
@@ -178,7 +189,7 @@
             <td>43</td>
             <td>8</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Collin McHugh</td>
             <td>66</td>
             <td>58.5</td>
@@ -186,96 +197,23 @@
           </tr>
         </table>
       </div>
-      <div class="col-md-6">
-        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-sleeper" style="padding-left: 45px !important">
-          <thead>
-            <tr>
-              <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Fantasy Sleepers</th>
-            </tr>
-          </thead>
-          <tr style="text-align: center; color: #dddddd;">
-            <th>Player Name</th>
-            <th>Predicted Rank</th>
-            <th>Actual Rank</th>
-            <th>ADP</th>
-          </tr>
-          <tr>
-            <td>Ian Kennedy</td>
-            <td>29</td>
-            <td>28</td>
-            <td>77</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Vince Velasquez</td>
-            <td>23</td>
-            <td>54</td>
-            <td>57</td>
-          </tr>
-          <tr>
-            <td>Jake Odorizzi</td>
-            <td>25</td>
-            <td>12</td>
-            <td>59</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Jeff Samardzija</td>
-            <td>28</td>
-            <td>24</td>
-            <td>61</td>
-          </tr>
-          <tr>
-            <td>Alex Colome</td>
-            <td>16</td>
-            <td>21.5</td>
-            <td>42</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Marcus Stroman</td>
-            <td>27</td>
-            <td>31</td>
-            <td>51</td>
-          </tr>
-          <tr>
-            <td>Hector Rondon</td>
-            <td>51</td>
-            <td>56</td>
-            <td>74</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Adam Wainwright</td>
-            <td>45</td>
-            <td>34</td>
-            <td>68</td>
-          </tr>
-          <tr>
-            <td>Kenta Maeda</td>
-            <td>15</td>
-            <td>17</td>
-            <td>38</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Eduardo Rodriguez</td>
-            <td>11</td>
-            <td>10.5</td>
-            <td>34</td>
-          </tr>
-        </table>
-      </div>
+      
     </div>
-  
-    <div class="row">
-      <div class="col-md-6">
-        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-overvalued" style="padding-left: 45px !important">
-          <thead>
-          <tr>
-            <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Overvalued Fantasy Hitters</th>
-          </tr>
+    <br>
+    <div class="container justify-content-center">
+      <div class="row justify-content-center">
+        <div class="col-md-6 justify-content-center">
+          <table class="table col-md-12 colpanel-body ml-2 w-auto thead-dark"  id="fantasy-overvalued" style="padding-left: 45px !important">
+            <thead>
+            <tr>
+              <th colspan="4" style="text-align: center;table-layout: fixed;">Top 10 Overvalued Fantasy Hitters</th>
+            </tr>
         </thead>
-          <tr style="text-align: center; color: #dddddd;">
-            <th>Player Name</th>
-            <th>Predicted Rank</th>
-            <th>Actual Rank</th>
-            <th>ADP</th>
+          <tr style="text-align: center; ">
+            <th style="width:40%;"">Player Name</th>
+            <th style="width:20%;">Our Predicted Rank</th>
+            <th style="width:20%;">Actual Rank</th>
+            <th style="width:20%;">ADP</th>
           </tr>
           <tr>
             <td>Khris Davis</td>
@@ -283,7 +221,7 @@
             <td>90</td>
             <td>20</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Joey Votto</td>
             <td>88</td>
             <td>81</td>
@@ -295,7 +233,7 @@
             <td>88</td>
             <td>45</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Rougned Odor</td>
             <td>105</td>
             <td>44</td>
@@ -307,7 +245,7 @@
             <td>58</td>
             <td>47.5</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Corey Seager</td>
             <td>76</td>
             <td>56</td>
@@ -319,7 +257,7 @@
             <td>104</td>
             <td>40</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Jose Peraza</td>
             <td>86</td>
             <td>110</td>
@@ -331,7 +269,7 @@
             <td>95</td>
             <td>53</td>
           </tr>
-          <tr style="color: #dddddd;">
+          <tr>
             <td>Stephen Piscotty</td>
             <td>92</td>
             <td>103</td>
@@ -339,83 +277,9 @@
           </tr>
         </table>
       </div>
-      <div class="col-md-6">
-        <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-sleeper" style="padding-left: 45px !important">
-          <thead>
-            <tr>
-              <th colspan="4" style="text-align: center; color: #dddddd;">Top 10 Hitters Sleepers</th>
-            </tr>
-          </thead>
-          <tr style="text-align: center; color: #dddddd;">
-            <th>Player Name</th>
-            <th>Predicted Rank</th>
-            <th>Actual Rank</th>
-            <th>ADP</th>
-          </tr>
-          <tr>
-            <td>Jason Heyward</td>
-            <td>41</td>
-            <td>59</td>
-            <td>101</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Joc Pederson</td>
-            <td>22</td>
-            <td>44</td>
-            <td>81</td>
-          </tr>
-          <tr>
-            <td>Howie Kendrick</td>
-            <td>52</td>
-            <td>55</td>
-            <td>110</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Jorge Soler</td>
-            <td>34</td>
-            <td>12</td>
-            <td>82</td>
-          </tr>
-          <tr>
-            <td>Jason Kipnis</td>
-            <td>45</td>
-            <td>79</td>
-            <td>91</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Miguel Sano</td>
-            <td>37</td>
-            <td>53</td>
-            <td>77</td>
-          </tr>
-          <tr>
-            <td>Kevin Kiermaier	</td>
-            <td>50</td>
-            <td>70</td>
-            <td>86</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Hunter Pence</td>
-            <td>72</td>
-            <td>68</td>
-            <td>108</td>
-          </tr>
-          <tr>
-            <td>DJ LeMahieu</td>
-            <td>31</td>
-            <td>9</td>
-            <td>65</td>
-          </tr>
-          <tr style="color: #dddddd;">
-            <td>Adam Eaton</td>
-            <td>29</td>
-            <td>40</td>
-            <td>63</td>
-          </tr>
-        </table>
-      </div>
+      
     </div>
-  <div class="row">
+  <!-- <div class="row">
   
     <div class="col-md-6">
       <table class="table col-md-6 colpanel-body ml-2 w-auto" id="fantasy-sleeper" style="padding-left: 45px !important">
@@ -572,8 +436,9 @@
     </div>
     </div>
     
-  </div>
+  </div> -->
   </div>
   
 
 </body>
+</html>
