@@ -1,4 +1,4 @@
-# Ultimate-Fantasy-Baseball-Eval-Tool
+# Ultimate Fantasy Baseball Evalualtion Tool
 
  
 ### How do most people evaluate baseball players for possible selection for their fantasy baseball team?  
