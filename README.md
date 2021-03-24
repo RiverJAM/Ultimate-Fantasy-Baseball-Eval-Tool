@@ -8,10 +8,10 @@ Generally speaking, many people utilize rankings from sites, then go with their 
 ---
 
 ### Contributors
-Charles Ro
-Daniel Kuchan
-Alex Torres
-Joe Monahan
+-Charles Ro
+-Daniel Kuchan
+-Alex Torres
+-Joe Monahan
 
 ---
 
