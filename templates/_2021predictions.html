@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- <script type="text/javascript" {{ url_for('static', filename='CRapp.py')}}></script> -->
+  <script type="text/javascript" {{ url_for('static', filename='hitters.js' )}}></script>
+  <link rel="shortcut icon" href="#">
+  </link>
+  <script src="../static/granim.min.js"></script>
+  <script src="../static/granim.js"></script>
+  <!-- <script src="../static/anime.min.js"></script> -->
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      margin: auto;
+      width: 50% !important; 
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+
+    /* tr:nth-child(even) {
+      background-color: #dddddd;
+    } */
+
+  </style>
+</head>
+
+<body style="background-color: lightgray">
+  <nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg_bigtime" role="navigation">
+    <a class="navbar-brand btn btn-primary butss white_text" style="color: #dddddd" href="/">Home</a>
+
+    <div class="dropdown">
+      <button class="navbar-toggler btn btn-secondary" type="button" id="navbarDropdownMenuButton"
+        data-toggle="dropdown" data-target=".navbar-collapse" aria-expanded="false">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+        <a class="dropdown-item" href="/pitchers">Pitchers</a>
+        <a class="dropdown-item" href="/hitters">Hitters</a>
+
+      </div>
+
+    </div>
+
+    <div class="collapse navbar-collapse w-100 order-3 dual-collapse2">
+
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <!-- <div class="dropdown"> -->
+
+          <!-- <button class="btn btn-secondary dropdown-toggle" type="button" 
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" 
+                aria-expanded="false">
+  
+               
+                 </button> -->
+          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+                <a class="dropdown-item" href="index.html">hitters</a>
+                <a class="dropdown-item" href="pitchersdata.html">pithcers</a>
+              
+              </div> -->
+
+
+          <!-- </div> -->
+
+        </li>
+        <!-- DK ADDED -->
+        <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/hitters">Hitters <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/pitchers">Pitchers <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/fantasyvalue">Sleepers</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/fantasyvalueplayers">Value Players</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: black" href="/_2021predictions">2021 Predictions</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/hittersdata">Hitters Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: black" href="/pitchersdata">Pitchers Data</a>
+        </li>
+      </ul>
+
+    </div>
+</nav>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 jumbotron text-center">
+            <h1 class="display-4" style="color:#D50032; font-weight: 400; outline: #dddddd;">Our 2021 Predictions</h1>
+            <h2 class="display-8" style="color: navy; font-weight: 150; outline: #dddddd;">
+            Our methodology involves a regression of traditional and advanced stats to create a 
+          predicted ranking of players.  We have discovered a correlation of R-squared = , 
+        as opposed to ADP which has an R-squared = </h2>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="container justify-content-center">
+        <div class="row justify-content-center">
+          <div class="col-md-12 justify-content-center">
+            <table class="table col-md-12"  id="fantasy-overvalued" style="padding-left: 45px !important">
+              <thead class = "thead-dark">
+              <tr>
+                <th colspan="12" style="text-align: center;  table-layout: fixed;">Top 10 Overvalued Fantasy Pitchers</th>
+              </tr>
+              </thead>
+              <tr style="text-align: center; color: black;">
+                <th style="width:40%;">Player Name</th>
+                <th style="width:20%;">Our Predicted Rank</th>
+                <th style="width:20%;">Actual Rank</th>
+                <th style="width:20%;">ADP</th>
+              </tr>
+              <tr>
+                <td>Corey Kluber</td>
+                <td>70</td>
+                <td>71</td>
+                <td>5</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <br>
+
+        <div class="container justify-content-center">
+          <div class="row justify-content-center">
+            <div class="col-md-6 justify-content-center">
+              <table class="table col-md-12 colpanel-body ml-2 w-auto thead-dark"  id="fantasy-overvalued" style="padding-left: 45px !important">
+                <thead>
+                <tr>
+                  <th colspan="4" style="text-align: center;table-layout: fixed;">Top 10 Overvalued Fantasy Hitters</th>
+                </tr>
+            </thead>
+              <tr style="text-align: center; ">
+                <th style="width:40%;"">Player Name</th>
+                <th style="width:20%;">Our Predicted Rank</th>
+                <th style="width:20%;">Actual Rank</th>
+                <th style="width:20%;">ADP</th>
+              </tr>
+              <tr>
+                <td>Khris Davis</td>
+                <td>83</td>
+                <td>90</td>
+                <td>20</td>
+              </tr>
+              
+            </table>
+          </div>
+        </div><br>
+
+        <div class="container justify-content-center">
+            <div class="row justify-content-center">
+              <div class="col-md-6 justify-content-center">
+                <table class="table col-md-12 colpanel-body ml-2 w-auto thead-dark"  id="fantasy-overvalued" style="padding-left: 45px !important">
+                  <thead>
+                  <tr>
+                    <th colspan="4" style="text-align: center;table-layout: fixed;">Top 10 Overvalued Fantasy Hitters</th>
+                  </tr>
+              </thead>
+                <tr style="text-align: center; ">
+                  <th style="width:40%;"">Player Name</th>
+                  <th style="width:20%;">Our Predicted Rank</th>
+                  <th style="width:20%;">Actual Rank</th>
+                  <th style="width:20%;">ADP</th>
+                </tr>
+                <tr>
+                  <td>Khris Davis</td>
+                  <td>83</td>
+                  <td>90</td>
+                  <td>20</td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+  </nav>
+
+</body>
+</html>

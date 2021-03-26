@@ -51,5 +51,5 @@ $BODY$
 ALTER FUNCTION load_csv_file(text, text, integer)
   OWNER TO postgres;
   
-select load_csv_file('razz_pitchers','C:\Ro Family\Charles\Fantasy Bball\NU_Final_Project\Razzball_2010_2020_pitchers.csv',19)
+select load_csv_file('smart_fantasy_all','C:\Ro Family\Charles\Fantasy Bball\NU_Final_Project\smartfantasy_2012_2020.csv',10)
 
