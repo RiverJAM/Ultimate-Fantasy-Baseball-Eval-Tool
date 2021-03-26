@@ -54,6 +54,14 @@ def pitching():
 def fantasyvalue():
     return render_template('fantasyvalue.html')
 
+@app.route("/fantasyvalueplayers")
+def fantasyvalueplayers():
+    return render_template('fantasyvalueplayers.html')
+
+@app.route("/_2021predictions")
+def _2021predictions():
+    return render_template('_2021predictions.html')
+
 @app.route("/hittersdropdown")
 def hitters_list():
     hitters_dd = mongo.db.dropdown_hitters.find( {},
